@@ -114,7 +114,7 @@ screen say(who, what):
     ## If there's a side image, display it above the text. Do not display on the
     ## phone variant - there's no room.
     if not renpy.variant("small"):
-        add SideImage() xalign 0.0 yalign 1.0
+        add SideImage() xalign 0.07 yalign 1.0
 
 
 ## Make the namebox available for styling through the Character object.
@@ -247,7 +247,7 @@ screen quick_menu():
             style_prefix "quick"
 
             xalign 0.5
-            yalign 1.0
+            yalign 0.975
 
             textbutton _("Back") action Rollback()
             textbutton _("History") action ShowMenu('history')
@@ -979,9 +979,9 @@ screen help():
 
     default device = "keyboard"
 
-    use game_menu(_("Help"), scroll="viewport"):
+    use game_menu(_("Controls"), scroll="viewport"):
 
-        style_prefix "help"
+        style_prefix "Controls"
 
         vbox:
             spacing 23

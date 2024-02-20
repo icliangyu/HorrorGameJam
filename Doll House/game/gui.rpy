@@ -25,7 +25,7 @@ define config.check_conflicting_properties = True
 ## The colors of text in the interface.
 
 ## An accent color used throughout the interface to label and highlight text.
-define gui.accent_color = '#cc0066'
+define gui.accent_color = '#ffffff'
 
 ## The color used for a text button when it is neither selected nor hovered.
 define gui.idle_color = '#888888'
@@ -57,19 +57,19 @@ define gui.interface_text_color = '#ffffff'
 ## Fonts and Font Sizes ########################################################
 
 ## The font used for in-game text.
-define gui.text_font = "DejaVuSans.ttf"
+define gui.text_font = "gui/fonts/Ubuntu-L.ttf"
 
 ## The font used for character names.
-define gui.name_text_font = "DejaVuSans.ttf"
+define gui.name_text_font = "gui/fonts/COLWELL_.ttf"
 
 ## The font used for out-of-game text.
 define gui.interface_text_font = "DejaVuSans.ttf"
 
 ## The size of normal dialogue text.
-define gui.text_size = 33
+define gui.text_size = 32
 
 ## The size of character names.
-define gui.name_text_size = 45
+define gui.name_text_size = 35
 
 ## The size of text in the game's user interface.
 define gui.interface_text_size = 33
@@ -101,22 +101,23 @@ define gui.textbox_height = 278
 
 ## The placement of the textbox vertically on the screen. 0.0 is the top, 0.5 is
 ## center, and 1.0 is the bottom.
-define gui.textbox_yalign = 1.0
+define gui.textbox_yalign = 1.01
 
 
 ## The placement of the speaking character's name, relative to the textbox.
 ## These can be a whole number of pixels from the left or top, or 0.5 to center.
-define gui.name_xpos = 360
-define gui.name_ypos = 0
+define gui.name_xpos = 600
+define gui.name_ypos = -0.23
 
 ## The horizontal alignment of the character's name. This can be 0.0 for left-
 ## aligned, 0.5 for centered, and 1.0 for right-aligned.
-define gui.name_xalign = 0.0
+define gui.name_xalign = 0.5
 
 ## The width, height, and borders of the box containing the character's name, or
 ## None to automatically size it.
-define gui.namebox_width = None
-define gui.namebox_height = None
+define gui.namebox_width = 450
+define gui.namebox_height = 85
+
 
 ## The borders of the box containing the character's name, in left, top, right,
 ## bottom order.
@@ -130,7 +131,7 @@ define gui.namebox_tile = False
 ## The placement of dialogue relative to the textbox. These can be a whole
 ## number of pixels relative to the left or top side of the textbox, or 0.5 to
 ## center.
-define gui.dialogue_xpos = 402
+define gui.dialogue_xpos = 450
 define gui.dialogue_ypos = 75
 
 ## The maximum width of dialogue text, in pixels.
@@ -174,6 +175,8 @@ define gui.button_text_insensitive_color = gui.insensitive_color
 define gui.button_text_xalign = 0.0
 
 
+
+
 ## These variables override settings for different kinds of buttons. Please see
 ## the gui documentation for the kinds of buttons available, and what each is
 ## used for.
@@ -197,7 +200,7 @@ define gui.quick_button_text_selected_color = gui.accent_color
 ## For example, you can uncomment the following line to set the width of a
 ## navigation button.
 
-# define gui.navigation_button_width = 250
+define gui.navigation_button_width = 250
 
 
 ## Choice Buttons ##############################################################
@@ -254,7 +257,7 @@ define gui.navigation_xpos = 60
 define gui.skip_ypos = 15
 
 ## The vertical position of the notify screen.
-define gui.notify_ypos = 68
+define gui.notify_ypos = 75
 
 ## The spacing between menu choices.
 define gui.choice_spacing = 33
@@ -263,7 +266,7 @@ define gui.choice_spacing = 33
 define gui.navigation_spacing = 6
 
 ## Controls the amount of spacing between preferences.
-define gui.pref_spacing = 15
+define gui.pref_spacing = 20
 
 ## Controls the amount of spacing between preference buttons.
 define gui.pref_button_spacing = 0
@@ -276,6 +279,7 @@ define gui.slot_spacing = 15
 
 ## The position of the main menu text.
 define gui.main_menu_text_xalign = 1.0
+
 
 
 ## Frames ######################################################################
