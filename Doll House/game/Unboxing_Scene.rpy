@@ -15,6 +15,9 @@ image doll = "images/doll/doll "
 image mom = "images/mom/mom "
 image emi = "images/emi/emi "
 
+transform PortraitDimensions:
+    xysize (-363, 826)
+
 transform LeftPortrait:
     pos (421, 229)
     xysize (-363, 826)
@@ -84,7 +87,9 @@ label start:
     show doll happy
     doll "Don't mind if I do hehe!"
 
-    menu: #Make this point and click actually
+    $ bedroomPCO = []
+    menu bedroomMenu: #Make this point and click actually
+        set bedroomPCO
         "Diary":
             doll "A diary?" 
             doll "She doesn't seem like the type of girl who would write about her feelings and lock them away in a secret book."
@@ -97,10 +102,14 @@ label start:
             nicole "Probably a thousand."
             nicole "How many times have I told her I'm not interested men?"
             nicole "I'll get around to it."
+            pass
+            jump bedroomMenu
 
         "Bills":
             doll "What's this?"
             doll ""
+            pass
+            jump bedroomMenu
         
         "Other Dolls":
             doll "That's a lot of dolls."
@@ -110,16 +119,20 @@ label start:
             doll "That might pose as a problem."
             doll "All of the previous owners were similar to me."
             doll "Well, nothing I can't fix."
+            pass
+            jump bedroomMenu
 
         "Clothes":
             doll "What is all of this?"
             doll "Is this really what she wears on the daily?"
             doll "This style really doesn't suit me at all but it's nothing that can't be changed."
             doll "Nicole, why are you dressing yourself up in such masculine clothes?"
+            pass
+            jump bedroomMenu
 
     doll "Somebody is coming. I must hide."
 
-    show emi right neutral
+    show emi neutral at RightPortrait
     emi "Hmm..." 
     # SFX of door creaking open
     emi "Did Nick get another friend?"
@@ -128,13 +141,13 @@ label start:
     emi "Really Nick? You should know better than to hide your pretties under the bed."
     emi "Who do we have here?"
     emi "*Gasp* She's beautiful!"
-    show doll left neutral
+    show doll neutral at LeftPortrait
     emi "Nadeshiko, huh? Let's go downstairs."
 
     emi "Let's put you down here."
     emi "Wow... you're even prettier up close."
 
-    show doll confused
+    show doll fear
 
     # SFX of pencil scratching on paper
     emi "Your dress is so detailed..."
@@ -175,73 +188,91 @@ label start:
 
     #transition to point and click 
 
-label ramune:
-    doll "These drinks are quite popular with young ones these days."
-    doll "I wonder how they get the marble inside..."
-    doll "The shape makes drinking it impracticable but nothing a straw won't fix."
+    scene bg kitchen
 
-label homework:
-    doll "There seems to be more doodles on the pages than actual homework."
-    doll "Are these sketches of me?" 
-    doll "I'm surprised she managed to capture so much detail so quickly."
-    doll "These are pretty good, what a talented child."
+    $ kitchenPCO = []
+    menu kitchenMenu:
+        set kitchenPCO 
+        "ramune":
+            doll "These drinks are quite popular with young ones these days."
+            doll "I wonder how they get the marble inside..."
+            doll "The shape makes drinking it impracticable but nothing a straw won't fix."
+            pass
+            jump kitchenMenu
 
-menu spill_drink:
-    "It sounds like Nicole is coming downstairs, what should I do?" 
+        "homework":
+            doll "There seems to be more doodles on the pages than actual homework."
+            doll "Are these sketches of me?" 
+            doll "I'm surprised she managed to capture so much detail so quickly."
+            doll "These are pretty good, what a talented child."
+            pass
+            jump kitchenMenu
 
-    "Knock over the ramune":
-        $ malice += 1
-        # insert SFX of glass 
-        emi "*Gasp*"
-        emi "She's going to kill me if she sees you."
-        emi "Let's go, you'll be safe in the living room."
-        nicole "Are you serious, Emi? Next time clean up your mess!"
-        nicole "Emi! What are you doing with my doll? You're going to ruin it!"
-        emi "I wasn't! I was just..."
-        nicole "Stop touching my stuff!"
-        emi "Okay, I'm sorry..."
-        nicole "Go put her in the living room. We need to clear the table and make rice before mom gets back."
-        emi "Okay..."
+    menu spill_drink:
+        "It sounds like Nicole is coming downstairs, what should I do?" 
 
-        nicole "*Grumbles *How are you going to study now? Your workbook's full of soda."
+        "Knock over the ramune":
+            $ malice += 1
+            # insert SFX of glass 
+            emi "*Gasp*"
+            emi "She's going to kill me if she sees you."
+            emi "Let's go, you'll be safe in the living room."
+            nicole "Are you serious, Emi? Next time clean up your mess!"
+            nicole "Emi! What are you doing with my doll? You're going to ruin it!"
+            emi "I wasn't! I was just..."
+            nicole "Stop touching my stuff!"
+            emi "Okay, I'm sorry..."
+            nicole "Go put her in the living room. We need to clear the table and make rice before mom gets back."
+            emi "Okay..."
 
-    "Sit still":
-        nicole "Emi? Are you down here?"
+            nicole "*Grumbles *How are you going to study now? Your workbook's full of soda."
 
-        emi "*Gasp*"
-        emi "She's going to kill me if she sees you."
-        emi "Let's go, you'll be safe in the living room."
+        "Sit still":
+            nicole "Emi? Are you down here?"
 
-        nicole "Emi? Hm, what's this?"
-        nicole "Did Emi draw these?"
-        # SFX flipping through pages
-        nicole "Is that Nadeshiko, and my other dolls?"
-        nicole "These are good... no, they're amazing." 
-        nicole "I never knew she could draw."
-        nicole "All this time I thought she was just messing around with them." 
+            emi "*Gasp*"
+            emi "She's going to kill me if she sees you."
+            emi "Let's go, you'll be safe in the living room."
 
-label living_room:
+            nicole "Emi? Hm, what's this?"
+            nicole "Did Emi draw these?"
+            # SFX flipping through pages
+            nicole "Is that Nadeshiko, and my other dolls?"
+            nicole "These are good... no, they're amazing." 
+            nicole "I never knew she could draw."
+            nicole "All this time I thought she was just messing around with them." 
+
+    scene bg living_room
+
+    show doll neutral at LeftPortrait
     doll "So this is the living room. It reminds me of a home I once lived in years ago."
     doll "Nicole seems like the kind of older sister who bosses Emi around."
     doll "That won't do but for now let's find out more about this household, shall we?"
 
     # point and click segment
+    $ livingroomPCO = []
+    menu livingroomMenu:
+        set livingroomPCO
+        "plants":
+            doll "Oh I know these, Money Trees."
+            doll "These are supposed to bring abundance to their owners. I wonder if they actually believe that."
+            pass
+            jump livingroomMenu
 
-label plants:
-    doll "Oh I know these, Money Trees."
-    doll "These are supposed to bring abundance to their owners. I wonder if they actually believe that."
 
+        "altar": 
+            doll "That's strange. There aren't any photographs."
+            doll "In fact, there aren't any photos in the living room at all."
+            pass
+            jump livingroomMenu
 
-label altar: 
-    doll "That's strange. There aren't any photographs."
-    doll "In fact, there aren't any photos in the living room at all."
+        "statue":
+            doll "A Buddha."
+            doll "This must be the statue that Nicole's mother prays to everyday after work."
+            doll ""
+            pass
+            jump livingroomMenu
 
-label statue:
-    doll "A Buddha."
-    doll "This must be the statue that Nicole's mother prays to everyday after work."
-    doll ""
-
-label attic_scene:
     scene bg attic
     # Doll is narrating not sure how to label / code it
 
@@ -249,15 +280,19 @@ label attic_scene:
     narrator "I wanted to know more about these people and what made them tick."
     narrator "That's the only way if I am to stay here and become a part of this family."
 
-    show nicole neutral
+    show nicole neutral at truecenter, PortraitDimensions
     narrator "Nicole was simple enough."
+    hide nicole
 
-    show emi neutral
+    show emi neutral at truecenter, PortraitDimensions
     narrator "Emi was quite the surprise."
+    hide emi
 
     narrator "But there was one last person's secrets I needed to uncover."
-    show mother neutral
+
+    show mom neutral at truecenter, PortraitDimensions
     narrator "The mother."
+    hide mom
 
     narrator "Her bedroom was locked so there wasn't anyway to enter but even if I could I doubt there'd be anything worth noting."
     narrator "If the mother's room is anything like the living area then it'd be devoid of personal belongings other than wall scrolls, plants, and other common household items."
@@ -273,6 +308,7 @@ label attic_scene:
     narrator "The inside of the attic is cluttered with boxes and a film of dust."
     narrator "It's a storage area which is perfect for hidden treasures."
 
+    show doll neutral at LeftPortrait
     narrator "I rummage through the closest box to me and continue through the room prying boxes open until I find something that peaks my interest."
 
     narrator "Nestled at the bottom is a couple of photos and trinkets."
@@ -313,10 +349,10 @@ label attic_scene:
         "I want to help the family."
         
         "Fix the photograph":
-            $ malice += 1
-            jump bad_choice_5
+            "Woot!"
 
         "Ignore the photograph":
-            jump good_choice_5
+            $ malice += 1
+            "I hate the family."
 
 return
