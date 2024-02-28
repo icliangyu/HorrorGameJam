@@ -981,7 +981,7 @@ screen help():
 
     use game_menu(_("Controls"), scroll="viewport"):
 
-        style_prefix "Controls"
+        style_prefix "help"
 
         vbox:
             spacing 23
