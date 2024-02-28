@@ -10,10 +10,11 @@ default malice = 0
 # malice needs to be reworked / reworded it doesn't work as intended with plot
 # Thinking of malice instead of
 
-image nicole = "images/nicole/nicole "
-image doll = "images/doll/doll "
-image mom = "images/mom/mom "
-image emi = "images/emi/emi "
+image nicole = "images/Characters/nicole/nicole "
+image doll = "images/Characters/doll/doll "
+image mom = "images/Characters/mom/mom "
+image emi = "images/Characters/emi/emi "
+image bg = "images/Backgrounds/bg "
 
 transform PortraitDimensions:
     xysize (-363, 826)
@@ -27,11 +28,11 @@ transform RightPortrait:
     xysize (363, 826)
 
 label start:
-    scene bg black
+    scene bg_black
     nicole "Let's see what you look like..."
     # need SFX of rustling sound of boxes here
     
-    scene bg white
+    scene bg_white
     show nicole surprised at RightPortrait
     nicole "What?"
     nicole "This isn't the doll I ordered..."
@@ -58,7 +59,7 @@ label start:
             show nicole neutral
             nicole "*Sigh* Whatever, this is fine too. I'm too lazy to request a return from the seller."
 
-    scene bg bedroom
+    scene bg_bedroom
     # point and click gameplay begins
     # a lot of exposition will happen through item interaction
     # image button coding action will be configured to jump("label_whatever_item_is_clicked_on")
@@ -84,7 +85,7 @@ label start:
 
     narrator "Now that I was finally introduced to my new home it would be best to look around."
 
-    show doll happy
+    show doll happy at LeftPortrait
     doll "Don't mind if I do hehe!"
 
     $ bedroomPCO = []
@@ -147,7 +148,7 @@ label start:
     emi "Let's put you down here."
     emi "Wow... you're even prettier up close."
 
-    show doll fear
+    show doll fear at LeftPortrait
 
     # SFX of pencil scratching on paper
     emi "Your dress is so detailed..."
@@ -188,7 +189,7 @@ label start:
 
     #transition to point and click 
 
-    scene bg kitchen
+    scene bg_kitchen
 
     $ kitchenPCO = []
     menu kitchenMenu:
@@ -242,7 +243,7 @@ label start:
             nicole "I never knew she could draw."
             nicole "All this time I thought she was just messing around with them." 
 
-    scene bg living_room
+    scene bg_living_room
 
     show doll neutral at LeftPortrait
     doll "So this is the living room. It reminds me of a home I once lived in years ago."
