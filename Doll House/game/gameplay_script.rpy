@@ -19,7 +19,7 @@ transform RightPortrait:
     pos (1532, 229)
     xysize (363, 826)
 
-label start:
+label gameplay_start:
     scene bg_black
     nicole "Let's see what you look like..."
     # need SFX of rustling sound of boxes here
@@ -64,6 +64,7 @@ label start:
     nicole "Under the bed should do for now." 
     # SFX was storing box away
     # SFX of door slamming
+    play sound Footsteps
     # SFX of footsteps stomping downstairs
 
     #### narration and dialogue portion not sure what to call it
