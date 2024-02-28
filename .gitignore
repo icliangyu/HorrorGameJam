@@ -16,6 +16,8 @@ saves/
 *.exe
 *.o
 *.so
+persistent
+navigation.json
 
 *.rpyc
 *.rpymc
