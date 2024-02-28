@@ -1,4 +1,5 @@
-﻿# The script of the game goes in this file.
+﻿'''
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -8,7 +9,7 @@ define n = Character("Nadeshiko", image="nadeshiko")
 
 # The game starts here.
 
-label start:
+label start2:
 
 
     scene bg_attic
@@ -28,3 +29,4 @@ label start:
     # This ends the game.
 
     return
+'''
