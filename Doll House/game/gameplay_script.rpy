@@ -1,20 +1,12 @@
 # Labels and naming of assets are just placeholders
-# 
-#
-#
 define nicole = Character("Nicole") 
 define doll = Character("Doll")
 define mom = Character("Mom")
 define emi = Character("Emi")
 default malice = 0 
+
 # malice needs to be reworked / reworded it doesn't work as intended with plot
 # Thinking of malice instead of
-
-image nicole = "images/Characters/nicole/nicole "
-image doll = "images/Characters/doll/doll "
-image mom = "images/Characters/mom/mom "
-image emi = "images/Characters/emi/emi "
-image bg = "images/Backgrounds/bg "
 
 transform PortraitDimensions:
     xysize (-363, 826)
@@ -64,7 +56,7 @@ label start:
     # a lot of exposition will happen through item interaction
     # image button coding action will be configured to jump("label_whatever_item_is_clicked_on")
     mom "Nick! Come down here and watch the house. I'm going to buy groceries!"
-    nicole "*Sigh"
+    nicole "*Sigh*"
     mom "Now!" 
     nicole "Ugh! Okay fine!"
     nicole "Couldn't just call Emi? Why is it always me?"
