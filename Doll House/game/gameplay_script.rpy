@@ -105,7 +105,7 @@ label bedroom:
                 PointOfInterest("Diary", "bedroom.diary_exposition", PointOfInterestImageSet("images/environment/diary/Diary_Hover.png"), BackgroundScale),
                 PointOfInterest("Papers", "bedroom.papers_exposition", PointOfInterestImageSet("images/environment/Papers/Papers_Hover.png"), BackgroundScale),
             ]
-            
+
         call screen point_and_click_screen(BedroomPAC_POI)
 
     narrator "And then something was said inbetween these two lines for debugging purposes."
@@ -280,7 +280,7 @@ label kitchen:
             ]
         call screen point_and_click_screen(KitchenPAC_POI)
 
-    menu emi_warning:
+    menu .emi_warning:
         "It sounds like Nicole is coming downstairs, what should I do?"
 
         "Knock over the ramune":
