@@ -70,13 +70,6 @@ label bedroom:
     show doll happy at LeftPortrait
     doll "Don't mind if I do hehe!"
 
-    init 1:
-        define BedroomPAC_POI = [
-            PointOfInterest("Closet", "bedroom.closet_exposition", PointOfInterestImageSet("images/environment/closet/Closet_Hover.png"), BackgroundScale),
-            PointOfInterest("Diary", "bedroom.diary_exposition", PointOfInterestImageSet("images/environment/diary/Diary_Hover.png"), BackgroundScale),
-            PointOfInterest("Papers", "bedroom.papers_exposition", PointOfInterestImageSet("images/environment/Papers/Papers_Hover.png"), BackgroundScale),
-        ]
-
     jump bedroom.point_and_click
 
     label .papers_exposition:
@@ -106,6 +99,13 @@ label bedroom:
         return
 
     label .point_and_click:
+        init 1:
+            define BedroomPAC_POI = [
+                PointOfInterest("Closet", "bedroom.closet_exposition", PointOfInterestImageSet("images/environment/closet/Closet_Hover.png"), BackgroundScale),
+                PointOfInterest("Diary", "bedroom.diary_exposition", PointOfInterestImageSet("images/environment/diary/Diary_Hover.png"), BackgroundScale),
+                PointOfInterest("Papers", "bedroom.papers_exposition", PointOfInterestImageSet("images/environment/Papers/Papers_Hover.png"), BackgroundScale),
+            ]
+            
         call screen point_and_click_screen(BedroomPAC_POI)
 
     narrator "And then something was said inbetween these two lines for debugging purposes."
@@ -171,74 +171,159 @@ label bedroom:
 
 label kitchen:
     scene bg_kitchen
+    narrator "The younger sister brought me downstairs to the kitchen where she was doing her homework."
+    narrator "The kitchen was brightly lit and..."
 
-    init 1:
-        define KitchenPAC_POI = [
-            PointOfInterest("Ramune", "kitchen.ramune_exposition", PointOfInterestImageSet("images/environment/closet/Closet_Hover.png"), BackgroundScale),
-            PointOfInterest("Homework", "kitchen.homework_exposition", PointOfInterestImageSet("images/environment/diary/Diary_Hover.png"), BackgroundScale),
-        ]
+    emi "Let's put you down here."
+
+    narrator "She propped me up against her pencil case and leaned in closely to look at me."
+    narrator "She had the same deep brown eyes as Nicole just less tired."
+
+    emi "Wow... you're even prettier up close."
+    emi "And your name's Nadeshiko, how fitting!"
+
+    narrator "Emi ran her fingers through my hair and straightened out my dress." 
+    narrator "I found these actions particularly endearing and felt exictement at the prospect of being a part of the family."
+    narrator "Of course, I had to keep my excitement to myself but I wished to someday share it with Emi."
+    narrator "She continued to study my garments with a keen eye and occasionally muttered to herself."
+
+    emi "Your dress is so detailed and the stitching!"
+    emi "I want to get this down on paper."
+
+    narrator "She picked up the pencil lying in the middle of her notebook and began to scrawl around the corners of her page, avoiding the math formulas."
+    narrator "It wasn't long before my likeness began to appear on the white pages."
+    narrator "Was she drawing... me?"
+
+    narrator "There I was, in perfect likeness, in her notebook modelling different designs and patterns." 
+    narrator "For a young girl to take inspiration from me and quickly create something before my eyes... it was amazing."
+    narrator "A sense of embarrassment and flattery overwhelmed me as I sat still and looked on at the prodigy." 
+    narrator "Nicole didn't seem to harbour any skills or hobbies other than collecting dolls."
+    narrator "I think I like Emi."
+
+    emi "I wish Nick wore clothes like you, that way I could wear them too."
+
+    menu .emi_question:
+        "What should I do?"
+
+        "Console Emi":
+            $ malice += 1
+            emi "I don't want to sound ungrateful but sometimes it's embarrassing wearing Nick's hand me downs."
+            emi "Once I get a job, I'll be able to wear all the girly clothes I want."
+            emi "But..."
+            emi "That kind of money would be helpful to the family so I don't know..."
+
+            narrator "Emi's downcasted face continued to glance between me and the page as she sketched."
+            narrator "Even though we had just met, I didn't like seeing her sad."
+            narrator "So I decided to speak up."
+
+            doll "I could be your big sister, Emi."
+            doll "Then you wouldn't have to wear those ugly clothes anymore."
+
+            narrator "Emi looked up from her work. Her eyes searched mine for a moment before replying with a wide smile."
+
+            emi "I think I would like that."
+
+        "Listen to Emi":
+            emi "I don't want to sound ungrateful but sometimes it's embarrassing wearing Nick's hand me downs."
+            emi "Once I get a job, I'll be able to wear all the girly clothes I want."
+            emi "But..."
+            emi "That kind of money would be helpful to the family so I don't know..."
+
+            narrator "As much as I wanted to, it wouldn't be wise to risk doing anything that would startle Emi." 
+            narrator "So I remained silent and listened to her talk as she drew."
+
+            emi "I'll just have to work extra hard so that there's enough for both."
+
+    emi "Nick never lets me play with her dolls because she thinks I'll ruin them but I need them for reference."
+    "They're the perfect inspiration and model for my designs."
+
+    narrator "As long as Emi had me there wouldn't be any need for Nicole's other dolls." 
+    narrator "I was enough." 
+
+    narrator "Suddenly a low rumbling sound came from Emi as she shot up from her seat and over to the fridge."
+
+    emi "Welp! Can't study on an empty stomach. I wonder if mom made anything."
+    emi "Aww... there's nothing to eat. Cup noodles it is!"
+
+    narrator "I almost let out a giggle at the sight of Emi frantically rummaging through the fridge and cabinets in search of food."
+    narrator "She had a lot of life in her that drew me to her, unlike Nicole."
+    narrator "While Emi made her food, I took this time to look around the kitchen."
 
     jump kitchen.point_and_click
 
     label .ramune_exposition:
         doll "These drinks are quite popular with young ones these days."
+        doll "The liquid inside is so bright and colourful."
         doll "I wonder how they get the marble inside..."
         doll "The shape makes drinking it impracticable but nothing a straw won't fix."
         return
 
     label .homework_exposition:
         doll "There seems to be more doodles on the pages than actual homework."
-        doll "Are these sketches of me?" 
+        doll "These sketches of me are impeccable..." 
         doll "I'm surprised she managed to capture so much detail so quickly."
-        doll "These are pretty good, what a talented child."
+        doll "What a talented child."
         return
             
-    $ kitchenPCO = []
-    menu .kitchenMenu:
-        set kitchenPCO 
-        "ramune":
-            call kitchen.ramune_exposition
-            pass
-            jump .kitchenMenu
-
-        "homework":
-            call kitchen.homework_exposition
-            pass
-            jump .kitchenMenu
+    label .rice_cooker_exposition:
+        doll "Is that a rice cooker?"
+        doll "This one looks a lot more modern than the one at a previous house." 
+        doll "It doesn't look like it's on."
+        return
 
     label .point_and_click:
+        init 1:
+            define KitchenPAC_POI = [
+                PointOfInterest("Ramune", "kitchen.ramune_exposition", PointOfInterestImageSet("images/environment/closet/Closet_Hover.png"), BackgroundScale),
+                PointOfInterest("Homework", "kitchen.homework_exposition", PointOfInterestImageSet("images/environment/diary/Diary_Hover.png"), BackgroundScale),
+                PointOfInterest("Rice Cooker", "kitchen.rice_cooker_exposition", PointOfInterestImageSet("images/environment/papers/Papers_Hover.png"), BackgroundScale),
+            ]
         call screen point_and_click_screen(KitchenPAC_POI)
 
- 
-    menu spill_drink:
-        "It sounds like Nicole is coming downstairs, what should I do?" 
+    menu emi_warning:
+        "It sounds like Nicole is coming downstairs, what should I do?"
 
         "Knock over the ramune":
             $ malice += 1
-            # insert SFX of glass 
             emi "*Gasp*"
-            emi "She's going to kill me if she sees you."
-            emi "Let's go, you'll be safe in the living room."
-            nicole "Are you serious, Emi? Next time clean up your mess!"
-            nicole "Emi! What are you doing with my doll? You're going to ruin it!"
-            emi "I wasn't! I was just..."
-            nicole "Stop touching my stuff!"
+
+            nicole "What are you making?"
+            nicole "Wait."
+            nicole "Is that my doll? What are you doing with it? You're going to ruin it!"
+
+            emi "I wasn't! I-I was... just..."
+
+            nicole "Stop touching my stuff! And are you serious?"
+
+            narrator "Nicole gestured at the puddle of ramune being soaked up by the pages of Emi's notebook."
+
+            nicole "Next time clean up your mess!"
+
             emi "Okay, I'm sorry..."
+
             nicole "Go put her in the living room. We need to clear the table and make rice before mom gets back."
+
             emi "Okay..."
 
-            nicole "*Grumbles *How are you going to study now? Your workbook's full of soda."
+            narrator "Emi picked me up and quietly made for the living room. I could feel Nicole's eyes following us."
+
+            nicole "Fine, whatever. I'll clean it up myself since I do everything around here."
 
         "Sit still":
-            nicole "Emi? Are you down here?"
+            nicole "Emi? Are you down here? What are you making?"
 
             emi "*Gasp*"
             emi "She's going to kill me if she sees you."
-            emi "Let's go, you'll be safe in the living room."
+
+            narrator "Emi quickly drops what she is doing and runs over to me."
+
+            emi "Let's go, I'll hide you in the living room. You'll be safe there."
+
+            narrator "She quickly ducks into the next room."
+            narrator "From the kitchen I can faintly hear Nicole mumbling to herself."
 
             nicole "Emi? Hm, what's this?"
-            nicole "Did Emi draw these?"
-            # SFX flipping through pages
+            nicole "Did she draw these?"
             nicole "Is that Nadeshiko, and my other dolls?"
             nicole "These are good... no, they're amazing." 
             nicole "I never knew she could draw."
@@ -246,13 +331,6 @@ label kitchen:
 
 label living_room:
     scene bg_living_room
-
-    init 1:
-        define living_roomPAC_POI = [
-            PointOfInterest("Plants", "living_room.plants_exposition", PointOfInterestImageSet("images/environment/closet/Closet_Hover.png"), BackgroundScale),
-            PointOfInterest("Altar",  "living_room.altar_exposition", PointOfInterestImageSet("images/environment/diary/Diary_Hover.png"), BackgroundScale),
-            PointOfInterest("Statue", "living_room.statue_exposition", PointOfInterestImageSet("images/environment/Papers/Papers_Hover.png"), BackgroundScale),
-        ]
 
     show doll neutral at LeftPortrait
     doll "So this is the living room. It reminds me of a home I once lived in years ago."
@@ -277,27 +355,13 @@ label living_room:
         doll ""
         return
 
-
-    # point and click segment
-    $ living_roomPCO = []
-    menu .living_roomMenu:
-        set living_roomPCO
-        "plants":
-            call living_room.plants_exposition
-            pass
-            jump .living_roomMenu
-
-        "altar": 
-            call living_room.altar_exposition
-            pass
-            jump .living_roomMenu
-
-        "statue":
-            call living_room.statue_exposition
-            pass
-            jump .living_roomMenu
-
     label .point_and_click:
+        init 1:
+            define living_roomPAC_POI = [
+                PointOfInterest("Plants", "living_room.plants_exposition", PointOfInterestImageSet("images/environment/closet/Closet_Hover.png"), BackgroundScale),
+                PointOfInterest("Altar",  "living_room.altar_exposition", PointOfInterestImageSet("images/environment/diary/Diary_Hover.png"), BackgroundScale),
+                PointOfInterest("Statue", "living_room.statue_exposition", PointOfInterestImageSet("images/environment/Papers/Papers_Hover.png"), BackgroundScale),
+            ]
         call screen point_and_click_screen(living_roomPAC_POI)
 
 label attic:
