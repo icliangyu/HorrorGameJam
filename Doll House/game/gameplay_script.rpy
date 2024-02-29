@@ -7,33 +7,6 @@ define emi = Character("Emi")
 # How evil you are >:3
 define malice = 0 
 
-'''
-    This is the bedroom's point and click area. 
-'''
-transform DiaryTransform:
-    pos(510, 701)
-    xysize(157, 218)
-define DiaryImageSet = PointOfInterestImageSet(base_image = "images/environment/diary/diary.webp")
-define DiaryPOI = PointOfInterest("Diary", "diary_exposition", DiaryImageSet, DiaryTransform)
-
-screen BedroomPAC:
-    use point_of_interest_screen(DiaryPOI)
-
-label diary_exposition:
-    doll "A diary?" 
-    doll "She doesn't seem like the type of girl who would write about her feelings and lock them away in a secret book."
-    doll "I am quite curious though..."
-    doll "Oh Nicole, what are you hiding within these pages."
-
-    nicole "Sunday XX, 20XX"
-    nicole "Mom tried to set me up with one of her friend's son- again." 
-    nicole "How many times have I told her I'm not interested?"
-    nicole "Probably a thousand."
-    nicole "How many times have I told her I'm not interested men?"
-    nicole "I'll get around to it."
-
-    return 
-
 label gameplay_start:
     scene bg_black
     nicole "Let's see what you look like..."
@@ -66,7 +39,8 @@ label gameplay_start:
             show nicole neutral
             nicole "*Sigh* Whatever, this is fine too. I'm too lazy to request a return from the seller."
 
-    scene bg_bedroom
+label bedroom:
+    scene bg bedroom at BackgroundScale
     # point and click gameplay begins
     # a lot of exposition will happen through item interaction
     # image button coding action will be configured to jump("label_whatever_item_is_clicked_on")
@@ -96,39 +70,46 @@ label gameplay_start:
     show doll happy at LeftPortrait
     doll "Don't mind if I do hehe!"
 
-    call screen BedroomPAC()
+    init 1:
+        define BedroomPAC_POI = [
+            PointOfInterest("Closet", "bedroom.closet_exposition", PointOfInterestImageSet("images/environment/closet/Closet_Hover.png"), BackgroundScale),
+            PointOfInterest("Diary", "bedroom.diary_exposition", PointOfInterestImageSet("images/environment/diary/Diary_Hover.png"), BackgroundScale),
+            PointOfInterest("Papers", "bedroom.papers_exposition", PointOfInterestImageSet("images/environment/Papers/Papers_Hover.png"), BackgroundScale),
+        ]
 
-    $ bedroomPCO = []
-    menu bedroomMenu: #Make this point and click actually
-        set bedroomPCO
-        "Diary":
-            call diary_exposition
-            jump bedroomMenu
+    jump bedroom.point_and_click
 
-        "Bills":
-            doll "What's this?"
-            doll ""
-            pass
-            jump bedroomMenu
-        
-        "Other Dolls":
-            doll "That's a lot of dolls."
-            doll "Hehe... I'm not afraid of a little competition."
-            doll "They may have been here longer but none of them are me."
-            doll "Upon closer inspection, I can see that I'm not the usual type that Nicole would gravitate towards."
-            doll "That might pose as a problem."
-            doll "All of the previous owners were similar to me."
-            doll "Well, nothing I can't fix."
-            pass
-            jump bedroomMenu
+    label .papers_exposition:
+        doll "What's this?"
+        doll ""
+        return
+    
+    label .closet_exposition:
+        doll "What is all of this?"
+        doll "Is this really what she wears on the daily?"
+        doll "This style really doesn't suit me at all but it's nothing that can't be changed."
+        doll "Nicole, why are you dressing yourself up in such masculine clothes?"
+        return 
+    
+    label .diary_exposition:
+        doll "A diary?" 
+        doll "She doesn't seem like the type of girl who would write about her feelings and lock them away in a secret book."
+        doll "I am quite curious though..."
+        doll "Oh Nicole, what are you hiding within these pages."
 
-        "Clothes":
-            doll "What is all of this?"
-            doll "Is this really what she wears on the daily?"
-            doll "This style really doesn't suit me at all but it's nothing that can't be changed."
-            doll "Nicole, why are you dressing yourself up in such masculine clothes?"
-            pass
-            jump bedroomMenu
+        nicole "Sunday XX, 20XX"
+        nicole "Mom tried to set me up with one of her friend's son- again." 
+        nicole "How many times have I told her I'm not interested?"
+        nicole "Probably a thousand."
+        nicole "How many times have I told her I'm not interested men?"
+        nicole "I'll get around to it."
+        return
+
+    label .point_and_click:
+        call screen point_and_click_screen(BedroomPAC_POI)
+
+    narrator "And then something was said inbetween these two lines for debugging purposes."
+    narrator ":3"
 
     doll "Somebody is coming. I must hide."
 
@@ -188,26 +169,47 @@ label gameplay_start:
 
     #transition to point and click 
 
+label kitchen:
     scene bg_kitchen
 
+    init 1:
+        define KitchenPAC_POI = [
+            PointOfInterest("Ramune", "kitchen.ramune_exposition", PointOfInterestImageSet("images/environment/closet/Closet_Hover.png"), BackgroundScale),
+            PointOfInterest("Homework", "kitchen.homework_exposition", PointOfInterestImageSet("images/environment/diary/Diary_Hover.png"), BackgroundScale),
+        ]
+
+    jump kitchen.point_and_click
+
+    label .ramune_exposition:
+        doll "These drinks are quite popular with young ones these days."
+        doll "I wonder how they get the marble inside..."
+        doll "The shape makes drinking it impracticable but nothing a straw won't fix."
+        return
+
+    label .homework_exposition:
+        doll "There seems to be more doodles on the pages than actual homework."
+        doll "Are these sketches of me?" 
+        doll "I'm surprised she managed to capture so much detail so quickly."
+        doll "These are pretty good, what a talented child."
+        return
+            
     $ kitchenPCO = []
-    menu kitchenMenu:
+    menu .kitchenMenu:
         set kitchenPCO 
         "ramune":
-            doll "These drinks are quite popular with young ones these days."
-            doll "I wonder how they get the marble inside..."
-            doll "The shape makes drinking it impracticable but nothing a straw won't fix."
+            call kitchen.ramune_exposition
             pass
-            jump kitchenMenu
+            jump .kitchenMenu
 
         "homework":
-            doll "There seems to be more doodles on the pages than actual homework."
-            doll "Are these sketches of me?" 
-            doll "I'm surprised she managed to capture so much detail so quickly."
-            doll "These are pretty good, what a talented child."
+            call kitchen.homework_exposition
             pass
-            jump kitchenMenu
+            jump .kitchenMenu
 
+    label .point_and_click:
+        call screen point_and_click_screen(KitchenPAC_POI)
+
+ 
     menu spill_drink:
         "It sounds like Nicole is coming downstairs, what should I do?" 
 
@@ -242,37 +244,63 @@ label gameplay_start:
             nicole "I never knew she could draw."
             nicole "All this time I thought she was just messing around with them." 
 
+label living_room:
     scene bg_living_room
+
+    init 1:
+        define living_roomPAC_POI = [
+            PointOfInterest("Plants", "living_room.plants_exposition", PointOfInterestImageSet("images/environment/closet/Closet_Hover.png"), BackgroundScale),
+            PointOfInterest("Altar",  "living_room.altar_exposition", PointOfInterestImageSet("images/environment/diary/Diary_Hover.png"), BackgroundScale),
+            PointOfInterest("Statue", "living_room.statue_exposition", PointOfInterestImageSet("images/environment/Papers/Papers_Hover.png"), BackgroundScale),
+        ]
 
     show doll neutral at LeftPortrait
     doll "So this is the living room. It reminds me of a home I once lived in years ago."
     doll "Nicole seems like the kind of older sister who bosses Emi around."
     doll "That won't do but for now let's find out more about this household, shall we?"
 
-    # point and click segment
-    $ livingroomPCO = []
-    menu livingroomMenu:
-        set livingroomPCO
-        "plants":
-            doll "Oh I know these, Money Trees."
-            doll "These are supposed to bring abundance to their owners. I wonder if they actually believe that."
-            pass
-            jump livingroomMenu
+    jump living_room.point_and_click
 
+    label .plants_exposition:
+        doll "Oh I know these, Money Trees."
+        doll "These are supposed to bring abundance to their owners. I wonder if they actually believe that."
+        return
+
+    label .altar_exposition:
+        doll "That's strange. There aren't any photographs."
+        doll "In fact, there aren't any photos in the living room at all."
+        return
+
+    label .statue_exposition:
+        doll "A Buddha."
+        doll "This must be the statue that Nicole's mother prays to everyday after work."
+        doll ""
+        return
+
+
+    # point and click segment
+    $ living_roomPCO = []
+    menu .living_roomMenu:
+        set living_roomPCO
+        "plants":
+            call living_room.plants_exposition
+            pass
+            jump .living_roomMenu
 
         "altar": 
-            doll "That's strange. There aren't any photographs."
-            doll "In fact, there aren't any photos in the living room at all."
+            call living_room.altar_exposition
             pass
-            jump livingroomMenu
+            jump .living_roomMenu
 
         "statue":
-            doll "A Buddha."
-            doll "This must be the statue that Nicole's mother prays to everyday after work."
-            doll ""
+            call living_room.statue_exposition
             pass
-            jump livingroomMenu
+            jump .living_roomMenu
 
+    label .point_and_click:
+        call screen point_and_click_screen(living_roomPAC_POI)
+
+label attic:
     scene bg attic
     # Doll is narrating not sure how to label / code it
 

@@ -7,14 +7,18 @@ image emi = "images/Characters/emi/emi "
 image bg = "images/Backgrounds/bg "
 
 
+init:
+    transform PortraitDimensions:
+        xysize (-500, 500)
 
-transform PortraitDimensions:
-    xysize (-363, 826)
+    transform LeftPortrait:
+        pos (450, 555)
+        xysize (-500, 500)
 
-transform LeftPortrait:
-    pos (421, 229)
-    xysize (-363, 826)
+    transform RightPortrait:
+        pos (1395, 555)
+        xysize (500, 500)
 
-transform RightPortrait:
-    pos (1532, 229)
-    xysize (363, 826)
+    transform BackgroundScale:
+        pos(0,0)
+        xysize(1920, 1080)
