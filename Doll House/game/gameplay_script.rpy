@@ -3,21 +3,36 @@ define nicole = Character("Nicole")
 define doll = Character("Doll")
 define mom = Character("Mom")
 define emi = Character("Emi")
-default malice = 0 
 
-# malice needs to be reworked / reworded it doesn't work as intended with plot
-# Thinking of malice instead of
+# How evil you are >:3
+define malice = 0 
 
-transform PortraitDimensions:
-    xysize (-363, 826)
+'''
+    This is the bedroom's point and click area. 
+'''
+transform DiaryTransform:
+    pos(510, 701)
+    xysize(157, 218)
+define DiaryImageSet = PointOfInterestImageSet(base_image = "images/environment/diary/diary.webp")
+define DiaryPOI = PointOfInterest("Diary", "diary_exposition", DiaryImageSet, DiaryTransform)
 
-transform LeftPortrait:
-    pos (421, 229)
-    xysize (-363, 826)
+screen BedroomPAC:
+    use point_of_interest_screen(DiaryPOI)
 
-transform RightPortrait:
-    pos (1532, 229)
-    xysize (363, 826)
+label diary_exposition:
+    doll "A diary?" 
+    doll "She doesn't seem like the type of girl who would write about her feelings and lock them away in a secret book."
+    doll "I am quite curious though..."
+    doll "Oh Nicole, what are you hiding within these pages."
+
+    nicole "Sunday XX, 20XX"
+    nicole "Mom tried to set me up with one of her friend's son- again." 
+    nicole "How many times have I told her I'm not interested?"
+    nicole "Probably a thousand."
+    nicole "How many times have I told her I'm not interested men?"
+    nicole "I'll get around to it."
+
+    return 
 
 label gameplay_start:
     scene bg_black
@@ -81,22 +96,13 @@ label gameplay_start:
     show doll happy at LeftPortrait
     doll "Don't mind if I do hehe!"
 
+    call screen BedroomPAC()
+
     $ bedroomPCO = []
     menu bedroomMenu: #Make this point and click actually
         set bedroomPCO
         "Diary":
-            doll "A diary?" 
-            doll "She doesn't seem like the type of girl who would write about her feelings and lock them away in a secret book."
-            doll "I am quite curious though..."
-            doll "Oh Nicole, what are you hiding within these pages."
-
-            nicole "Sunday XX, 20XX"
-            nicole "Mom tried to set me up with one of her friend's son- again." 
-            nicole "How many times have I told her I'm not interested?"
-            nicole "Probably a thousand."
-            nicole "How many times have I told her I'm not interested men?"
-            nicole "I'll get around to it."
-            pass
+            call diary_exposition
             jump bedroomMenu
 
         "Bills":
