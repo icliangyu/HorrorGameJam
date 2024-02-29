@@ -28,7 +28,7 @@ screen point_of_interest_screen(PointOfInterest):
         hover PointOfInterest.image_set.base_image
         selected_idle PointOfInterest.image_set.base_image
         selected_hover PointOfInterest.image_set.base_image
-        if(PointOfInterest.active)
+        if(PointOfInterest.active):
             action[ Call(PointOfInterest.exposition_label),
                     SetField(PointOfInterest, "seen", True)
                 ]
