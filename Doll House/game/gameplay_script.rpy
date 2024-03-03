@@ -170,7 +170,7 @@ label bedroom:
     #transition to point and click 
 
 label kitchen:
-    scene bg_kitchen
+    scene bg kitchen at BackgroundScale
     narrator "The younger sister brought me downstairs to the kitchen where she was doing her homework."
     narrator "The kitchen was brightly lit and..."
 
@@ -330,7 +330,7 @@ label kitchen:
             nicole "All this time I thought she was just messing around with them." 
 
 label living_room:
-    scene bg_living_room
+    scene bg livingroom at BackgroundScale
 
     show doll neutral at LeftPortrait
     doll "So this is the living room. It reminds me of a home I once lived in years ago."
@@ -349,7 +349,7 @@ label living_room:
         doll "In fact, there aren't any photos in the living room at all."
         return
 
-    label .statue_exposition:
+    label .guan_yin_exposition:
         doll "A Buddha."
         doll "This must be the statue that Nicole's mother prays to everyday after work."
         doll ""
@@ -358,14 +358,14 @@ label living_room:
     label .point_and_click:
         init 1:
             define living_roomPAC_POI = [
-                PointOfInterest("Plants", "living_room.plants_exposition", PointOfInterestImageSet("images/environment/closet/Closet_Hover.png"), BackgroundScale),
-                PointOfInterest("Altar",  "living_room.altar_exposition", PointOfInterestImageSet("images/environment/diary/Diary_Hover.png"), BackgroundScale),
-                PointOfInterest("Statue", "living_room.statue_exposition", PointOfInterestImageSet("images/environment/Papers/Papers_Hover.png"), BackgroundScale),
+                PointOfInterest("Plants", "living_room.plants_exposition", PointOfInterestImageSet("images/environment/plant/Plant_Hover.png"), BackgroundScale),
+                PointOfInterest("Incense",  "living_room.altar_exposition", PointOfInterestImageSet("images/environment/incense/Incense_Hover.png"), BackgroundScale),
+                PointOfInterest("Guan Yin", "living_room.guan_yin_exposition", PointOfInterestImageSet("images/environment/guan yin/GuanYin_Hover.png"), BackgroundScale),
             ]
         call screen point_and_click_screen(living_roomPAC_POI)
 
 label attic:
-    scene bg attic
+    scene bg attic at BackgroundScale
     # Doll is narrating not sure how to label / code it
 
     narrator "I decided to wander about the house while Nicole and Emi were busy in kitchen."
@@ -436,6 +436,30 @@ label attic:
     doll "They must have been expecting a son but ended up with a girl instead."
 
     doll "How sad... I can help make it better." 
+    
+    jump attic.point_and_click
+
+    label .photos_exposition:
+
+    return
+
+    label .hair_pin_exposition:
+
+    return
+
+    label .clothing_trunk_exposition:
+
+    return
+
+
+    label .point_and_click:
+        init 1:
+            define atticPAC_POI = [
+                PointOfInterest("Photos", "attic.photos_exposition", PointOfInterestImageSet("images/environment/photos/Photos_Hover.png"), BackgroundScale),
+                PointOfInterest("HairPin",  "attic.hair_pin_exposition", PointOfInterestImageSet("images/environment/hairpin/HairPin_Hover.png"), BackgroundScale),
+                PointOfInterest("ClothingTrunk", "attic.clothing_trunk_exposition", PointOfInterestImageSet("images/environment/clothingtrunk/ClothingTrunk_Hover.png"), BackgroundScale),
+            ]
+        call screen point_and_click_screen(atticPAC_POI)
 
     menu photograph:
         "I want to help the family."
