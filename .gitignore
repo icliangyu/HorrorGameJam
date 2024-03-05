@@ -55,3 +55,10 @@ DollHouse-1.0-dists
 Doll House/game/tl
 Doll House/game/saves
 *.rpyc
+*.rpyc
+Doll House/game/gui.rpyc
+Doll House/game/options.rpyc
+Doll House/game/saves/navigation.json
+Doll House/game/saves/persistent
+Doll House/game/screens.rpyc
+Doll House/game/tl/None/common.rpymc
