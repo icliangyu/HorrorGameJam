@@ -51,4 +51,7 @@ files.txt
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,renpy
 Doll House/.vscode
+DollHouse-1.0-dists
+Doll House/game/tl
+Doll House/game/saves
 *.rpyc
