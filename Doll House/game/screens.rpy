@@ -725,6 +725,8 @@ style slot_button_text:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#preferences
 
+default preference.high_contrast_clickables = False
+
 screen preferences():
 
     tag menu
@@ -750,7 +752,12 @@ screen preferences():
                     textbutton _("Unseen Text") action Preference("skip", "toggle")
                     textbutton _("After Choices") action Preference("after choices", "toggle")
                     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
-
+                
+                vbox:
+                    style_prefix "check"
+                    label _("Accessibility")
+                    textbutton _("High Contrast Point and Click") action ToggleVariable("HighContrast")
+                
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be
                 ## added here, to add additional creator-defined preferences.
 
