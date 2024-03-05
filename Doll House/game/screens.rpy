@@ -757,6 +757,16 @@ screen preferences():
                     style_prefix "check"
                     label _("Accessibility")
                     textbutton _("High Contrast Point and Click") action ToggleVariable("HighContrast")
+
+                vbox:
+                    style_prefix "check"
+                    label _("User Progress")
+                    textbutton _("Delete All User Progress") action [
+                        SetVariable("persistent.completed_playthrough", False),
+                        SetVariable("persistent.got_bad_ending", False),
+                        SetVariable("persistent.got_good_ending", False),
+                        SetVariable("persistent.got_neutral_ending", False),
+                    ]
                 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be
                 ## added here, to add additional creator-defined preferences.

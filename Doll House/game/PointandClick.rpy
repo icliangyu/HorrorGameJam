@@ -42,7 +42,7 @@ screen point_and_click_screen(PointsOfInterest):
             action [ToggleVariable("HighContrast"),
                     SetVariable("AccessibilityTransform", (HighContrastTransform if not HighContrast else NormalContrastTransform)) # !HighContrast because it hasn't been set yet
             ]
-        if sum(pointOfInterest.seen == True for pointOfInterest in PointsOfInterest) == len(PointsOfInterest):
+        if persistent.completed_playthrough | sum(pointOfInterest.seen == True for pointOfInterest in PointsOfInterest) == len(PointsOfInterest):
             frame at MakeTransformFromPicker((0,0,300,100)):
                 textbutton "continue":
                     action Return()

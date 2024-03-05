@@ -115,9 +115,6 @@ label bedroom:
 
         call screen point_and_click_screen(BedroomPAC_POI)
 
-    narrator "And then something was said inbetween these two lines for debugging purposes."
-    narrator ":3"
-
     doll "Somebody is coming. I must hide."
 
     show emi neutral at RightPortrait
@@ -476,6 +473,28 @@ label attic:
 
         "Ignore the photograph":
             $ malice += 1
-            "I hate the family."
+            "I fucking hate the family."
 
-return
+    if malice == 5:
+        jump bad_ending
+    elif malice == 0:
+        jump good_ending
+    else:
+        jump neutral_ending
+
+label bad_ending:
+    doll "Ye gads, my roast is ruined!"
+    $ persistent.got_bad_ending = True
+    jump game_end
+
+label neutral_ending:
+    nicole "Patented Skinner Burgers."
+    $ persistent.got_neutral_ending = True
+    jump game_end
+
+label good_ending:
+    emi "Auroa Borealis, localized entirely in your living room?"
+    doll "Yes."
+    emi "Well Doll, you drive a hard bargain."
+    $ persistent.got_good_ending = True
+    jump game_end
