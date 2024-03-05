@@ -4,6 +4,7 @@ define doll = Character("Doll")
 define mom = Character("Mom")
 define emi = Character("Emi")
 
+
 # How evil you are >:3
 define malice = 0 
 
@@ -99,11 +100,17 @@ label bedroom:
         return
 
     label .point_and_click:
+        transform closet_transform: 
+            BasePACTransform
+        transform diary_transform: 
+            BasePACTransform
+        transform papers_transform: 
+            BasePACTransform
         init 1:
             define BedroomPAC_POI = [
-                PointOfInterest("Closet", "bedroom.closet_exposition", PointOfInterestImageSet("images/environment/closet/Closet_Hover.png"), BackgroundScale),
-                PointOfInterest("Diary", "bedroom.diary_exposition", PointOfInterestImageSet("images/environment/diary/Diary_Hover.png"), BackgroundScale),
-                PointOfInterest("Papers", "bedroom.papers_exposition", PointOfInterestImageSet("images/environment/Papers/Papers_Hover.png"), BackgroundScale),
+                PointOfInterest("Closet", "bedroom.closet_exposition", PointOfInterestImageSet("images/environment/closet/Closet_Hover.png"), closet_transform),
+                PointOfInterest("Diary", "bedroom.diary_exposition", PointOfInterestImageSet("images/environment/diary/Diary_Hover.png"), diary_transform),
+                PointOfInterest("Papers", "bedroom.papers_exposition", PointOfInterestImageSet("images/environment/Papers/Papers_Hover.png"), papers_transform),
             ]
 
         call screen point_and_click_screen(BedroomPAC_POI)

@@ -1,5 +1,12 @@
 ##Point and Click Screens
 
+init:
+    define HighContrast = False
+    transform HighContrastTransform:
+        matrixcolor ContrastMatrix(10.0)
+    transform NormalContrastTransform:
+        matrixcolor ContrastMatrix(1.0)
+
 init python:
     class PointOfInterestImageSet:
         def __init__(self, base_image: str, hover_image: str = "", selected_idle_image: str = "", selected_hover_image: str = ""):
@@ -19,18 +26,29 @@ init python:
 
     def MakeTransformFromPicker(pos_size):
         return Transform(xpos = pos_size[0], ypos = pos_size[1], xsize = pos_size[2], ysize = pos_size[3])
+
+    def GetAccessibilityTransform():
+        if HighContrast:
+            return HighContrastTransform
+        else:
+            return NormalContrastTransform
     #PointOfInterest = namedtuple('PointOfInterest', ['name', 'exposition_label', 'image_set', 'transformation', 'active'])
 
 screen point_and_click_screen(PointsOfInterest):
     for pointOfInterest in PointsOfInterest:
         use point_of_interest_screen(pointOfInterest)
-    if sum(pointOfInterest.seen == True for pointOfInterest in PointsOfInterest) == len(PointsOfInterest):
-        frame at MakeTransformFromPicker((0,0,300,300)):
-            textbutton "continue":
-                action Return()
+    vbox:
+        textbutton ("\u00d8" if HighContrast else "O"):
+            action [ToggleVariable("HighContrast"),
+                    SetVariable("AccessibilityTransform", (HighContrastTransform if not HighContrast else NormalContrastTransform)) # !HighContrast because it hasn't been set yet
+            ]
+        if sum(pointOfInterest.seen == True for pointOfInterest in PointsOfInterest) == len(PointsOfInterest):
+            frame at MakeTransformFromPicker((0,0,300,100)):
+                textbutton "continue":
+                    action Return()
 
 screen point_of_interest_screen(PointOfInterest):
-    imagebutton at PointOfInterest.transformation:
+    imagebutton at PointOfInterest.transformation, GetAccessibilityTransform():
         idle PointOfInterest.image_set.base_image
         hover PointOfInterest.image_set.base_image
         selected_idle PointOfInterest.image_set.base_image
@@ -45,3 +63,6 @@ screen point_of_interest_screen(PointOfInterest):
 
 
     transclude
+
+transform BasePACTransform: 
+    BackgroundScale
