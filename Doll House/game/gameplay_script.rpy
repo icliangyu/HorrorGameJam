@@ -1,5 +1,5 @@
 # Labels and naming of assets are just placeholders
-define nicole = Character("Nicole") 
+define nicole = Character("\"Nicole\" if knows_owners_name else \"The Owner\"", dynamic=True) 
 define doll = Character("Doll")
 define mom = Character("Mom")
 define emi = Character("Emi")
@@ -8,8 +8,18 @@ define emi = Character("Emi")
 # How evil you are >:3
 define malice = 0 
 
+init 0:
+    define knows_owners_name = False
+
+
 label gameplay_start:
-    scene bg_black
+
+    # This causes a black background to be displayed
+    scene black
+    # Centered here causes text to be displayed without a textbox, centered at the center of the screen
+    centered "{color=#803030}Text that is centered over a black screen{/color}"
+    # While the "{color}" things cause the text to be rendered white (because of the black background :)
+
     nicole "Let's see what you look like..."
     # need SFX of rustling sound of boxes here
     
@@ -76,6 +86,8 @@ label bedroom:
     label .papers_exposition:
         doll "What's this?"
         doll ""
+
+        $ knows_owners_name = True
         return
     
     label .closet_exposition:
@@ -89,7 +101,9 @@ label bedroom:
         doll "A diary?" 
         doll "She doesn't seem like the type of girl who would write about her feelings and lock them away in a secret book."
         doll "I am quite curious though..."
-        doll "Oh Nicole, what are you hiding within these pages."
+        # Those [] brackets allow python to run inside of them. Then it's just evaluating which one of the two to say.
+        # If you have questions ask Arthur
+        doll "Oh ['Nicole' if knows_owners_name else 'owner'], what are you hiding within these pages."
 
         nicole "Sunday XX, 20XX"
         nicole "Mom tried to set me up with one of her friend's son- again." 
@@ -115,6 +129,8 @@ label bedroom:
 
         call screen point_and_click_screen(BedroomPAC_POI)
 
+    #THIS IS HERE IN CASE THE PLAYER SKIPS THE POINT AND CLICK
+    $ knows_owners_name = True
     doll "Somebody is coming. I must hide."
 
     show emi neutral at RightPortrait
