@@ -4,13 +4,19 @@ define doll = Character("Doll")
 define mom = Character("Mom")
 define emi = Character("Emi")
 
-
 # How evil you are >:3
 define malice = 0 
 
+init python:
+    def ChangeMalice(value):
+        if value > 0:
+            renpy.sound.play(renpy.store.audio.MaliceIncrease)
+        renpy.store.malice += value
+
+
+
 init 0:
     define knows_owners_name = False
-
 
 label gameplay_start:
 
@@ -36,7 +42,7 @@ label gameplay_start:
         "How should I greet my new owner?"
 
         "Smile":
-            $ malice += 1
+            $ ChangeMalice(1)
             # SFX for +1 malice point
             # player should also have a visual indicator of +1 point
             show doll happy
@@ -163,7 +169,7 @@ label bedroom:
         "What should I do?"
 
         "Console Emi":
-            $ malice += 1
+            $ ChangeMalice(1)
             emi "I don't want to sound ungrateful but sometimes it's embarrassing wearing Nick's hand me downs."
             emi "Once I get a job, I'll be able to wear all the girly clothes I want."
             emi "But..."
@@ -226,7 +232,7 @@ label kitchen:
         "What should I do?"
 
         "Console Emi":
-            $ malice += 1
+            $ ChangeMalice(1)
             emi "I don't want to sound ungrateful but sometimes it's embarrassing wearing Nick's hand me downs."
             emi "Once I get a job, I'll be able to wear all the girly clothes I want."
             emi "But..."
@@ -304,7 +310,7 @@ label kitchen:
         "It sounds like Nicole is coming downstairs, what should I do?"
 
         "Knock over the ramune":
-            $ malice += 1
+            $ ChangeMalice(1)
             emi "*Gasp*"
 
             nicole "What are you making?"
@@ -488,7 +494,7 @@ label attic:
             "Woot!"
 
         "Ignore the photograph":
-            $ malice += 1
+            $ ChangeMalice(1)
             "I fucking hate the family."
 
     if malice == 5:

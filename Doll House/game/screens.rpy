@@ -757,6 +757,7 @@ screen preferences():
                     style_prefix "check"
                     label _("Accessibility")
                     textbutton _("High Contrast Point and Click") action ToggleVariable("HighContrast")
+                    textbutton _("\"Points\" Indicator") action ToggleVariable("MaliceIndicator")
 
                 vbox:
                     style_prefix "check"
