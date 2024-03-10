@@ -59,6 +59,7 @@ label bedroom:
     show nicole angry at LeftPortrait
     nicole "Did you not come with any information?"
 
+    ### SFX RUMMAGING
     narrator "The girl clicked her tongue impatiently as she emptied out the box."
     narrator "Other than the doll, the only other thing inside the box was a certificate of authentication."
 
@@ -300,6 +301,7 @@ label kitchen:
     show emi neutral at Leftportrait
     emi "I have to get this down on paper."
 
+    ### SFX PENCIL SCRATCHING ON PAPER
     narrator "Emi's hands left the doll to pick up the pencil lying in the middle of her notebook and began to scrawl around the corners of her page, doing well to avoid the math problems."
     narrator "It wasn't long before Nadeshiko's likeness began to appear on the lined white pages."
 
