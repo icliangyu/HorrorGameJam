@@ -43,6 +43,7 @@ init 0:
 
 label start:
     scene black
+    play music BoxOpeningTheme loop
     centered "For centuries dolls have been common household items beloved by children."
     centered "But recently they have started to become a popular collector's item."
     centered "They are adored by many for their perfect features and ornate clothes." 
@@ -62,6 +63,7 @@ label start:
     centered "This is the story of one such doll..."
 
 label bedroom:
+    stop music fadeout 3.0
     show nicole happy at LeftPortrait
     nicole "Let's see what you look like..."
 
