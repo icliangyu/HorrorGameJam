@@ -750,14 +750,14 @@ label attic:
 
         show doll neutral at LeftPortrait
         doll "What's this?"
-        show doll surprised at leftPortrait
+        show doll surprised at LeftPortrait
         doll "Are these baby clothes?"
 
         scene black
         centered "No."
         centered "They were not just baby clothes, they were boy clothes."
         
-        scene attic at BackgroundScale
+        scene bg attic at BackgroundScale
         show doll surprised at LeftPortrait
         doll "There's a brother? What happened to him?"
         show doll fear at LeftPortrait
@@ -870,3 +870,7 @@ label good_ending:
     emi "Well Doll, you drive a hard bargain."
     $ persistent.got_good_ending = True
     jump game_end
+
+
+label game_end:
+    return
