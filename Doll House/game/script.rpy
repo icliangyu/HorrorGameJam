@@ -172,6 +172,7 @@ label bedroom:
 
         narrator "It was rather uncouth to look through a person's diary but curiosity got the better of Nadeshiko and she immediately found herself poring over the scratchy writing, trying to absorb any and all information that it could give on the owner."
 
+        scene black
         centered "Mom tried to set me up with one of her friend's sons— again." 
         centered "How many times have I told her I'm not interested?"
         centered "Probably a thousand."
@@ -185,6 +186,7 @@ label bedroom:
         centered "Maybe that money should have been put towards the rent."
         centered "I can always return the doll but I also really want it. I guess I'll see how I feel when it arrives."
 
+        scene bg bedroom at Background Scale
         show doll sad at LeftPortrait
         doll "Hmm... she's really bitter."
         show doll happy at LeftPortrait
@@ -312,7 +314,7 @@ label kitchen:
     
     scene black
     centered "The doll liked this a lot."
-    scene bg kitchen
+    scene bg kitchen at BackgroundScale
 
     show emi happy at LeftPortrait
     emi "Wow... you're even prettier up close."
@@ -373,12 +375,14 @@ label kitchen:
 
             narrator "Emi's downcast face continued to glance between the doll and the page as she sketched. Even though the two had just met, Nadeshiko didn't like seeing Emi so sad."
 
+            scene black
             centered "So the doll decided to speak up."
             centered "I could be your big sister, Emi."
             centered "Then you wouldn't have to wear those ugly clothes anymore."
             centered "A sweet girl like you deserves to be dressed in frills and laces."
             centered "I can help."
 
+            sccene bg kitchen at BackgroundScale
             narrator "The young girl looked up from her work. Her eyes searched the doll's unmoving gaze for a moment before replying with a wide smile."
 
             show emi happy at LeftPortrait
@@ -518,8 +522,9 @@ label kitchen:
 
             narrator "The older girl angrily gestured at the puddle of ramune being soaked up by the pages of Emi’s notebook, dyeing the drawings of the doll a bright red."
 
+            scene black
             centered "Nadeshiko sat in innocent stillness, and looked at the red pool with her painted smile and vacant eyes as though Nicole had been the one to bleed out the liquid."
-
+            scene bg kitchen at BackgroundScale
             show nicole angry at RightPortrait
             nicole "Next time clean up your mess!"
 
@@ -573,9 +578,9 @@ label kitchen:
 label living_room:
     ### SCENGE BG BLURRED LIVING ROOM
     narrator "Emi squeezed the doll tightly in a wistful embrace before placing it between two cushions on the sofa. The young girl gave one last look before returning to the kitchen."
-
+    scene black
     centered "The doll felt bad for Emi because she had to live with such a wretched person like Nicole."
-
+    scene bg living_room at BackgroundScale
     show doll sad at LeftPortrait
     doll "Poor Emi."
     show doll happy at LeftPortrait
@@ -687,7 +692,8 @@ label living_room:
     show doll angry at LeftPortrait
     doll "Especially Nicole."
     doll "That’s the only way if I am to stay here and become a part of this family."  
-
+    
+    scene black
     show nicole neutral 
     centered "Nicole was simple enough."
     show emi neutral
@@ -744,9 +750,11 @@ label attic:
         show doll surprised at leftPortrait
         doll "Are these baby clothes?"
 
+        scene black
         centered "No."
         centered "They were not just baby clothes, they were boy clothes."
-
+        
+        scene attic at BackgroundScale
         show doll surprised at LeftPortrait
         doll "There's a brother? What happened to him?"
         show doll fear at LeftPortrait
