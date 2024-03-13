@@ -187,6 +187,7 @@ label bedroom:
         centered "I can always return the doll but I also really want it. I guess I'll see how I feel when it arrives."
 
         scene bg bedroom at Background Scale
+        scene bg bedroom at BackgroundScale
         show doll sad at LeftPortrait
         doll "Hmm... she's really bitter."
         show doll happy at LeftPortrait
@@ -245,6 +246,7 @@ label bedroom:
         show doll surprised at LeftPortrait
         doll "What is all of this?"
         show doll sad at leftPortrait
+        show doll sad at LeftPortrait
         doll "Is this really what she wears... on the daily?"
 
         narrator "Being a doll, Nadeshiko has only ever known of custom handmade items of the finest quality. The pieces before almost made her weep in despair."
@@ -328,6 +330,7 @@ label kitchen:
     show emi happy at LeftPortrait
     emi "Your dress is so detailed, and the stitching!"
     show emi neutral at Leftportrait
+    show emi neutral at LeftPortrait
     emi "I have to get this down on paper."
 
     ### SFX PENCIL SCRATCHING ON PAPER
@@ -383,6 +386,7 @@ label kitchen:
             centered "I can help."
 
             sccene bg kitchen at BackgroundScale
+            scene bg kitchen at BackgroundScale
             narrator "The young girl looked up from her work. Her eyes searched the doll's unmoving gaze for a moment before replying with a wide smile."
 
             show emi happy at LeftPortrait
@@ -589,6 +593,7 @@ label living_room:
     narrator "The doll’s eyes followed her small back, making sure that Emi fully turned the corner. Nadeshiko didn’t move until the voices of the two girls could be heard amongst the busy clattering of dishes."
 
     show doll neutral at leftPortrait
+    show doll neutral at LeftPortrait
     doll "A new room."
 
     narrator "The doll propped herself into an upright position, the springy coils of the old sofa underneath let out an audible groan at her slight movement."
@@ -609,6 +614,7 @@ label living_room:
     show doll neutral at LeftPortrait
     doll "That won’t do but for now let’s find out more about this household, shall we?"
     show doll angey at LeftPortrait
+    show doll angry at LeftPortrait
     doll "This is my chance to find out more about my current owner." 
     scene bg livingroom at BackgroundScale
 
@@ -693,14 +699,19 @@ label living_room:
     doll "Especially Nicole."
     doll "That’s the only way if I am to stay here and become a part of this family."  
     
+
     scene black
     show nicole neutral 
+    show nicole neutral  at truecenter, PortraitDimensions
     centered "Nicole was simple enough."
     show emi neutral
     centered "Emi was quite the surprise."
+    hide emi
     centered "But there was one last person whose secrets I needed to uncover."
     show mom neutral
+    show mom neutral at truecenter, PortraitDimensions
     centered "Mother."
+    hide mom
 
 label attic:
     show doll neutral at LeftPortrait
@@ -748,6 +759,7 @@ label attic:
         show doll neutral at LeftPortrait
         doll "What's this?"
         show doll surprised at leftPortrait
+        show doll surprised at LeftPortrait
         doll "Are these baby clothes?"
 
         scene black
@@ -840,6 +852,7 @@ label lead_up:
     emi "What should we do?"
 
     show nicole angry at Leftportrait
+    show nicole angry at LeftPortrait
     nicole "Wait down here. I'll check it out."
     show nicole neutral at LeftPortrait
     nicole "It might just be an animal or something."
