@@ -1,3 +1,4 @@
+'''
 # Labels and naming of assets are just placeholders
 define nicole = Character("\"Nicole\" if knows_owners_name else \"The Owner\"", dynamic=True) 
 define doll = Character("Doll")
@@ -520,3 +521,5 @@ label good_ending:
     emi "Well Doll, you drive a hard bargain."
     $ persistent.got_good_ending = True
     jump game_end
+
+'''
