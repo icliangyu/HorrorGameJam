@@ -304,7 +304,9 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("Start") action Start()
+            imagebutton at GuiIconTransformMenu:
+                idle "gui/button_start.png"
+                action Start()
 
         else:
 
@@ -328,14 +330,20 @@ screen navigation():
 
         elif not main_menu:
 
-            textbutton _("Main Menu") action MainMenu()
+            imagebutton at GuiIconTransformMenu:
+                idle "gui/button_mainmenu.png"
+                action MainMenu()
 
-        textbutton _("About") action ShowMenu("about")
+        imagebutton at GuiIconTransformMenu:
+                idle "gui/button_credits.png"
+                action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
+            imagebutton at GuiIconTransformMenu:
+                idle "gui/button_help.png"
+                action ShowMenu("help")
 
         if renpy.variant("pc"):
 
