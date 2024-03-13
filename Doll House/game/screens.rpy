@@ -4,6 +4,12 @@
 
 init offset = -1
 
+init -2:
+    transform GuiIconTransformMenu:
+        zoom 0.757575757575
+
+    #transform GuiIconTransformQuickBar:
+
 
 ################################################################################
 ## Styles
@@ -128,6 +134,7 @@ style say_thought is say_dialogue
 
 style namebox is default
 style namebox_label is say_label
+
 
 
 style window:
@@ -303,11 +310,17 @@ screen navigation():
 
             textbutton _("History") action ShowMenu("history")
 
-            textbutton _("Save") action ShowMenu("save")
+            imagebutton at GuiIconTransformMenu:
+                idle "gui/button_save.png"
+                action ShowMenu("save")
 
-        textbutton _("Load") action ShowMenu("load")
+        imagebutton at GuiIconTransformMenu:
+            idle "gui/button_load.png"
+            action ShowMenu("load")
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+        imagebutton at GuiIconTransformMenu:
+                idle "gui/button_settings.png"
+                action ShowMenu("preferences")
 
         if _in_replay:
 
@@ -328,7 +341,9 @@ screen navigation():
 
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
-            textbutton _("Quit") action Quit(confirm=not main_menu)
+            imagebutton at GuiIconTransformMenu:
+                idle "gui/button_quit.png"
+                action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -473,7 +488,8 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     use navigation
 
-    textbutton _("Return"):
+    imagebutton at GuiIconTransformMenu:
+        idle "gui/button_return.png"
         style "return_button"
 
         action Return()
