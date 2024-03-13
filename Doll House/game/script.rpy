@@ -186,7 +186,6 @@ label bedroom:
         centered "Maybe that money should have been put towards the rent."
         centered "I can always return the doll but I also really want it. I guess I'll see how I feel when it arrives."
 
-        scene bg bedroom at Background Scale
         scene bg bedroom at BackgroundScale
         show doll sad at LeftPortrait
         doll "Hmm... she's really bitter."
@@ -245,7 +244,6 @@ label bedroom:
 
         show doll surprised at LeftPortrait
         doll "What is all of this?"
-        show doll sad at leftPortrait
         show doll sad at LeftPortrait
         doll "Is this really what she wears... on the daily?"
 
@@ -329,7 +327,6 @@ label kitchen:
 
     show emi happy at LeftPortrait
     emi "Your dress is so detailed, and the stitching!"
-    show emi neutral at Leftportrait
     show emi neutral at LeftPortrait
     emi "I have to get this down on paper."
 
@@ -385,7 +382,6 @@ label kitchen:
             centered "A sweet girl like you deserves to be dressed in frills and laces."
             centered "I can help."
 
-            sccene bg kitchen at BackgroundScale
             scene bg kitchen at BackgroundScale
             narrator "The young girl looked up from her work. Her eyes searched the doll's unmoving gaze for a moment before replying with a wide smile."
 
@@ -584,7 +580,7 @@ label living_room:
     narrator "Emi squeezed the doll tightly in a wistful embrace before placing it between two cushions on the sofa. The young girl gave one last look before returning to the kitchen."
     scene black
     centered "The doll felt bad for Emi because she had to live with such a wretched person like Nicole."
-    scene bg living_room at BackgroundScale
+    scene bg livingroom at BackgroundScale
     show doll sad at LeftPortrait
     doll "Poor Emi."
     show doll happy at LeftPortrait
@@ -592,7 +588,6 @@ label living_room:
 
     narrator "The doll’s eyes followed her small back, making sure that Emi fully turned the corner. Nadeshiko didn’t move until the voices of the two girls could be heard amongst the busy clattering of dishes."
 
-    show doll neutral at leftPortrait
     show doll neutral at LeftPortrait
     doll "A new room."
 
@@ -613,7 +608,6 @@ label living_room:
     doll "Nicole seems like the type of older sister who bosses Emi around."
     show doll neutral at LeftPortrait
     doll "That won’t do but for now let’s find out more about this household, shall we?"
-    show doll angey at LeftPortrait
     show doll angry at LeftPortrait
     doll "This is my chance to find out more about my current owner." 
     scene bg livingroom at BackgroundScale
@@ -701,14 +695,12 @@ label living_room:
     
 
     scene black
-    show nicole neutral 
     show nicole neutral  at truecenter, PortraitDimensions
     centered "Nicole was simple enough."
     show emi neutral
     centered "Emi was quite the surprise."
     hide emi
     centered "But there was one last person whose secrets I needed to uncover."
-    show mom neutral
     show mom neutral at truecenter, PortraitDimensions
     centered "Mother."
     hide mom
@@ -759,7 +751,6 @@ label attic:
         show doll neutral at LeftPortrait
         doll "What's this?"
         show doll surprised at leftPortrait
-        show doll surprised at LeftPortrait
         doll "Are these baby clothes?"
 
         scene black
@@ -851,7 +842,6 @@ label lead_up:
     show emi crying at RightPortrait
     emi "What should we do?"
 
-    show nicole angry at Leftportrait
     show nicole angry at LeftPortrait
     nicole "Wait down here. I'll check it out."
     show nicole neutral at LeftPortrait
