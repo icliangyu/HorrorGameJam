@@ -12,11 +12,11 @@ init:
         xysize (-500, 500)
 
     transform LeftPortrait:
-        pos (450, 555)
+        pos (500, 580)
         xysize (-500, 500)
 
     transform RightPortrait:
-        pos (1395, 555)
+        pos (1320, 580)
         xysize (500, 500)
 
     transform BackgroundScale:

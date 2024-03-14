@@ -4,6 +4,12 @@
 
 init offset = -1
 
+init -2:
+    transform GuiIconTransformMenu:
+        zoom 0.757575757575
+
+    #transform GuiIconTransformQuickBar:
+
 
 ################################################################################
 ## Styles
@@ -128,6 +134,7 @@ style say_thought is say_dialogue
 
 style namebox is default
 style namebox_label is say_label
+
 
 
 style window:
@@ -297,17 +304,25 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("Start") action Start()
+            imagebutton at GuiIconTransformMenu:
+                idle "gui/button_start.png"
+                action Start()
 
         else:
 
             textbutton _("History") action ShowMenu("history")
 
-            textbutton _("Save") action ShowMenu("save")
+            imagebutton at GuiIconTransformMenu:
+                idle "gui/button_save.png"
+                action ShowMenu("save")
 
-        textbutton _("Load") action ShowMenu("load")
+        imagebutton at GuiIconTransformMenu:
+            idle "gui/button_load.png"
+            action ShowMenu("load")
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+        imagebutton at GuiIconTransformMenu:
+                idle "gui/button_settings.png"
+                action ShowMenu("preferences")
 
         if _in_replay:
 
@@ -315,20 +330,28 @@ screen navigation():
 
         elif not main_menu:
 
-            textbutton _("Main Menu") action MainMenu()
+            imagebutton at GuiIconTransformMenu:
+                idle "gui/button_mainmenu.png"
+                action MainMenu()
 
-        textbutton _("About") action ShowMenu("about")
+        imagebutton at GuiIconTransformMenu:
+                idle "gui/button_credits.png"
+                action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
+            imagebutton at GuiIconTransformMenu:
+                idle "gui/button_help.png"
+                action ShowMenu("help")
 
         if renpy.variant("pc"):
 
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
-            textbutton _("Quit") action Quit(confirm=not main_menu)
+            imagebutton at GuiIconTransformMenu:
+                idle "gui/button_quit.png"
+                action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -473,7 +496,8 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     use navigation
 
-    textbutton _("Return"):
+    imagebutton at GuiIconTransformMenu:
+        idle "gui/button_return.png"
         style "return_button"
 
         action Return()
