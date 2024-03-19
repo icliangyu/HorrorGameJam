@@ -9,16 +9,16 @@ default persistent.got_bad_ending = False
 default persistent.got_neutral_ending = False
 default persistent.got_good_ending = False
 
-default MaliceIndicator = False
+define malice = 0 
+
+default MaliceIndicator = True
 
 screen malice_indicator:
     if MaliceIndicator:
-        text "?: [malice]":
-            xalign 0.975
-            yalign 0.025
-            textalign 1.0
-            size 20
-            color "FF0000"
+        bar value StaticValue(malice, 7):
+            xysize (100, 25)
+            align (0.975, 0.025)
+            bar_invert True
 
 # Adds a screen that may display the Malice of a character
 init python:
@@ -29,8 +29,6 @@ define nicole = Character("\"Nicole\" if knows_owners_name else \"The Owner\"", 
 define doll = Character("Nadeshiko")
 define emi = Character("Emi")
 define mom = Character("Mother")
-
-define malice = 0 
 
 init python:
     def ChangeMalice(value):
