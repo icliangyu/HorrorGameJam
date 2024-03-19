@@ -98,27 +98,28 @@ label bedroom:
         "How should I greet my new owner?"
 
         "Smile":
-            show doll happy at LeftPortrait
+            show doll happy at RightPortrait
             $ ChangeMalice(1)
             narrator "In wanting to give her new owner a warm welcome, the doll's mouth curved up with the slightest smile."
 
-            show nicole happy at RightPortrait
+            show nicole happy at LeftPortrait
             nicole "Huh... you are pretty cute though, maybe I'll keep you around."
-            show nicole surprised at RightPortrait
+            show nicole surprised at LeftPortrait
             nicole "I've seen a lot of detailed ball-jointed dolls but you're something else."
             nicole "Life-like, even..."
-            show nicole happy at RightPortrait
+            show nicole happy at LeftPortrait
 
             narrator "The owner responded back in kind with a small smile of her own, and this gave the doll immense relief knowing that she was accepted for the time being."
 
         "...":
-            show doll neutral at LeftPortrait
-            show nicole sad at RightPortrait
+            show doll neutral at RightPortrait
+            show nicole sad at LeftPortrait
             nicole "*Sigh* Whatever, this is fine for now. I'm too lazy to request a return from the seller."
-            show nicole neutral at RightPortrait
+            show nicole neutral at LeftPortrait
             nicole "I'll think about it later."
             nicole "It's pretty, sure, but I don't know if this model is worth more or less than what I originally bought. I don't want to get ripped off."
 
+    scene black
     show mom neutral at RightPortrait
     mom "Nick! Come down here and watch the house. I'm going to buy groceries!"
 
@@ -132,6 +133,7 @@ label bedroom:
 
     show nicole angry at LeftPortrait
     nicole "Ugh! Okay fine!"
+    hide mom
     nicole "She couldn't just get Emi? Why is it always me?"
 
     narrator "The owner grumbled to herself as she cleared the boxes off her desk and slid them under the bedframe."
@@ -148,6 +150,7 @@ label bedroom:
     narrator "And so the doll joined the boxes in the darkness of the underside of the bed. The world of light she so desperately sought came to a quick end." 
 
     show doll surprised at LeftPortrait
+    show nicole happy at RightPortrait
     doll "This must be my new home."
     show doll sad at LeftPortrait
     doll "That makes her my new owner."
@@ -269,7 +272,7 @@ label bedroom:
             PointOfInterest("Diary", "bedroom.diary_exposition", PointOfInterestImageSet("images/environment/diary/Diary_Hover.png"), diary_transform),
             PointOfInterest("Papers", "bedroom.bills_exposition", PointOfInterestImageSet("images/environment/Papers/Papers_Hover.png"), papers_transform),
             ]
-
+    scene bg bedroom at BackgroundScale
     call screen point_and_click_screen(BedroomPAC_POI)
 
     ### THIS IS HERE IN CASE THE PLAYER SKIPS THE POINT AND CLICK
@@ -496,6 +499,7 @@ label kitchen:
                 PointOfInterest("Homework", "kitchen.homework_exposition", PointOfInterestImageSet("images/environment/diary/Diary_Hover.png"), BackgroundScale),
                 PointOfInterest("Rice Cooker", "kitchen.rice_cooker_exposition", PointOfInterestImageSet("images/environment/papers/Papers_Hover.png"), BackgroundScale),
             ]
+    scene bg kitchen at BackgroundScale
     call screen point_and_click_screen(KitchenPAC_POI)
 
     narrator "As Nadeshiko was taking in her surroundings, she heard the faint sound of footsteps."
@@ -686,6 +690,7 @@ label living_room:
                 PointOfInterest("Incense",  "living_room.altar_exposition", PointOfInterestImageSet("images/environment/incense/Incense_Hover.png"), BackgroundScale),
                 PointOfInterest("Guan Yin", "living_room.guan_yin_exposition", PointOfInterestImageSet("images/environment/guan yin/GuanYin_Hover.png"), BackgroundScale),
             ]
+        scene bg livingroom at BackgroundScale
         call screen point_and_click_screen(living_roomPAC_POI)  
 
     show doll neutral at LeftPortrait
@@ -782,6 +787,7 @@ label attic:
                 PointOfInterest("HairPin",  "attic.hair_pin_exposition", PointOfInterestImageSet("images/environment/hairpin/HairPin_Hover.png"), BackgroundScale),
                 PointOfInterest("ClothingTrunk", "attic.clothing_trunk_exposition", PointOfInterestImageSet("images/environment/clothingtrunk/ClothingTrunk_Hover.png"), BackgroundScale),
             ]
+    scene bg attic at BackgroundScale
     call screen point_and_click_screen(atticPAC_POI)
 
     narrator "Once Nadeshiko was content with what she had discovered there was only one thing left to do."
