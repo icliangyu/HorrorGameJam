@@ -291,21 +291,32 @@ style quick_button_text:
 ##
 ## This screen is included in the main and game menus, and provides navigation
 ## to other menus, and to start the game.
+init -1 python:
+    def MenuColorize(s):
+        return Transform(s, matrixcolor = TintMatrix(gui.hover_color))
+    config.displayable_prefix["hovered"] = MenuColorize
 
-screen navigation():
+screen navigation(leftJustify=True):
 
     vbox:
         style_prefix "navigation"
 
-        xpos gui.navigation_xpos
-        yalign 0.5
+        if leftJustify:
+            xpos gui.navigation_xpos
+            yalign 0.5
 
+        else:
+            yalign 0.5
+            xalign 1.0
+            xoffset -30
+            
         spacing gui.navigation_spacing
 
         if main_menu:
 
             imagebutton at GuiIconTransformMenu:
                 idle "gui/button_start.png"
+                hover "hovered:gui/button_start.png"
                 action Start()
 
         else:
@@ -314,14 +325,17 @@ screen navigation():
 
             imagebutton at GuiIconTransformMenu:
                 idle "gui/button_save.png"
+                hover "hovered:gui/button_save.png"
                 action ShowMenu("save")
 
         imagebutton at GuiIconTransformMenu:
             idle "gui/button_load.png"
+            hover "hovered:gui/button_load.png"
             action ShowMenu("load")
 
         imagebutton at GuiIconTransformMenu:
                 idle "gui/button_settings.png"
+                hover "hovered:gui/button_settings.png"
                 action ShowMenu("preferences")
 
         if _in_replay:
@@ -332,10 +346,12 @@ screen navigation():
 
             imagebutton at GuiIconTransformMenu:
                 idle "gui/button_mainmenu.png"
+                hover "hovered:gui/button_mainmenu.png"
                 action MainMenu()
 
         imagebutton at GuiIconTransformMenu:
                 idle "gui/button_credits.png"
+                hover "hovered:gui/button_credits.png"
                 action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
@@ -343,6 +359,7 @@ screen navigation():
             ## Help isn't necessary or relevant to mobile devices.
             imagebutton at GuiIconTransformMenu:
                 idle "gui/button_help.png"
+                hover "hovered:gui/button_help.png"
                 action ShowMenu("help")
 
         if renpy.variant("pc"):
@@ -351,6 +368,7 @@ screen navigation():
             ## Web.
             imagebutton at GuiIconTransformMenu:
                 idle "gui/button_quit.png"
+                hover "hovered:gui/button_quit.png"
                 action Quit(confirm=not main_menu)
 
 
@@ -384,7 +402,7 @@ screen main_menu():
 
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.
-    use navigation
+    use navigation(False)
 
     if gui.show_name:
 
@@ -407,15 +425,15 @@ style main_menu_version is main_menu_text
 style main_menu_frame:
     xsize 420
     yfill True
-
-    background "gui/overlay/main_menu.png"
+    
+    #background "gui/overlay/main_menu.png"
 
 style main_menu_vbox:
     xalign 1.0
     xoffset -30
     xmaximum 1200
-    yalign 1.0
-    yoffset -30
+    yalign 0.0
+    yoffset 30
 
 style main_menu_text:
     properties gui.text_properties("main_menu", accent=True)
@@ -425,6 +443,7 @@ style main_menu_title:
 
 style main_menu_version:
     properties gui.text_properties("version")
+    xalign 1.0
 
 
 ## Game Menu screen ############################################################
@@ -498,6 +517,7 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     imagebutton at GuiIconTransformMenu:
         idle "gui/button_return.png"
+        hover "hovered:gui/button_return.png"
         style "return_button"
 
         action Return()
@@ -755,7 +775,7 @@ screen preferences():
 
     tag menu
 
-    use game_menu(_("Preferences"), scroll="viewport"):
+    use game_menu(_("Settings"), scroll="viewport"):
 
         vbox:
 

@@ -4,7 +4,7 @@
 
 ## The init offset statement causes the initialization statements in this file
 ## to run before init statements in any other file.
-init offset = -2
+init offset = -11 
 
 ## Calling gui.init resets the styles to sensible default values, and sets the
 ## width and height of the game.
@@ -263,7 +263,7 @@ define gui.notify_ypos = 75
 define gui.choice_spacing = 33
 
 ## Buttons in the navigation section of the main and game menus.
-define gui.navigation_spacing = 6
+define gui.navigation_spacing = 10
 
 ## Controls the amount of spacing between preferences.
 define gui.pref_spacing = 20
@@ -278,7 +278,7 @@ define gui.page_spacing = 0
 define gui.slot_spacing = 15
 
 ## The position of the main menu text.
-define gui.main_menu_text_xalign = 1.0
+define gui.main_menu_text_xalign = 0.0
 
 
 
