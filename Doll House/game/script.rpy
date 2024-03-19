@@ -9,16 +9,25 @@ default persistent.got_bad_ending = False
 default persistent.got_neutral_ending = False
 default persistent.got_good_ending = False
 
-define malice = 0 
+define TotalMalicePoints = 7
+define malice = 0
 
 default MaliceIndicator = True
 
+
+
 screen malice_indicator:
     if MaliceIndicator:
-        bar value StaticValue(malice, 7):
-            xysize (100, 25)
-            align (0.975, 0.025)
-            bar_invert True
+        hbox:
+            for i in range (0,TotalMalicePoints):   
+                if i < malice:
+                    add "gui/SuspicionMeterIcon_Fill.png" at transform: 
+                        zoom 0.2
+                else:
+                    add "gui/SuspicionMeterIcon_Empty.png" at transform: 
+                        zoom 0.2
+        
+            
 
 # Adds a screen that may display the Malice of a character
 init python:
@@ -35,6 +44,7 @@ init python:
         if value > 0:
             renpy.sound.play(renpy.store.audio.MaliceIncrease)
         renpy.store.malice += value
+        renpy.restart_interaction()
 
 init 0:
     define knows_owners_name = False
