@@ -316,7 +316,7 @@ screen navigation(leftJustify=True):
 
             imagebutton at GuiIconTransformMenu:
                 idle "gui/button_start.png"
-                hover "hovered:gui/button_start.png"
+                hover "hovered:gui/button_start_hover.png"
                 action Start()
 
         else:
@@ -594,7 +594,7 @@ screen about():
     ## This use statement includes the game_menu screen inside this one. The
     ## vbox child is then included inside the viewport inside the game_menu
     ## screen.
-    use game_menu(_("About"), scroll="viewport"):
+    use game_menu(_("Credits"), scroll="viewport"):
 
         style_prefix "about"
 
