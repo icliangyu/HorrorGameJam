@@ -872,7 +872,316 @@ label lead_up:
         jump neutral_ending
 
 label bad_ending:
-    doll "Ye gads, my roast is ruined!"
+    ### PLACING THIS HERE FOR NOW FEEL FREE TO REORGANIZE
+    init: 
+        image bg nicole fear cut in.jpg
+        image bg nicole fear cut in void.jpg
+        image bg nicole fear cut in blood.jpg
+
+        $ flash = Fade(.1, 0, .5, color="#fff")
+
+    centered "Unfortunately for Nicole, it wasn't an animal."
+    centered "Upon arriving up the attic, the older girl was confronted with various items that were interpreted in such a way that would anger her into an inconsolable frenzy."
+    centered "Afterall, people have crafty minds that can weave intricate stories based on what they solely see. For Nicole, this was just one of multiple conclusions that she arrived at due to the many grievances that she's incurred."
+
+    scene bg attic at BackgroundScale
+
+    show nicole surprised at LeftPortrait
+    show doll happy at RightPortrait
+    nicole "Did Emi bring the doll up here?"
+
+    show nicole neutral at LeftPortrait
+    nicole "Wait, what is this?"
+    nicole "..."
+
+    show nicole surprised at LeftPortrait
+    nicole "Why are there baby clothes up here?"
+
+    show nicole fear at LeftPortrait
+    nicole "W-what... what is this...?"
+
+    ### EERIE MUSIC OR CUE ENDING THEME
+
+    show nicole sad at LeftPortrait
+    nicole "This is dad."
+
+    show nicole surprised at LeftPortrait
+    show mom neutral at RightPortrait
+    nicole "Mom."
+
+    show nicole neutral at LeftPortrait
+    show emi neutralr at RightPortrait
+    nicole "And Emi..."
+
+    show nicole angry at LeftPortrait
+    nicole "Huh?!"
+    nicole "Is that supposed to be me?"
+
+    show nicole fear at LeftPortrait
+    nicole "W-why..."
+
+    show nicole sad at LeftPortrait
+    nicole "Is this why everybody hates me?"
+
+    show nicole angrily at LeftPortrait
+    nicole "Is this why you all treat me like shit?!"
+    nicole "Because I'm not the son you wanted?"
+
+    scene bg kitchen at BackgroundScale
+
+    show nicole neutral at LeftPortrait
+    show emi sad at RightPortrait
+    emi "Was anyone up there?"
+    nicole "Funny you should ask."
+
+    show emi neutral at RightPortrait
+    emi "...?"
+    nicole "Well? Are you going to say something or just stare at me?"
+    
+    show emi sad at RightPortrait
+    emi "Did something happen...?"
+
+    show nicole angry at LeftPortrait
+    nicole "Don't play dumb, how long have you known about the baby?"
+
+    show emi neutral at RightPortrait
+    emi "Baby? I don't know what you're talking about."
+
+    show nicole neutral at LeftPortrait
+    nicole "..............."
+
+    show emi sad at RightPortrait
+    emi "You're creeping me out, Nick."
+    emi "Are you trying to scare me or something?"
+    emi "Is this a prank?"
+
+    show nicole surprised at LeftPortrait
+    nicole "Me try to scare you? I'm not the one hanging out in the attic by myself."
+    show nicole happy at LeftPortrait
+    nicole "Look, I get it."
+    nicole "I know you're kind of a loner and all but seriously you don't have to be a weirdo about it and sit in the attic with my doll."
+    show nicole fear at LeftPortrait
+    nicole "What do you do all alone in the dark up there anyways?"
+    show nicole angry at LeftPortrait
+    nicole "And I told you to put her in the living room, what the hell is wrong with you?"
+
+    show emi neutral at RightPortrait
+    emi "But Nicole, I swear I didn't go into the attic. I left your doll on the sof-"
+
+    show nicole neutral at LeftPortrait
+    nicole "Shut the hell up."
+
+    show emi sad at RightPortrait
+    emi "..."
+    nicole "Go on, keep on lying, like how you didn't know about our brother."
+
+    show emi crying at RightPortrait
+    emi "Nicole, listen to me. I don't know what you're saying!"
+
+    show nicole angry at LeftPortrait
+    nicole "Of course mom would tell you and not me."
+
+    show emi sad at RightPortrait
+    emi "Sis..."
+
+    show nicole neutral at LeftPortrait
+    "Don't call me that. I hate people like you."
+
+    show emi crying at RightPortrait
+    emi "Nick..."
+
+    nicole "Suck ups who always do what they're told to get on people's good side. Acting selfless when really you're just a brat who leeches off of me."
+    nicole "I never have the energy to do things that I want because I'm too busy taking care of you. It's always about you."
+
+    show nicole angry at LeftPortrait
+    nicole "IT'S ALWAYS YOU."
+
+    show nicole neutral at LeftPortrait
+    nicole "You're a freaking leech.!"
+
+    show nicole angry at LeftPortrait
+    nicole "IT'S ALWAYS YOU! YOU'RE THE PROBLEM! YOU'RE THE REASON I DON'T HAVE A LIFE!"
+    nicole "I HAVE TO MAKE SURE YOU LIVE BETTER THAN ME! I HAVE TO TAKE CARE OF MOM WHILE YOU ONLY WORRY ABOUT SCHOOL!"
+    
+    show emi sad at RightPortrait
+    emi "I swear... I didn't do anything..."
+
+    show nicole neutral at LeftPortrait
+    nicole "You have it so easy... you only have to worry about school. You don't know what it's like to have responsibilities."
+    show nicole angry at LeftPortrait
+    nicole "YOU'RE NOTHING BUT A PARASITE."
+
+    show emi crying at RightPortrait
+    emi "I DIDN'T DO ANYTHING! STOP! I'M SORRY! WHATEVER I DID, I'M SORRY!"
+    nicole "NOBODY WANTS YOU! YOU SHOULD HAVE DIED! NOT OUR BROTHER!"
+
+    ### 3 SPRITES ON SCREEN AT ONCE BUT ORGANIZED 
+
+    mom "Nick!"
+    show mom angry at RightPortrait
+    emi "Mom, mom!"
+    mom "Is that anyway to speak to your baby sister?"
+    
+    show nicole surprised at LeftPortrait
+    nicole "Baby?"
+    show nicole angry at LeftPortrait
+    nicole "The freak's thirteen. You never treated me like a baby when I was her age."
+
+    show mom neutral at RightPortrait
+    mom "What's gotten into you? What are you two fighting about?"
+
+    show emi sad at RightPortrait
+    emi "Mom, I swear I didn't put her doll in the attic. I didn't."
+
+    show mom neutral at RightPortrait
+    mom "Shh... it's okay, Emi. I believe you."
+
+    show nicole neutral at LeftPortrait
+    nicole "Of course you do."
+
+    show mom angry at RightPortrait
+    mom "Are you really fighting over toys with Emi again? They're just dolls, so what if your sister wants to play with them for a bit?"
+    show mom neutral at RightPortrait
+    mom "But maybe you're right, I should start treating you like a baby because only babies don't know how to share."
+
+    show nicole surprised at LeftPortrait
+    nicole "Are you kidding me right now?"
+
+    show nicole neutral at LeftPortrait
+    nicole "Oh and you know what else I found upstairs?"
+    nicole "Boy clothes."
+    show nicole angry at LeftPortrait
+    nicole "For baby boys."
+
+    show mom neutral at RightPortrait
+    mom "............"
+
+    show nicole neutral at LeftPortait
+    nicole "Are you going to explain or just continue to lie?"
+
+    show mom neutral at RightPortrait
+    mom "Nicole, now isn't the time to talk about that. Why don't we make dinner and then talk about it later."
+
+    show nicole angry at LeftPortrait
+    nicole "Why not? Let's talk about it now."
+
+    show mom angry at RightPortrait
+    mom "It's getting late. We need to eat so that everyone can get rested for tomorrow. Emi has school, and we hav-"
+
+    show nicole angry at LeftPortrait
+    nicole "Pffft... Emi this, Emi that."
+    nicole "It's just school. She'll live if she sleeps later than usual. School isn't hard. Work is! Making ends meet and not being homeless is hard!"
+
+    show mom angry at RightPortrait
+    mom "Do not talk to me like that. You're angry, yes, but at the end of the day I am your mother."
+
+    show nicole sad at LeftPortrait
+    nicole "Are you sure about that?"
+
+    show mom neutral at RightPortrait
+    mom "What do you mean?"
+
+    show nicole sad at LeftPortrait
+    nicole "If the baby lived, wouldn't you just have stopped there?"
+
+    show mom neutral at RightPortrait
+    mom "..."
+
+    show nicole fear at LeftPortrait
+    nicole "Yeah... I thought so. I shouldn't even exist. You don't even want to be my mother, you don't want me."
+
+    show nicole angry at LeftPortrait
+    nicole "*Scoffs* You wish I was born a boy but you hate it when I act like one."
+
+    show nicole neutral at LeftPortrait
+    
+    nicole "There's no winning no matter what I do..."
+    show nicole sad at LeftPortrait
+    nicole "I can't win."
+
+    show mom neutral at RightPortrait
+    mom "I never needed you to be my son, I want you to be the ideal daughter."
+
+    show nicole neutral at LeftPortrait
+    nicole "No, you wanted the perfect daughter."
+
+    scene bg attic at BackgroundScale
+
+    show nicole neutral at LeftPortrait
+    show doll neutral at RightPortrait
+    nicole "Nadeshiko."
+    nicole "Yamato Nadeshiko."
+    nicole "I bet if I was like you, she would be happy. Everyone would be happy."
+    show nicole sad at LeftPortrait
+    nicole "Perfection."
+    show nicole fear at LeftPortrait
+    nicole "I can't be that..."
+    nicole "No matter how hard I try, I can't be the perfect son and I can't be the perfect daughter either."
+
+    show nicole happy at LeftPortrait
+    nicole "Look at her, she was the picture perfect bride. She looks so happy here."
+    show nicole neutral at LeftPortrait
+    nicole "I can't remember the last time she smiled."
+    show nicole surprised at leftPortrait
+    nicole "I wonder if mom wanted me to wear this hairpin at my own wedding one day."
+    show nicole sad at LeftPortrait
+    nicole "Not like that day will ever come, heh..."
+    show nicole fear at LeftPortrait
+    nicole "Would she ever come to my wedding if she knew...?"
+    
+    show nicole angry at LeftPortrait
+    nicole "I wish... I wish they would stop demanding so much from me!"
+    nicole "It doesn't even feel like I'm living a life anymore! It's always about everyone but me!"
+    show nicole sad at LeftPortrait
+    niciole "I wish I didn't have to be responsible for everything. I never asked to be the oldest, I want to be loved and held too..."
+
+    show nicole angry at LeftPortrait
+    nicole "*Scoff* Emi..."
+    show nicole neutral at LeftPortrait
+    show doll angry at RightPortrait
+    nicole "She has it so good and she doesn't even know it."
+    show nicole happy at LeftPortrait
+    nicole "I wish she wasn't my sister. Imagine how things would be if she wasn't around."
+
+    show nicole sad at LeftPortrait
+    nicole "If only it was the other way around... then I wouldn't have to worry about anything."
+
+    scene bg black weak at BackgroundScale
+    centered "..."
+    scene bg nicole fear cut in at BackgroundScale
+    with flash
+    centered ".."
+    scene bg black medium at BackgroundScale
+    centered "."
+    scene bg black strong at BackgroundScale
+    centered "Nicole is so dumb, mother isn't looking for the perfect son, she wants the perfect daughter. Something you could never be. I'm so glad you also agree with me."
+    scene bg nicole fear cut in void at BackgroundScale
+    with flash
+    scene bg nicole fear cut in blood at BackgroundScale
+    with flash
+
+    scene black
+    ### THESE TO APPEAR BENEATH EACH OTHER AS PARAGRAPH
+    centered "Then again..."
+    centered "In ancient times dolls were also used as sacrificial stand-ins."
+    centered "And as a human-like vessel they have always been quite ideal for wandering entities."
+    
+    ### PARAGRAPH APPEARING SENTENCE BY SENTENCE BY EACH STAY ON SCREEN
+    centered "But it seems like this entity isn't wandering anymore because she's found a home."
+    centered "I hear whispers about the family, and the mother couldn't be prouder of her eldest daughter, Nadeshiko."
+    centered "Word has it that she's going to marry mother's mutual friend's son soon and begin a family of her own."
+    
+    ### PARAGRAPH
+    centered "I see the younger daughter sometimes and she's always carrying a doll with her."
+    centered "She cherishes it a lot, proudly saying that Nadeshiko gave her this Nicole doll."
+    centered "The two are practically inseparable."
+    centered "What a lucky little doll. So spoiled and well taken care of by a sweet child like Emi."
+
+    scene bg black strong at BackgroundScale
+    centered "It must be a very happy doll."
+
+    scene bg bad ending at BackgroundScale
+
     $ persistent.got_bad_ending = True
     jump game_end
 
