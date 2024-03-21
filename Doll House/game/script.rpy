@@ -18,7 +18,7 @@ screen malice_indicator:
     if MaliceIndicator:
         hbox:
             xalign 1.0
-            for i in range (0,TotalMalicePoints):   
+            for i in range (0, TotalMalicePoints):   
                 if i < malice:
                     add "gui/SuspicionMeterIcon_Fill.png" at transform: 
                         zoom 0.2
@@ -825,7 +825,9 @@ label attic:
             doll "I think the picture looks much better now that Nicole's out of it!"
 
             narrator "The doll took the end of the hairpin and dug it into young Nicole’s smiling face."
+            $ ChangeMalice(1)
             narrator "She dragged the sharp end with all her might over and over until there was a gaping hole where there was once Nicole’s face."
+            $ ChangeMalice(1)
 
             show doll angry at LeftPortrait
             doll "You're not wanted, Nicole."
