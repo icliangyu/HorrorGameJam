@@ -307,7 +307,7 @@ label bedroom:
 
     narrator "The young girl turned over the doll and her accompanying certificate in awe. The doll stayed still but her glassy eyes shone with happiness at being found and rescued from her place in the darkness."
 
-    scene black
+    scene bg black weak at BackgroundScale
     centered "Or perhaps the source of happiness stemmed from the child's radiant love for her despite only just having met. There wouldn't be any need for convincing Emi unlike with Nicole."
 
     scene bg bedroom at BackgroundScale
@@ -324,7 +324,7 @@ label kitchen:
     narrator "Propped up against a pencil case, Nadeshiko once again found herself being inspected by a set of curious brown eyes; however there was a stark difference between the two sisters."
     narrator "While Nicole's weary eyes held traces of age and suspicion, Emi's was filled to the brim with life and adoration."
     
-    scene black
+    scene bg black medium at BackgroundScale
     centered "The doll liked this a lot."
     scene bg kitchen blur at BackgroundScale
 
@@ -387,7 +387,7 @@ label kitchen:
 
             narrator "Emi's downcast face continued to glance between the doll and the page as she sketched. Even though the two had just met, Nadeshiko didn't like seeing Emi so sad."
 
-            scene black
+            scene bg black medium at BackgroundScale
             centered "So the doll decided to speak up."
             centered "I could be your big sister, Emi."
             centered "Then you wouldn't have to wear those ugly clothes anymore."
@@ -535,7 +535,7 @@ label kitchen:
 
             narrator "The older girl angrily gestured at the puddle of ramune being soaked up by the pages of Emi’s notebook, dyeing the drawings of the doll a bright red."
 
-            scene black
+            scene bg black medium at BackgroundScale
             centered "Nadeshiko sat in innocent stillness, and looked at the red pool with her painted smile and vacant eyes as though Nicole had been the one to bleed out the liquid."
             scene bg kitchen at BackgroundScale
             show nicole angry at RightPortrait
@@ -767,8 +767,9 @@ label attic:
         show doll surprised at LeftPortrait
         doll "Are these baby clothes?"
 
-        scene black
+        scene bg black weak at BackgroundScale
         centered "No."
+        scene bg black medium at BackgroundScale
         centered "They were not just baby clothes, they were boy clothes."
         
         scene bg attic at BackgroundScale
