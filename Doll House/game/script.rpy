@@ -77,7 +77,7 @@ label bedroom:
 
     narrator "On that day, darkness finally gave way to a blinding light that was almost immediately eclipsed by a scowling face."
 
-    ### SCENE BG BLURRED BEDROOM
+    scene bg bedroom blur at BackgroundScale
 
     show nicole surprised at LeftPortrait
     nicole "What?"
@@ -315,8 +315,7 @@ label bedroom:
     emi "Nadeshiko, huh? Let's go downstairs."
 
 label kitchen:
-    scene bg kitchen at BackgroundScale
-    ### SCENE BG BLURRED KITCHEN
+    scene bg kitchen blur at BackgroundScale
     narrator "With the doll in hand, the younger sister skipped down the steps and into the kitchen where she diligently sat at the dinner table everyday after school to do homework."
 
     show emi happy at LeftPortrait
@@ -327,7 +326,7 @@ label kitchen:
     
     scene black
     centered "The doll liked this a lot."
-    scene bg kitchen at BackgroundScale
+    scene bg kitchen blur at BackgroundScale
 
     show emi happy at LeftPortrait
     emi "Wow... you're even prettier up close."
@@ -395,7 +394,7 @@ label kitchen:
             centered "A sweet girl like you deserves to be dressed in frills and laces."
             centered "I can help."
 
-            scene bg kitchen at BackgroundScale
+            scene bg kitchen blur at BackgroundScale
             narrator "The young girl looked up from her work. Her eyes searched the doll's unmoving gaze for a moment before replying with a wide smile."
 
             show emi happy at LeftPortrait
@@ -590,11 +589,11 @@ label kitchen:
             narrator "The older girl stood in deep thought with what looked like a soft expression. Perhaps there were more surprising discoveries to be found within the house."
 
 label living_room:
-    ### SCENGE BG BLURRED LIVING ROOM
+    scene bg livingroom blur at BackgroundScale
     narrator "Emi squeezed the doll tightly in a wistful embrace before placing it between two cushions on the sofa. The young girl gave one last look before returning to the kitchen."
     scene black
     centered "The doll felt bad for Emi because she had to live with such a wretched person like Nicole."
-    scene bg livingroom at BackgroundScale
+    scene bg livingroom blur at BackgroundScale
     show doll sad at LeftPortrait
     doll "Poor Emi."
     show doll happy at LeftPortrait
@@ -707,7 +706,6 @@ label living_room:
     show doll angry at LeftPortrait
     doll "Especially Nicole."
     doll "That’s the only way if I am to stay here and become a part of this family."  
-    
 
     scene black
     show nicole neutral  at truecenter, PortraitDimensions
@@ -721,6 +719,7 @@ label living_room:
     hide mom
 
 label attic:
+    scene bg attic blur at BackgroundScale
     show doll neutral at LeftPortrait
     doll "The attic."
 
@@ -831,6 +830,7 @@ label attic:
             doll "It bothers me."
 
 label lead_up:
+    scene bg kitchen at BackgroundScale
     ### SFX MUFFLED THUMPING / FOOTSTEPS
 
     show nicole neutral at LeftPortrait
