@@ -9,16 +9,15 @@ default persistent.got_bad_ending = False
 default persistent.got_neutral_ending = False
 default persistent.got_good_ending = False
 
-define TotalMalicePoints = 7
+define TotalMalicePoints = 6
 define malice = 0
 
 default MaliceIndicator = True
 
-
-
 screen malice_indicator:
     if MaliceIndicator:
         hbox:
+            xalign 1.0
             for i in range (0,TotalMalicePoints):   
                 if i < malice:
                     add "gui/SuspicionMeterIcon_Fill.png" at transform: 
@@ -26,8 +25,6 @@ screen malice_indicator:
                 else:
                     add "gui/SuspicionMeterIcon_Empty.png" at transform: 
                         zoom 0.2
-        
-            
 
 # Adds a screen that may display the Malice of a character
 init python:
@@ -204,6 +201,7 @@ label bedroom:
         doll "Hmm... she's really bitter."
         show doll happy at LeftPortrait
         doll "But that's why I'm here to make things better!"
+        scene bg bedroom at BackgroundScale
         return
 
     label .bills_exposition:
@@ -228,6 +226,7 @@ label bedroom:
         doll "I'm here to stay."
 
         $ knows_owners_name = True
+        scene bg bedroom at BackgroundScale
         return
 
     label .dolls_exposition:
@@ -245,12 +244,15 @@ label bedroom:
         doll "All of the previous owners were similar to me."
         show doll happy at LeftPortrait
         doll "Well, nothing I can't fix."
+        scene bg bedroom at BackgroundScale
         return
     
     label .books_exposition:
         show doll surprised at LeftPortrait
         doll "There's a book here about a human girl with a doll's eye."
         doll "Interesting..."
+        scene bg bedroom at BackgroundScale
+        return 
 
     label .closet_exposition:
         narrator "To the doll's dismay, this was a pile of her owner's clothes."
@@ -265,6 +267,7 @@ label bedroom:
         show doll sad at LeftPortrait
         doll "This style really doesn't suit me at all but it's nothing that can't be changed."
         doll "Oh why... why are you dressing yourself up in such masculine clothes?"
+        scene bg bedroom at BackgroundScale
         return
 
     label .point_and_click:
@@ -274,12 +277,12 @@ label bedroom:
             BasePACTransform
         transform papers_transform: 
             BasePACTransform
-    init 1:
-        define BedroomPAC_POI = [
-            PointOfInterest("Closet", "bedroom.closet_exposition", PointOfInterestImageSet("images/environment/closet/Closet_Hover.png"), closet_transform),
-            PointOfInterest("Diary", "bedroom.diary_exposition", PointOfInterestImageSet("images/environment/diary/Diary_Hover.png"), diary_transform),
-            PointOfInterest("Papers", "bedroom.bills_exposition", PointOfInterestImageSet("images/environment/Papers/Papers_Hover.png"), papers_transform),
-            ]
+        init 1:
+            define BedroomPAC_POI = [
+                PointOfInterest("Closet", "bedroom.closet_exposition", PointOfInterestImageSet("images/environment/closet/Closet"), BackgroundScale),
+                PointOfInterest("Diary", "bedroom.diary_exposition", PointOfInterestImageSet("images/environment/diary/Diary"), BackgroundScale),
+                PointOfInterest("Papers", "bedroom.bills_exposition", PointOfInterestImageSet("images/environment/Papers/Papers"), BackgroundScale),
+                ]
     scene bg bedroom at BackgroundScale
     call screen point_and_click_screen(BedroomPAC_POI)
 
@@ -460,6 +463,7 @@ label kitchen:
         doll "I wonder how they get the marble inside... do people break the bottle to collect them?"
         show doll happy at LeftPortrait
         doll "The shape makes drinking it impractical but nothing a straw won’t fix. Then again, maybe that why children love it."
+        scene bg kitchen at BackgroundScale
         return
 
     label .homework_exposition:
@@ -470,6 +474,7 @@ label kitchen:
         doll "I’m surprised she managed to capture so much detail so quickly."
         show doll happy at LeftPortrait
         doll "What a talented child."
+        scene bg kitchen at BackgroundScale
         return
 
     label .rice_cooker_exposition:
@@ -477,6 +482,7 @@ label kitchen:
         doll "Is that a rice cooker?"
         doll "This one looks a lot more modern than the one at the previous house."
         doll "It doesn’t look like it’s on so there mustn't be any rice inside."
+        scene bg kitchen at BackgroundScale
         return
 
     label .wok_exposition:
@@ -484,11 +490,13 @@ label kitchen:
         doll "A classic wok. Great for making fried rice!"
         show doll surprised at LeftPortrait
         doll "I wonder if Emi knows how to make fried rice."
+        scene bg kitchen at BackgroundScale
         return
 
     label .fridge_exposition:
         show doll neutral at LeftPortrait
         doll "There won't be anything useful in there until Mother comes back."
+        scene bg kitchen at BackgroundScale
         return
 
     label .soysauce_exposition:
@@ -497,16 +505,16 @@ label kitchen:
         doll "Don't people believe that salt can ward off evil spirits?"
         show doll angry at LeftPortrait
         doll "Good thing there's no evil spirits here."
+        scene bg kitchen at BackgroundScale
         return
 
     label .point_and_click:
         init 1:
             define KitchenPAC_POI = [
-                PointOfInterest("Ramune", "kitchen.ramune_exposition", PointOfInterestImageSet("images/environment/closet/Closet_Hover.png"), BackgroundScale),
-                PointOfInterest("Homework", "kitchen.homework_exposition", PointOfInterestImageSet("images/environment/diary/Diary_Hover.png"), BackgroundScale),
-                PointOfInterest("Rice Cooker", "kitchen.rice_cooker_exposition", PointOfInterestImageSet("images/environment/papers/Papers_Hover.png"), BackgroundScale),
+                PointOfInterest("Ramune", "kitchen.ramune_exposition", PointOfInterestImageSet("images/environment/ramune drink/RamuneDrink"), BackgroundScale),
+                PointOfInterest("Homework", "kitchen.homework_exposition", PointOfInterestImageSet("images/environment/binder/Binder"), BackgroundScale),
+                PointOfInterest("Rice Cooker", "kitchen.wok_exposition", PointOfInterestImageSet("images/environment/wok/Wok"), BackgroundScale),
             ]
-    scene bg kitchen at BackgroundScale
     call screen point_and_click_screen(KitchenPAC_POI)
 
     narrator "As Nadeshiko was taking in her surroundings, she heard the faint sound of footsteps."
@@ -635,6 +643,7 @@ label living_room:
         doll "It's funny how a lot of people don't believe in good luck are quick to fear and attribute their misfortunes to bad luck."
         show doll happy at LeftPortrait
         doll "In this family's case, they can just blame Nicole hehe!"
+        scene bg livingroom at BackgroundScale
         return
 
     label .altar_exposition: 
@@ -644,6 +653,7 @@ label living_room:
         doll "In fact, there aren't any photos in the living room at all."
         show doll angry at LeftPortrait
         doll "Then again, who would want photos of Nicole."
+        scene bg livingroom at BackgroundScale
         return
 
     label .guan_yin_exposition:
@@ -681,6 +691,7 @@ label living_room:
                 doll "I’ll just leave it alone..."
                 show doll angry at LeftPortrait
                 doll "For now."
+        scene bg livingroom at BackgroundScale
         return            
 
     label .sofa_exposition:
@@ -688,16 +699,16 @@ label living_room:
         doll "I'm getting rid of that thing as soon as possible."
         show doll happy at LeftPortrait
         doll "But not as soon as Nicole." 
+        scene bg livingroom at BackgroundScale
         return
 
     label .point_and_click:
         init 1:
             define living_roomPAC_POI = [
-                PointOfInterest("Plants", "living_room.plants_exposition", PointOfInterestImageSet("images/environment/plant/Plant_Hover.png"), BackgroundScale),
-                PointOfInterest("Incense",  "living_room.altar_exposition", PointOfInterestImageSet("images/environment/incense/Incense_Hover.png"), BackgroundScale),
-                PointOfInterest("Guan Yin", "living_room.guan_yin_exposition", PointOfInterestImageSet("images/environment/guan yin/GuanYin_Hover.png"), BackgroundScale),
+                PointOfInterest("Plants", "living_room.plants_exposition", PointOfInterestImageSet("images/environment/plant/Plant"), BackgroundScale),
+                PointOfInterest("Incense",  "living_room.altar_exposition", PointOfInterestImageSet("images/environment/incense/Incense"), BackgroundScale),
+                PointOfInterest("Guan Yin", "living_room.guan_yin_exposition", PointOfInterestImageSet("images/environment/guan yin/GuanYin"), BackgroundScale),
             ]
-        scene bg livingroom at BackgroundScale
         call screen point_and_click_screen(living_roomPAC_POI)  
 
     show doll neutral at LeftPortrait
@@ -746,6 +757,7 @@ label attic:
         show doll surprised at LeftPortrait
         doll "This is amazing."
         doll "Who would have thought that Nicole was quite the cute child in her early years."
+        scene bg attic at BackgroundScale
         return
 
     label .hair_pin_exposition:
@@ -757,6 +769,7 @@ label attic:
         doll "I can’t imagine Nicole ever wearing something as beautiful as this, however I do think it’d suit me."
         show doll happy at LeftPortrait
         doll "I hope mother gifts me something one day."
+        scene bg attic at BackgroundScale
         return
 
     label .clothing_trunk_exposition:
@@ -786,17 +799,17 @@ label attic:
         doll "How sad... is that why Nicole wears such boyish clothes?"
         show doll angry at LeftPortrait
         doll "I can help make it better."
+        scene bg attic at BackgroundScale
         return
 
     label .point_and_click:
         init 1:
             define atticPAC_POI = [
-                PointOfInterest("Photos", "attic.photos_exposition", PointOfInterestImageSet("images/environment/photos/Photos_Hover.png"), BackgroundScale),
-                PointOfInterest("HairPin",  "attic.hair_pin_exposition", PointOfInterestImageSet("images/environment/hairpin/HairPin_Hover.png"), BackgroundScale),
-                PointOfInterest("ClothingTrunk", "attic.clothing_trunk_exposition", PointOfInterestImageSet("images/environment/clothingtrunk/ClothingTrunk_Hover.png"), BackgroundScale),
+                PointOfInterest("Photos", "attic.photos_exposition", PointOfInterestImageSet("images/environment/photos/Photos"), BackgroundScale),
+                PointOfInterest("HairPin",  "attic.hair_pin_exposition", PointOfInterestImageSet("images/environment/hairpin/HairPin"), BackgroundScale),
+                PointOfInterest("ClothingTrunk", "attic.clothing_trunk_exposition", PointOfInterestImageSet("images/environment/clothingtrunk/ClothingTrunk"), BackgroundScale),
             ]
-    scene bg attic at BackgroundScale
-    call screen point_and_click_screen(atticPAC_POI)
+        call screen point_and_click_screen(atticPAC_POI)
 
     narrator "Once Nadeshiko was content with what she had discovered there was only one thing left to do."
 
@@ -832,7 +845,7 @@ label attic:
 
 label lead_up:
     scene bg kitchen at BackgroundScale
-    ### SFX MUFFLED THUMPING / FOOTSTEPS
+    play sound audio.AtticFootsteps volume 0.125
 
     show nicole neutral at LeftPortrait
     show emi sad at RightPortrait
@@ -841,18 +854,18 @@ label lead_up:
     show nicole neutral at LeftPortrait
     nicole "Hear what?"
 
-    ### SFX MUFFLED THUMPING / FOOTSTEPS
+    play sound audio.AtticFootsteps volume 0.25
 
     show emi neutral at RightPortrait
     emi "Nick, listen! Someone's up in the attic."
 
-    ### SFX MUFFLED THUMPING / FOOTSTEPS
+    play sound audio.AtticFootsteps volume 0.5
 
     show nicole angry at LeftPortrait
     nicole "No there isn-"
     show nicole fear at RightPortrait
 
-    ### SFX MUFFLED THUMPING / FOOTSTEPS LOUDER
+    play sound audio.AtticFootsteps volume 1.0
 
     show emi sad at RightPortrait
     emi "See!"
@@ -874,10 +887,6 @@ label lead_up:
 label bad_ending:
     ### PLACING THIS HERE FOR NOW FEEL FREE TO REORGANIZE
     init: 
-        image bg nicole fear cut in.jpg
-        image bg nicole fear cut in void.jpg
-        image bg nicole fear cut in blood.jpg
-
         $ flash = Fade(.1, 0, .5, color="#fff")
 
     centered "Unfortunately for Nicole, it wasn't an animal."
@@ -1148,16 +1157,16 @@ label bad_ending:
 
     scene bg black weak at BackgroundScale
     centered "..."
-    scene bg nicole fear cut in at BackgroundScale
+    scene bg_nicole at BackgroundScale
     with flash
     centered ".."
     scene bg black medium at BackgroundScale
     centered "."
     scene bg black strong at BackgroundScale
     centered "Nicole is so dumb, mother isn't looking for the perfect son, she wants the perfect daughter. Something you could never be. I'm so glad you also agree with me."
-    scene bg nicole fear cut in void at BackgroundScale
+    scene bg_nicole void at BackgroundScale
     with flash
-    scene bg nicole fear cut in blood at BackgroundScale
+    scene bg_nicole blood at BackgroundScale
     with flash
 
     scene black
