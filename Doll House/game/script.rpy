@@ -892,18 +892,15 @@ label lead_up:
     show nicole neutral at LeftPortrait
     nicole "It might just be an animal or something."
 
-    if malice == 5:
+    if malice == TotalMalicePoints:
         jump bad_ending
     elif malice == 0:
         jump good_ending
     else:
         jump neutral_ending
+        
 
 label bad_ending:
-    ### PLACING THIS HERE FOR NOW FEEL FREE TO REORGANIZE
-    init: 
-        $ flash = Fade(.1, 0, .5, color="#fff")
-
     centered "Unfortunately for Nicole, it wasn't an animal."
     centered "Upon arriving up the attic, the older girl was confronted with various items that were interpreted in such a way that would anger her into an inconsolable frenzy."
     centered "Afterall, people have crafty minds that can weave intricate stories based on what they solely see. For Nicole, this was just one of multiple conclusions that she arrived at due to the many grievances that she's incurred."
@@ -947,7 +944,7 @@ label bad_ending:
     show nicole sad at LeftPortrait
     nicole "Is this why everybody hates me?"
 
-    show nicole angrily at LeftPortrait
+    show nicole angry at LeftPortrait
     nicole "Is this why you all treat me like shit?!"
     nicole "Because I'm not the son you wanted?"
 
@@ -1080,7 +1077,7 @@ label bad_ending:
     show mom neutral at RightPortrait
     mom "............"
 
-    show nicole neutral at LeftPortait
+    show nicole neutral at LeftPortrait
     nicole "Are you going to explain or just continue to lie?"
 
     show mom neutral at RightPortrait
@@ -1146,7 +1143,7 @@ label bad_ending:
     nicole "Look at her, she was the picture perfect bride. She looks so happy here."
     show nicole neutral at LeftPortrait
     nicole "I can't remember the last time she smiled."
-    show nicole surprised at leftPortrait
+    show nicole surprised at LeftPortrait
     nicole "I wonder if mom wanted me to wear this hairpin at my own wedding one day."
     show nicole sad at LeftPortrait
     nicole "Not like that day will ever come, heh..."
@@ -1157,7 +1154,7 @@ label bad_ending:
     nicole "I wish... I wish they would stop demanding so much from me!"
     nicole "It doesn't even feel like I'm living a life anymore! It's always about everyone but me!"
     show nicole sad at LeftPortrait
-    niciole "I wish I didn't have to be responsible for everything. I never asked to be the oldest, I want to be loved and held too..."
+    nicole "I wish I didn't have to be responsible for everything. I never asked to be the oldest, I want to be loved and held too..."
 
     show nicole angry at LeftPortrait
     nicole "*Scoff* Emi..."
@@ -1170,42 +1167,59 @@ label bad_ending:
     show nicole sad at LeftPortrait
     nicole "If only it was the other way around... then I wouldn't have to worry about anything."
 
+    ### PLACING THIS HERE FOR NOW FEEL FREE TO REORGANIZE
+    init: 
+        $ flash = Fade(.1, 0.1, .3, color="#fff")
+        $ horror_reveal_flash = MultipleTransition()
+
+    $ quick_menu = False
+    $ MaliceIndicatorBeforeScene = MaliceIndicator
+    $ MaliceIndicator = False
+    hide screen malice_indicator
     scene bg black weak at BackgroundScale
     centered "..."
-    scene bg_nicole at BackgroundScale
+    scene bg_nicole_blank at BackgroundScale
     with flash
     centered ".."
     scene bg black medium at BackgroundScale
     centered "."
     scene bg black strong at BackgroundScale
     centered "Nicole is so dumb, mother isn't looking for the perfect son, she wants the perfect daughter. Something you could never be. I'm so glad you also agree with me."
-    scene bg_nicole void at BackgroundScale
+    scene bg_nicole_void at BackgroundScale
     with flash
-    scene bg_nicole blood at BackgroundScale
+    with Pause(1.0)
+    scene bg_nicole_blood at BackgroundScale
     with flash
+    with Pause(1.0)
 
     scene black
+    $ PlayerCanDismiss = False
+    with Fade(1.8,0.1,0.1)
     ### THESE TO APPEAR BENEATH EACH OTHER AS PARAGRAPH
-    centered "Then again..."
-    centered "In ancient times dolls were also used as sacrificial stand-ins."
-    centered "And as a human-like vessel they have always been quite ideal for wandering entities."
+    centered "{cps=20}Then again...{w=1.0}\
+\nIn ancient times dolls were also used as sacrificial stand-ins.{w=2.0}\
+\nAnd as a human-like vessel they have always been quite ideal for wandering entities.{nw=2.0}"
     
     ### PARAGRAPH APPEARING SENTENCE BY SENTENCE BY EACH STAY ON SCREEN
-    centered "But it seems like this entity isn't wandering anymore because she's found a home."
-    centered "I hear whispers about the family, and the mother couldn't be prouder of her eldest daughter, Nadeshiko."
-    centered "Word has it that she's going to marry mother's mutual friend's son soon and begin a family of her own."
+    centered "{cps=20}But it seems like this entity isn't wandering anymore because she's found a home.{w=2.0}\
+\nI hear whispers about the family, and the mother couldn't be prouder of her eldest daughter, Nadeshiko.{w=2.0}\
+\nWord has it that she's going to marry mother's mutual friend's son soon and begin a family of her own.{nw=2.0}"
     
     ### PARAGRAPH
-    centered "I see the younger daughter sometimes and she's always carrying a doll with her."
-    centered "She cherishes it a lot, proudly saying that Nadeshiko gave her this Nicole doll."
-    centered "The two are practically inseparable."
-    centered "What a lucky little doll. So spoiled and well taken care of by a sweet child like Emi."
+    centered "{cps=20}I see the younger daughter sometimes and she's always carrying a doll with her.{w=2.0}\
+\nShe cherishes it a lot, proudly saying that Nadeshiko gave her this Nicole doll.{w=2.0}\
+\nThe two are practically inseparable.{w=2.0}\
+\nWhat a lucky little doll. So spoiled and well taken care of by a sweet child like Emi.{nw=2.0}"
 
     scene bg black strong at BackgroundScale
-    centered "It must be a very happy doll."
+    centered "{cps=0.0}It must be a very happy doll.{nw=1.50}"
 
-    scene bg bad ending at BackgroundScale
+    scene bg bad_ending at BackgroundScale
+    with Fade(1.0,1.5,1.5, color="#000")
+    centered ""
 
+    $ quick_menu = True
+    $ MaliceIndicator = MaliceIndicatorBeforeScene
     $ persistent.got_bad_ending = True
     jump game_end
 

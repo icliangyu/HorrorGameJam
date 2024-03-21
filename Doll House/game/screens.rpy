@@ -291,7 +291,16 @@ style quick_button_text:
 ##
 ## This screen is included in the main and game menus, and provides navigation
 ## to other menus, and to start the game.
+
+init -2:
+    default PlayerCanDismiss = True
+    
 init -1 python:
+    def allow_dismiss():
+        return PlayerCanDismiss
+
+    config.say_allow_dismiss = allow_dismiss
+
     def MenuColorize(s):
         return Transform(s, matrixcolor = TintMatrix(gui.hover_color))
     config.displayable_prefix["hovered"] = MenuColorize
