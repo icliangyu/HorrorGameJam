@@ -36,15 +36,10 @@ screen point_and_click_screen(PointsOfInterest):
     zorder -1
     for pointOfInterest in PointsOfInterest:
         use point_of_interest_screen(pointOfInterest)
-    vbox:
-        textbutton ("\u00d8" if HighContrast else "O"):
-            action [ToggleVariable("HighContrast"),
-                    SetVariable("AccessibilityTransform", (HighContrastTransform if not HighContrast else NormalContrastTransform)) # !HighContrast because it hasn't been set yet
-            ]
-        if False and persistent.completed_playthrough or sum(pointOfInterest.seen == True for pointOfInterest in PointsOfInterest) == len(PointsOfInterest):
-            frame at MakeTransformFromPicker((0,0,300,100)):
-                textbutton "continue":
-                    action Return()
+    if False and persistent.completed_playthrough or sum(pointOfInterest.seen == True for pointOfInterest in PointsOfInterest) == len(PointsOfInterest):
+        frame at MakeTransformFromPicker((0,0,300,100)):
+            textbutton "continue":
+                action Return()
 
 screen point_of_interest_screen(PointOfInterest):
     imagebutton at PointOfInterest.transformation, GetAccessibilityTransform():
@@ -52,6 +47,7 @@ screen point_of_interest_screen(PointOfInterest):
         hover PointOfInterest.image_set.hover_image
         selected_idle PointOfInterest.image_set.idle_image
         selected_hover PointOfInterest.image_set.idle_image
+        hovered Play("sound", audio.InteractableHover)
         focus_mask True
         if(PointOfInterest.active):
             action[ 

@@ -8,7 +8,7 @@ define audio.Save = "audio/ui/Save.flac"
 
 define audio.BoxOpeningTheme = "audio/gameplay/Fur_Elise_Opening.wav"
 define audio.ScreenPanning = "audio/gameplay/Directional_Button.flac"
-define audio.InteractableHover = "audio/gameplay/Item Hover Finale.flac"
+define audio.InteractableHover = "audio/gameplay/Item Hover Finale.wav"
 define audio.ObtainedItem = "audio/gameplay/Item_Obtained.flac"
 define audio.ItemUnusable = "audio/gameplay/Item_Unusable.flac"
 define audio.MaliceIncrease = "audio/gameplay/Malice Point Finale.wav"

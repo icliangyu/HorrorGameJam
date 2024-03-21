@@ -921,7 +921,7 @@ label bad_ending:
     nicole "Mom."
 
     show nicole neutral at LeftPortrait
-    show emi neutralr at RightPortrait
+    show emi neutral at RightPortrait
     nicole "And Emi..."
 
     show nicole angry at LeftPortrait
