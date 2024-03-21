@@ -207,7 +207,7 @@ define gui.navigation_button_width = 250
 ##
 ## Choice buttons are used in the in-game menus.
 
-define gui.choice_button_width = 300
+define gui.choice_button_width = 600
 define gui.choice_button_height = 100
 define gui.choice_button_tile = False
 define gui.choice_button_borders = Borders(0, 0, 0, 0)
