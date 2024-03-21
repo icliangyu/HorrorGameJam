@@ -6,6 +6,8 @@ image mom = "images/Characters/mom/mom "
 image emi = "images/Characters/emi/emi "
 image bg = "images/Backgrounds/bg "
 
+init: 
+    image bg_nicole = "nicole fear cut in"
 
 init:
     transform PortraitDimensions:

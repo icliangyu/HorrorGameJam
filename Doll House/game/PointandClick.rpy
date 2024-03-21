@@ -9,11 +9,9 @@ init:
 
 init python:
     class PointOfInterestImageSet:
-        def __init__(self, base_image: str, hover_image: str = "", selected_idle_image: str = "", selected_hover_image: str = ""):
-            self.base_image = base_image
-            self.hover_image = hover_image if hover_image != "" else base_image
-            self.selected_idle_image = selected_idle_image if selected_idle_image != "" else base_image
-            self.selected_idle_image = selected_hover_image if selected_hover_image != "" else base_image
+        def __init__(self, base_image: str):
+            self.idle_image = base_image+"_Idle.png"
+            self.hover_image = base_image+"_Hover.png"
 
     class PointOfInterest:
         def __init__(self, name: str, exposition_label: str, image_set: store.PointOfInterestImageSet, transformation):
@@ -35,6 +33,7 @@ init python:
     #PointOfInterest = namedtuple('PointOfInterest', ['name', 'exposition_label', 'image_set', 'transformation', 'active'])
 
 screen point_and_click_screen(PointsOfInterest):
+    zorder -1
     for pointOfInterest in PointsOfInterest:
         use point_of_interest_screen(pointOfInterest)
     vbox:
@@ -42,17 +41,17 @@ screen point_and_click_screen(PointsOfInterest):
             action [ToggleVariable("HighContrast"),
                     SetVariable("AccessibilityTransform", (HighContrastTransform if not HighContrast else NormalContrastTransform)) # !HighContrast because it hasn't been set yet
             ]
-        if persistent.completed_playthrough or sum(pointOfInterest.seen == True for pointOfInterest in PointsOfInterest) == len(PointsOfInterest):
+        if False and persistent.completed_playthrough or sum(pointOfInterest.seen == True for pointOfInterest in PointsOfInterest) == len(PointsOfInterest):
             frame at MakeTransformFromPicker((0,0,300,100)):
                 textbutton "continue":
                     action Return()
 
 screen point_of_interest_screen(PointOfInterest):
     imagebutton at PointOfInterest.transformation, GetAccessibilityTransform():
-        idle PointOfInterest.image_set.base_image
-        hover PointOfInterest.image_set.base_image
-        selected_idle PointOfInterest.image_set.base_image
-        selected_hover PointOfInterest.image_set.base_image
+        idle PointOfInterest.image_set.idle_image
+        hover PointOfInterest.image_set.hover_image
+        selected_idle PointOfInterest.image_set.idle_image
+        selected_hover PointOfInterest.image_set.idle_image
         focus_mask True
         if(PointOfInterest.active):
             action[ 
