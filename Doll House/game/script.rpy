@@ -17,7 +17,10 @@ default MaliceIndicator = True
 screen malice_indicator:
     if MaliceIndicator:
         hbox:
-            xalign 1.0
+            spacing 9
+            xalign 0.9875
+            yalign 0.0125
+            box_reverse True
             for i in range (0, TotalMalicePoints):   
                 if i < malice:
                     add "gui/SuspicionMeterIcon_Fill.png" at transform: 
@@ -26,10 +29,14 @@ screen malice_indicator:
                     add "gui/SuspicionMeterIcon_Empty.png" at transform: 
                         zoom 0.2
 
-# Adds a screen that may display the Malice of a character
+# Adds a screen that displays the Malice of a character
 init python:
     config.overlay_screens.append("malice_indicator")
 ###
+
+init python:
+    def doll_creepy_stuff(st, at):
+        (st)
 
 define nicole = Character("\"Nicole\" if knows_owners_name else \"The Owner\"", dynamic=True)
 define doll = Character("Nadeshiko")
@@ -718,16 +725,22 @@ label living_room:
     doll "Especially Nicole."
     doll "That’s the only way if I am to stay here and become a part of this family."  
 
+    $ quick_menu = False
     scene black
-    show nicole neutral  at truecenter, PortraitDimensions
+    show nicole neutral  at center, PortraitDimensions 
+    with fade
     centered "Nicole was simple enough."
-    show emi neutral
+    hide nicole
+    show emi neutral  at center, PortraitDimensions
+    with fade
     centered "Emi was quite the surprise."
     hide emi
     centered "But there was one last person whose secrets I needed to uncover."
-    show mom neutral at truecenter, PortraitDimensions
+    show mom neutral at center, PortraitDimensions
+    with fade
     centered "Mother."
     hide mom
+    $ quick_menu = True
 
 label attic:
     scene bg attic blur at BackgroundScale
