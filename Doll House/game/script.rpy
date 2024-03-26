@@ -54,7 +54,7 @@ init 0:
     define knows_owners_name = False
 
 label start:
-    scene bg black at Background Scale
+    scene bg narration at Background Scale
 
     play music BoxOpeningTheme loop
 
@@ -191,7 +191,7 @@ label bedroom:
 
         narrator "It was rather uncouth to look through a person's diary but curiosity got the better of Nadeshiko and she immediately found herself poring over the scratchy writing, trying to absorb any and all information that it could give on the owner."
 
-        scene bg black at BackgroundScale
+        scene bg narration at BackgroundScale
         play music Diary loop
 
         centered "Mom tried to set me up with one of her friend's sons— again." 
@@ -919,7 +919,7 @@ label lead_up:
 
 label bad_ending:
     play music AtticRealization loop
-    scene bg black at BackgroundScale
+    scene bg narration at BackgroundScale
     centered "Unfortunately for Nicole, it wasn't an animal."
     centered "Upon arriving up the attic, the older girl was confronted with various items that were interpreted in such a way that would anger her into an inconsolable frenzy."
     centered "Afterall, people have crafty minds that can weave intricate stories based on what they solely see. For Nicole, this was just one of multiple conclusions that she arrived at due to the many grievances that she's incurred."
@@ -1211,7 +1211,7 @@ label bad_ending:
     with flash
     with Pause(1.0)
 
-    scene bg black at BackgroundScale
+    scene bg narration at BackgroundScale
     $ PlayerCanDismiss = False
     with Fade(1.8,0.1,0.1)
     ### THESE TO APPEAR BENEATH EACH OTHER AS PARAGRAPH
