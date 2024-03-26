@@ -55,7 +55,9 @@ init 0:
 
 label start:
     scene bg black at Background Scale
+
     play music BoxOpeningTheme loop
+
     centered "For centuries dolls have been common household items beloved by children."
     centered "But recently they have started to become a popular collector's item."
     centered "They are adored by many for their perfect features and ornate clothes." 
@@ -157,7 +159,7 @@ label bedroom:
     nicole "Under the bed should do for now."
 
     ### SFX FOOTSTEPS RECEDING
-    ### SFX DOOR CLOSING
+    play sound audio.DoorOpen
 
     narrator "And so the doll joined the boxes in the darkness of the underside of the bed. The world of light she so desperately sought came to a quick end." 
 
@@ -190,6 +192,8 @@ label bedroom:
         narrator "It was rather uncouth to look through a person's diary but curiosity got the better of Nadeshiko and she immediately found herself poring over the scratchy writing, trying to absorb any and all information that it could give on the owner."
 
         scene bg black at BackgroundScale
+        play music Diary loop
+
         centered "Mom tried to set me up with one of her friend's sons— again." 
         centered "How many times have I told her I'm not interested?"
         centered "Probably a thousand."
