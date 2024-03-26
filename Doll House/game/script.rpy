@@ -54,9 +54,8 @@ init 0:
     define knows_owners_name = False
 
 label start:
-    scene bg black at Background Scale
-
     play music BoxOpeningTheme loop
+    scene bg narrative at BackgroundScale
 
     centered "For centuries dolls have been common household items beloved by children."
     centered "But recently they have started to become a popular collector's item."
@@ -191,7 +190,7 @@ label bedroom:
 
         narrator "It was rather uncouth to look through a person's diary but curiosity got the better of Nadeshiko and she immediately found herself poring over the scratchy writing, trying to absorb any and all information that it could give on the owner."
 
-        scene bg black at BackgroundScale
+        scene bg narrative at BackgroundScale
         play music Diary loop
 
         centered "Mom tried to set me up with one of her friend's sons— again." 
@@ -295,6 +294,7 @@ label bedroom:
                 PointOfInterest("Papers", "bedroom.bills_exposition", PointOfInterestImageSet("images/environment/Papers/Papers"), BackgroundScale),
                 ]
     scene bg bedroom at BackgroundScale
+    queue music audio.RoomThemeBedroom fadein 4.5
     call screen point_and_click_screen(BedroomPAC_POI)
 
     ### THIS IS HERE IN CASE THE PLAYER SKIPS THE POINT AND CLICK
@@ -331,6 +331,7 @@ label bedroom:
     emi "Nadeshiko, huh? Let's go downstairs."
 
 label kitchen:
+    stop music fadeout 3.0
     scene bg kitchen blur at BackgroundScale
     narrator "With the doll in hand, the younger sister skipped down the steps and into the kitchen where she diligently sat at the dinner table everyday after school to do homework."
 
@@ -533,7 +534,8 @@ label kitchen:
                 PointOfInterest("Homework", "kitchen.homework_exposition", PointOfInterestImageSet("images/environment/binder/Binder"), BackgroundScale),
                 PointOfInterest("Rice Cooker", "kitchen.wok_exposition", PointOfInterestImageSet("images/environment/wok/Wok"), BackgroundScale),
             ]
-    call screen point_and_click_screen(KitchenPAC_POI)
+        play music audio.RoomThemeKitchen fadein 4.5
+        call screen point_and_click_screen(KitchenPAC_POI)
 
     narrator "As Nadeshiko was taking in her surroundings, she heard the faint sound of footsteps."
 
@@ -617,6 +619,7 @@ label kitchen:
             narrator "The older girl stood in deep thought with what looked like a soft expression. Perhaps there were more surprising discoveries to be found within the house."
 
 label living_room:
+    stop music fadeout 3.0
     scene bg livingroom blur at BackgroundScale
     narrator "Emi squeezed the doll tightly in a wistful embrace before placing it between two cushions on the sofa. The young girl gave one last look before returning to the kitchen."
     
@@ -732,6 +735,7 @@ label living_room:
                 PointOfInterest("Incense",  "living_room.altar_exposition", PointOfInterestImageSet("images/environment/incense/Incense"), BackgroundScale),
                 PointOfInterest("Guan Yin", "living_room.guan_yin_exposition", PointOfInterestImageSet("images/environment/guan yin/GuanYin"), BackgroundScale),
             ]
+        play music audio.RoomThemeLivingRoom fadein 4.5
         call screen point_and_click_screen(living_roomPAC_POI)  
 
     show doll neutral at LeftPortrait
@@ -759,6 +763,7 @@ label living_room:
     $ quick_menu = True
 
 label attic:
+    stop music fadeout 3.0
     scene bg attic blur at BackgroundScale
     show doll neutral at LeftPortrait
     doll "The attic."
@@ -839,6 +844,7 @@ label attic:
                 PointOfInterest("HairPin",  "attic.hair_pin_exposition", PointOfInterestImageSet("images/environment/hairpin/HairPin"), BackgroundScale),
                 PointOfInterest("ClothingTrunk", "attic.clothing_trunk_exposition", PointOfInterestImageSet("images/environment/clothingtrunk/ClothingTrunk"), BackgroundScale),
             ]
+        play music audio.RoomThemeAttic fadein 4.5
         call screen point_and_click_screen(atticPAC_POI)
 
     narrator "Once Nadeshiko was content with what she had discovered there was only one thing left to do."
@@ -919,7 +925,7 @@ label lead_up:
 
 label bad_ending:
     play music AtticRealization loop
-    scene bg black at BackgroundScale
+    scene bg narrative at BackgroundScale
     centered "Unfortunately for Nicole, it wasn't an animal."
     centered "Upon arriving up the attic, the older girl was confronted with various items that were interpreted in such a way that would anger her into an inconsolable frenzy."
     centered "Afterall, people have crafty minds that can weave intricate stories based on what they solely see. For Nicole, this was just one of multiple conclusions that she arrived at due to the many grievances that she's incurred."
@@ -1211,7 +1217,7 @@ label bad_ending:
     with flash
     with Pause(1.0)
 
-    scene bg black at BackgroundScale
+    scene bg narrative at BackgroundScale
     $ PlayerCanDismiss = False
     with Fade(1.8,0.1,0.1)
     ### THESE TO APPEAR BENEATH EACH OTHER AS PARAGRAPH
