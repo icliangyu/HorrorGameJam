@@ -322,6 +322,7 @@ label bedroom:
 
     narrator "The young girl turned over the doll and her accompanying certificate in awe. The doll stayed still but her glassy eyes shone with happiness at being found and rescued from her place in the darkness."
 
+    ### PLAYER CAN'T DISMISS THIS LINE
     scene bg black weak at BackgroundScale
     centered "Or perhaps the source of happiness stemmed from the child's radiant love for her despite only just having met. There wouldn't be any need for convincing Emi unlike with Nicole."
 
@@ -338,9 +339,11 @@ label kitchen:
 
     narrator "Propped up against a pencil case, Nadeshiko once again found herself being inspected by a set of curious brown eyes; however there was a stark difference between the two sisters."
     narrator "While Nicole's weary eyes held traces of age and suspicion, Emi's was filled to the brim with life and adoration."
-    
+
+    ### PLAYER CAN'T DISMISS THIS LINE
     scene bg black medium at BackgroundScale
     centered "The doll liked this a lot."
+
     scene bg kitchen blur at BackgroundScale
 
     show emi happy at LeftPortrait
@@ -403,8 +406,10 @@ label kitchen:
 
             narrator "Emi's downcast face continued to glance between the doll and the page as she sketched. Even though the two had just met, Nadeshiko didn't like seeing Emi so sad."
 
+            ### PLAYER CAN'T DISMISS THIS LINE
             scene bg black medium at BackgroundScale
             centered "So the doll decided to speak up."
+
             centered "I could be your big sister, Emi."
             centered "Then you wouldn't have to wear those ugly clothes anymore."
             centered "A sweet girl like you deserves to be dressed in frills and laces."
@@ -556,8 +561,10 @@ label kitchen:
 
             narrator "The older girl angrily gestured at the puddle of ramune being soaked up by the pages of Emi’s notebook, dyeing the drawings of the doll a bright red."
 
+            ### PLAYER CAN'T DISMISS THIS LINE
             scene bg black medium at BackgroundScale
             centered "Nadeshiko sat in innocent stillness, and looked at the red pool with her painted smile and vacant eyes as though Nicole had been the one to bleed out the liquid."
+           
             scene bg kitchen at BackgroundScale
             show nicole angry at RightPortrait
             nicole "Next time clean up your mess!"
@@ -612,8 +619,11 @@ label kitchen:
 label living_room:
     scene bg livingroom blur at BackgroundScale
     narrator "Emi squeezed the doll tightly in a wistful embrace before placing it between two cushions on the sofa. The young girl gave one last look before returning to the kitchen."
+    
+    ### PLAYER CAN'T DISMISS THIS LINE
     scene bg black medium at BackgroundScale
     centered "The doll felt bad for Emi because she had to live with such a wretched person like Nicole."
+    
     scene bg livingroom blur at BackgroundScale
     show doll sad at LeftPortrait
     doll "Poor Emi."
@@ -799,6 +809,7 @@ label attic:
         show doll surprised at LeftPortrait
         doll "Are these baby clothes?"
 
+        ### PLAYERS CANNOT DISMISS THESE 2 LINES
         scene bg black weak at BackgroundScale
         centered "No."
         scene bg black medium at BackgroundScale
@@ -1185,12 +1196,12 @@ label bad_ending:
     $ MaliceIndicator = False
     hide screen malice_indicator
     scene bg black weak at BackgroundScale
-    centered "..."
+    centered "..............................."
     scene bg_nicole_blank at BackgroundScale
     with flash
-    centered ".."
+    centered "......................."
     scene bg black medium at BackgroundScale
-    centered "."
+    centered "..............."
     scene bg black strong at BackgroundScale
     centered "Nicole is so dumb, mother isn't looking for the perfect son, she wants the perfect daughter. Something you could never be. I'm so glad you also agree with me."
     scene bg_nicole_void at BackgroundScale
