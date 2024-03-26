@@ -686,7 +686,7 @@ label living_room:
                 show doll neutral at LeftPortrait
                 doll "Since Nicole hates it so much when Mother spends so much of her time here then I’ll fix it."
 
-                ### SFX crash
+                play sound audio.Break
 
                 show doll happy at LeftPortrait
                 doll "There! All better."
