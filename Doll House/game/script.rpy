@@ -54,7 +54,7 @@ init 0:
     define knows_owners_name = False
 
 label start:
-    scene black
+    scene bg black at Background Scale
     play music BoxOpeningTheme loop
     centered "For centuries dolls have been common household items beloved by children."
     centered "But recently they have started to become a popular collector's item."
@@ -189,7 +189,7 @@ label bedroom:
 
         narrator "It was rather uncouth to look through a person's diary but curiosity got the better of Nadeshiko and she immediately found herself poring over the scratchy writing, trying to absorb any and all information that it could give on the owner."
 
-        scene black
+        scene bg black at BackgroundScale
         centered "Mom tried to set me up with one of her friend's sons— again." 
         centered "How many times have I told her I'm not interested?"
         centered "Probably a thousand."
@@ -606,7 +606,7 @@ label kitchen:
 label living_room:
     scene bg livingroom blur at BackgroundScale
     narrator "Emi squeezed the doll tightly in a wistful embrace before placing it between two cushions on the sofa. The young girl gave one last look before returning to the kitchen."
-    scene black
+    scene bg black medium at BackgroundScale
     centered "The doll felt bad for Emi because she had to live with such a wretched person like Nicole."
     scene bg livingroom blur at BackgroundScale
     show doll sad at LeftPortrait
@@ -901,6 +901,7 @@ label lead_up:
         
 
 label bad_ending:
+    scene bg black at BackgroundScale
     centered "Unfortunately for Nicole, it wasn't an animal."
     centered "Upon arriving up the attic, the older girl was confronted with various items that were interpreted in such a way that would anger her into an inconsolable frenzy."
     centered "Afterall, people have crafty minds that can weave intricate stories based on what they solely see. For Nicole, this was just one of multiple conclusions that she arrived at due to the many grievances that she's incurred."
@@ -1192,7 +1193,7 @@ label bad_ending:
     with flash
     with Pause(1.0)
 
-    scene black
+    scene bg black at BackgroundScale
     $ PlayerCanDismiss = False
     with Fade(1.8,0.1,0.1)
     ### THESE TO APPEAR BENEATH EACH OTHER AS PARAGRAPH
