@@ -847,7 +847,7 @@ label attic:
         "What should I do?"
 
         "Fix the photograph":
-            ### SFX SCRATCHING
+            play sound audio.Scratch
 
             show doll angry at LeftPortrait
             doll "There!"
