@@ -230,7 +230,7 @@ label bedroom:
         
         narrator "Not being one to leave things to chance, the audacious doll scavenged around the desk where a couple of slips from her packaging also laid atop. Finding exactly what she was looking for, the doll tore up the slips to reduce the chances of being returned."
 
-        ### SFX PAPER RIPPING
+        play sound audio.Paper
 
         show doll happy at LeftPortrait
         doll "There."
@@ -306,7 +306,8 @@ label bedroom:
 
     narrator "Nadeshiko quickly ran underneath the bed and crawled back into the shadows of the boxes. If anyone had witnessed this, they would have simply thought that a small animal had scurried under the bed."
 
-    ### SFX DOOR OPENING
+    play sound audio.DoorCreak
+
     show doll neutral at LeftPortrait
     doll "This must be Emi."
 
