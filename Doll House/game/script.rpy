@@ -542,7 +542,7 @@ label kitchen:
 
         "Knock over the ramune":
             $ ChangeMalice(1)
-            ### SFX GLASS BREAKING
+            play sound audio.Spill 
             show emi sad at LeftPortrait
             emi "*Gasp*"
 
