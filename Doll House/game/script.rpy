@@ -357,7 +357,8 @@ label kitchen:
     show emi neutral at LeftPortrait
     emi "I have to get this down on paper."
 
-    ### SFX PENCIL SCRATCHING ON PAPER
+    play sound audio.Draw
+
     narrator "Emi's hands left the doll to pick up the pencil lying in the middle of her notebook and began to scrawl around the corners of her page, doing well to avoid the math problems."
     narrator "It wasn't long before Nadeshiko's likeness began to appear on the lined white pages."
 
