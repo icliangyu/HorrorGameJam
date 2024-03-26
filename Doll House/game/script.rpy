@@ -901,6 +901,7 @@ label lead_up:
         
 
 label bad_ending:
+    play music AtticRealization loop
     scene bg black at BackgroundScale
     centered "Unfortunately for Nicole, it wasn't an animal."
     centered "Upon arriving up the attic, the older girl was confronted with various items that were interpreted in such a way that would anger her into an inconsolable frenzy."
