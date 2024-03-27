@@ -42,7 +42,6 @@ define nicole = Character("\"Nicole\" if knows_owners_name else \"The Owner\"", 
 define doll = Character("Nadeshiko")
 define emi = Character("Emi")
 define mom = Character("Mother")
-
 init python:
     def ChangeMalice(value):
         if value > 0:
@@ -1234,7 +1233,7 @@ label bad_ending:
     centered "{cps=20}I see the younger daughter sometimes and she's always carrying a doll with her.{w=2.0}\
 \nShe cherishes it a lot, proudly saying that Nadeshiko gave her this Nicole doll.{w=2.0}\
 \nThe two are practically inseparable.{w=2.0}\
-\nWhat a lucky little doll. So spoiled and well taken care of by a sweet child like Emi.{nw=2.0}"
+\nWhat a lucky little doll. So spoiled and well taken care of by a sweet child like Emi.{nw=2.0}" (advance=False)
 
     scene bg black strong at BackgroundScale
     centered "{cps=0.0}It must be a very happy doll.{nw=1.50}"
