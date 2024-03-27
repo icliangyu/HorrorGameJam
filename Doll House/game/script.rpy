@@ -1284,7 +1284,7 @@ label bad_ending:
     $ persistent.got_bad_ending = True
     jump game_end
 
-label neutral_lead_up:
+label neutral_ending:
     scene bg kitchen at BackgroundScale
 
     play sound audio.AtticFootsteps volume 0.125
@@ -1311,6 +1311,8 @@ label neutral_lead_up:
     show emi neutral at LeftPortrait
     emi "Listen!"
 
+    play sound audio.AtticFootsteps volume 0.125
+
     show nicole surprised at RightPortrait
     nicole "Don't make excuses just because you want to get out of helping with dinner."
 
@@ -1336,8 +1338,166 @@ label neutral_lead_up:
     show emi sad at LeftPortrait
     emi "I will."
 
-label neutral_ending:
-    nicole "Patented Skinner Burgers."
+    scene bg narration at BackgroundScale
+    centered "Being ever so brave, Emi took matters into her own hands and, with hesitant yet determined steps, made her way up into the tenebrous attic."
+
+    scene bg attic at BackgroundScale
+
+    show emi neutral at LeftPortrait
+    emi "H-hello? Is anyone up here?"
+
+    show emi sad at LeftPortrait
+    emi "Come out!"
+
+    show emi neutral at LeftPortrait
+    emi "Someone's going through mom's stuff."
+
+    show emi sad at LeftPortrait
+    emi "Is that a photo of us?"
+
+    show doll neutral at RightPortrait
+    doll "Hello, Emi. Isn’t it nice to finally talk without Nicole around?"
+
+    ### DIALOGUE IF PLAYER CHOSE TO SPEAK TO EMI IN THE KITCHEN
+    show emi happy at LeftPortrait
+    emi "Nadeshiko! What are you doing up here, you’ll get dirty and then Nick will be angry at me."
+
+    ### DIALOGUE IF PLAYER CHOSE TO NOT SPEAK TO EMI IN THE KITCHEN
+    show emi sad at LeftPortrait
+    emi "I knew it... you're alive."
+
+    centered "The little girl crouched down to pick up the photographs on the floor. She didn't care much for the other items."
+
+    ### THIS SET OF DIALOGUE IF PLAYER CHOSE TO SCRATCH OUT PHOTO
+    show emi neutral at LeftPortrait
+    emi "Did you do this?"
+
+    show doll surprised at RightPortrait
+    doll "No, of course not! I found them like that. Your mother mustn't like your sister all that much."
+
+    ### THIS SET OF DIALOGUE IF PLAYER CHOSE TO NOT SCRATCH OUT PHOTO
+    show emi happy at LeftPortrait
+    show doll angry at RightPortrait
+    emi "Look, it's us hehe!"
+
+    show doll happy at RightPortrait
+    doll "Yes, it is."
+    show doll angry at RightPortrait
+
+    show emi neutral at LeftPortrait
+    emi "Hey... ummm... are you... trying to get me in trouble?"
+
+    show doll happy at RightPortrait
+    doll "Never. I would never want you to get into trouble because of me. Afterall, we’re friends aren’t we?" 
+
+    show emi sad at LeftPortrait
+    emi "I-I don’t know..."
+
+    show doll sad at RightPortrait
+    doll "We are though, that's why you drew me in all those pretty clothes. You know, frills and laces that you wish to wear. You told me in secret, don’t you remember?"
+
+    show emi neutral at LeftPortrait
+    emi "I did say that earlier..."
+
+    show doll surprised at RightPortrait
+    doll "You wouldn’t tell a secret to just anyone. See? We’re friends."
+
+    show emi happy at LeftPortrait
+    emi "Okay, we can be friends."
+
+    show doll happy at RightPortrait
+    doll "And just to prove it, I’ll tell you my secret too. Would you like that, Emi-chan?"
+
+    show emi happy at LeftPortrait
+    emi "Okay, tell me!"
+
+    show doll sad at RightPortrait
+    doll "I was sent here to help your family. I was told there’s something here that causes a lot of sadness so I’m here to fix that."
+
+    show emi happy at LeftPortrait
+    emi "Wow... Nadeshiko, you’re like an angel then?"
+
+    show doll happy at RightPortrait
+    doll "That’s precisely it! You can consider me an angel."
+
+    show emi happy at LeftPortrait
+    emi "We’re so lucky to have you!"
+
+    show emi neutral at LeftPortrait
+    show doll angry at RightPortrait
+    emi "Wait..."
+
+    show emi sad at LeftPortrait
+    emi "But who sent you? Didn't Nick buy you off the internet?"
+
+    show doll fear at RightPortrait
+    doll "I’m not sure, I only awoke when your sister opened me up today but I think it’s someone really close to you."
+
+    show emi happy at LeftPortrait
+    emi "It doesn’t matter, we have an angel with us! I knew praying would help us out! Mom was right!" 
+    emi "It’s probably because mom works so hard, and prays everyday to Buddha, that’s why we met."
+    emi "I can’t wait to tell mom. She’ll be so happy to know."
+
+    show doll angry at RightPortrait
+    doll "No, Emi-chan. Remember what I told you?"
+    doll "As friends, we have to promise to keep each other’s secrets."
+    doll "So that means you can’t tell mom or Nicole otherwise they might hurt me."
+    doll "You wouldn’t want that to happen to your friend, right?"
+
+    show emi neutral at LeftPortrait
+    emi "Why would they hurt an angel like you?"
+
+    show doll angry at RightPortrait
+    doll "I heard from up here. Your sister didn’t believe you when you told her that there was someone in the attic."
+    doll "Do you think she would believe it if you told her that I’m an angel?"
+
+    show doll fear at RightPortrait
+    doll "She might try to take me away from you."
+
+    show emi sad at LeftPortrait
+    emi "You’re right… Nick would never believe me."
+
+    show doll happy at RightPortrait
+    doll "No one believes you except me, Emi-chan. Only I believe you because I'm your only friend."
+
+    show doll sad at RightPortrait
+    doll "Everyone else thinks you’re just a kid or crazy."
+    
+    show doll happy at RightPortrait
+    doll "But I don't think that."
+
+    show emi crying at LeftPortrait
+    emi "*Sniffle*"
+
+    show doll neutral at RightPortrait
+    doll "Don’t cry, I’ll keep you safe. Just listen to me and I promise everything will be okay."
+
+    show emi happy at LeftPortrait
+    show doll happy at RightPortrait
+    emi "Okay, Nadeshiko! Tell me what to do."
+
+    ### HOLD THIS FOR A BIT
+    scene black 
+    play sound 
+
+    ### SAME PARAGRAPH
+    scene bg black narration at BackgroundScale
+    centered "If I remember correctly, once upon a time poppets were placed within houses to reap the benefits of prosperity and good health." 
+    centered "Maybe this was what naïve little Emi thought she was achieving when she agreed to safely hide Nadeshiko out of sight."
+
+    centered "And so the doll sat in the shadows of the attic by her lonesome day in and day out, slowly but surely absorbing Nicole’s energy."
+
+    ### SAME PARAGRAPH - SHOW EACH SENTENCE ONE BY ONE
+    centered "Nadeshiko relished in the mass of anger and sadness that exuded from the household."
+    centered "Every bad thought directed at each family member, every screaming match, and muffled cry in the late night worked to reinvigorate her arcane powers."
+    centered "The doll knew that it wouldn’t be long..."
+
+    scene bg black strong at BackgroundScale
+    centered "{cps=0.0}Until she took her place as the eldest daughter.{nw=1.50}"
+
+    scene bg neutral_ending at BackgroundScale
+    with Fade(1.0,1.5,1.5, color="#000")
+    centered ""
     $ persistent.got_neutral_ending = True
     jump game_end
 
