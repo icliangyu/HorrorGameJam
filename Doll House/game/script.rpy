@@ -875,7 +875,7 @@ label attic:
             doll "Why do they look so happy?"
             doll "It bothers me."
 
-label lead_up:
+label bad_lead_up:
     scene bg kitchen at BackgroundScale
     play sound audio.AtticFootsteps volume 0.125
 
@@ -1241,6 +1241,58 @@ label bad_ending:
     $ MaliceIndicator = MaliceIndicatorBeforeScene
     $ persistent.got_bad_ending = True
     jump game_end
+
+label neutral_lead_up:
+    scene bg kitchen at BackgroundScale
+
+    play sound audio.AtticFootsteps volume 0.125
+
+    show emi neutral at LeftPortrait
+    emi "Do you hear that?"
+
+    show nicole neutral at RightPortrait
+    nicole "Hear what?"
+
+    show emi neutral at LeftPortrait
+    emi "Nicole, listen! Someone's up in the at-"
+
+    play sound audio.AtticFootsteps volume 0.125
+
+    show emi sad at LeftPortrait
+    emi "Don't you hear that?"
+
+    show nicole angry at RightPortrait
+    nicole "You're just imagining things."
+
+    play sound audio.AtticFootsteps volume 0.125
+
+    show emi neutral at LeftPortrait
+    emi "Listen!"
+
+    show nicole surprised at RightPortrait
+    nicole "Don't make excuses just because you want to get out of helping with dinner."
+
+    show emi sad at LeftPortrait
+    emi "I'm not."
+
+    play sound audio.AtticFootsteps volume 0.125
+
+    show emi neutral at LeftPortrait
+    emi "You know what? I'm going then!"
+
+    show nicole angry at RightPortrait
+    nicole "Fine, go play. I don't care, not like you ever help out anyway!"
+
+    show emi crying at LeftPortrait
+    emi "I mean I'm going to check by myself!"
+
+    show nicole angry at RightPortrait
+    nicole "Do whatever you want, freak."
+
+    play sound audio.AtticFootsteps volume 0.125
+
+    show emi sad at LeftPortrait
+    emi "I will."
 
 label neutral_ending:
     nicole "Patented Skinner Burgers."
