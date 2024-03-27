@@ -683,6 +683,8 @@ label living_room:
     doll "This is my chance to find out more about my current owner." 
     scene bg livingroom at BackgroundScale
 
+    default guan_yin_decision = 0
+
     jump living_room.point_and_click
 
     label .plants_exposition:
@@ -715,32 +717,43 @@ label living_room:
         doll "I wonder what she's praying for..."
         show doll happy at LeftPortrait
         doll "Probably for any daughter that isn't Nicole ahaha!"
+        
+        if guan_yin_decision != 0:
+            if guan_yin_decision == 1:
+                jump .guan_yin_break
+            elif guan_yin_decision == 2:
+                jump .guan_yin_empty
 
-        menu defiling:
+        menu .defiling:
             "Actually, this statue seems to be a source of stress for Nicole. I should do something."
 
             "Help Nicole.":
                 $ ChangeMalice(1)
-                show doll neutral at LeftPortrait
-                doll "Since Nicole hates it so much when Mother spends so much of her time here then I’ll fix it."
+                label .guan_yin_break:
+                    $ guan_yin_decision = 1
+                    show doll neutral at LeftPortrait
+                    doll "Since Nicole hates it so much when Mother spends so much of her time here then I’ll fix it."
 
-                play sound audio.Break
+                    play sound audio.Break
 
-                show doll happy at LeftPortrait
-                doll "There! All better."
-                show doll neutral at LeftPortrait
-                doll "Now she won't be able to pray anymore."
-                doll "But she might blame you for this broken statue."
-                show doll happy at LeftPortrait
-                doll "Oops! Hehe."
+                    show doll happy at LeftPortrait
+                    doll "There! All better."
+                    show doll neutral at LeftPortrait
+                    doll "Now she won't be able to pray anymore."
+                    doll "But she might blame you for this broken statue."
+                    show doll happy at LeftPortrait
+                    doll "Oops! Hehe."
 
             "Don't help Nicole.":
-                show doll sad at LeftPortrait
-                doll "I don’t think Mother would appreciate it if anything were to happen to this."
-                show doll neutral at LeftPortrait
-                doll "I’ll just leave it alone..."
-                show doll angry at LeftPortrait
-                doll "For now."
+                label .guan_yin_empty:
+                    $ guan_yin_decision = 2
+                    show doll sad at LeftPortrait
+                    doll "I don’t think Mother would appreciate it if anything were to happen to this."
+                    show doll neutral at LeftPortrait
+                    doll "I’ll just leave it alone..."
+                    show doll angry at LeftPortrait
+                    doll "For now."
+
         scene bg livingroom at BackgroundScale
         return            
 
@@ -905,7 +918,14 @@ label attic:
             doll "Why do they look so happy?"
             doll "It bothers me."
 
-label bad_lead_up:
+    if malice >= TotalMalicePoints:
+        jump bad_ending
+    elif malice == 0:
+        jump good_ending
+    else:
+        jump neutral_ending
+
+label bad_ending:
     scene bg kitchen at BackgroundScale
     play sound audio.AtticFootsteps volume 0.125
 
@@ -938,16 +958,8 @@ label bad_lead_up:
     nicole "Wait down here. I'll check it out."
     show nicole neutral at LeftPortrait
     nicole "It might just be an animal or something."
-
-    if malice == TotalMalicePoints:
-        jump bad_ending
-    elif malice == 0:
-        jump good_ending
-    else:
-        jump neutral_ending
         
 
-label bad_ending:
     scene bg narration at BackgroundScale
     centered "Unfortunately for Nicole, it wasn't an animal."
     centered "Upon arriving up the attic, the older girl was confronted with various items that were interpreted in such a way that would anger her into an inconsolable frenzy."
@@ -1253,20 +1265,20 @@ label bad_ending:
     scene bg narration at BackgroundScale
     with Fade(1.8,0.1,0.1)
     ### THESE TO APPEAR BENEATH EACH OTHER AS PARAGRAPH
-    centered "{cps=20}Then again...{w=1.0}\
-\nIn ancient times dolls were also used as sacrificial stand-ins.{w=2.0}\
-\nAnd as a human-like vessel they have always been quite ideal for wandering entities.{nw=2.0}" (advance=False)
+    centered "{cps=20}Then again...{w=2.0}\n\
+\ \ In ancient times dolls were also used as sacrificial stand-ins.{w=2.0}\n\
+\ \ And as a human-like vessel they have always been quite ideal for wandering entities.{nw=2.0}" (advance=False)
     
     ### PARAGRAPH APPEARING SENTENCE BY SENTENCE BY EACH STAY ON SCREEN
-    centered "{cps=20}But it seems like this entity isn't wandering anymore because she's found a home.{w=2.0}\
-\nI hear whispers about the family, and the mother couldn't be prouder of her eldest daughter, Nadeshiko.{w=2.0}\
-\nWord has it that she's going to marry mother's mutual friend's son soon and begin a family of her own.{nw=2.0}" (advance=False)
+    centered "{cps=20}But it seems like this entity isn't wandering anymore because she's found a home.{w=2.0}\n\
+\ \ I hear whispers about the family, and the mother couldn't be prouder of her eldest daughter, Nadeshiko.{w=2.0}\n\
+\ \ Word has it that she's going to marry mother's mutual friend's son soon and begin a family of her own.{nw=2.0}" (advance=False)
     
     ### PARAGRAPH
-    centered "{cps=20}I see the younger daughter sometimes and she's always carrying a doll with her.{w=2.0}\
-\nShe cherishes it a lot, proudly saying that Nadeshiko gave her this Nicole doll.{w=2.0}\
-\nThe two are practically inseparable.{w=2.0}\
-\nWhat a lucky little doll.{w=0.5} So spoiled and well taken care of by a sweet child like Emi.{nw=2.0}" (advance=False)
+    centered "{cps=20}I see the younger daughter sometimes and she's always carrying a doll with her.{w=2.0}\n\
+\ \ She cherishes it a lot, proudly saying that Nadeshiko gave her this Nicole doll.{w=2.0}\n\
+\ \ The two are practically inseparable.{w=2.0}\n\
+\ \ What a lucky little doll.{w=0.5} So spoiled and well taken care of by a sweet child like Emi.{nw=2.0}" (advance=False)
 
     scene bg black strong at BackgroundScale
     centered "{cps=0.0}It must be a very happy doll.{nw=1.50}" (advance=False)
@@ -1478,19 +1490,22 @@ label neutral_ending:
 
     ### HOLD THIS FOR A BIT
     scene black 
-    play sound 
 
     ### SAME PARAGRAPH
-    scene bg black narration at BackgroundScale
-    centered "If I remember correctly, once upon a time poppets were placed within houses to reap the benefits of prosperity and good health." 
-    centered "Maybe this was what naïve little Emi thought she was achieving when she agreed to safely hide Nadeshiko out of sight."
+    scene bg narration at BackgroundScale
+    centered "{cps=25}If I remember correctly, once upon a time poppets were placed within houses{w=2.0}\n\
+\ \ to reap the benefits of prosperity and good health.{nw=2.0}"  (advance=False)
 
-    centered "And so the doll sat in the shadows of the attic by her lonesome day in and day out, slowly but surely absorbing Nicole’s energy."
+    centered "{cps=25}Maybe this was what naive little Emi thought she was achieving{w=2.0}\n\
+\ \ when she agreed to safely hide Nadeshiko out of sight.{nw=2.0}" (advance=False)
+
+    centered "{cps=25}And so the doll sat in the shadows of the attic by her lonesome day in and day out,{w=2.0}\n\
+\ \ slowly but surely absorbing Nicole’s energy.{nw=2.0}" (advance=False)
 
     ### SAME PARAGRAPH - SHOW EACH SENTENCE ONE BY ONE
-    centered "Nadeshiko relished in the mass of anger and sadness that exuded from the household."
-    centered "Every bad thought directed at each family member, every screaming match, and muffled cry in the late night worked to reinvigorate her arcane powers."
-    centered "The doll knew that it wouldn’t be long..."
+    centered "{cps=25}Nadeshiko relished in the mass of anger and sadness that exuded from the household.{w=2.0}\n\
+\ \ Every bad thought directed at each family member, every screaming match, and muffled cry in the late night worked to reinvigorate her arcane powers.{w=2.0}\n\
+\ \ The doll knew that it wouldn’t be long...{nw=2.0}" (advance=False)
 
     scene bg black strong at BackgroundScale
     centered "{cps=0.0}Until she took her place as the eldest daughter.{nw=1.50}"

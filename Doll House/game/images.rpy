@@ -10,9 +10,13 @@ init:
     image bg_nicole_blank = "images/Backgrounds/bg nicole_end.png"
     image bg_nicole_blood = "images/Backgrounds/bg nicole_end blood.png"
     image bg_nicole_void = "images/Backgrounds/bg nicole_end void.png"
-    image bg bad_ending = "images/Ending Screens/Bad Ending.png"
+    image bg bad_ending = "images/Ending Screens/BadEndingScreen.png"
+    image bg neutral_ending = "images/Ending Screens/NeutralEndingScreen.png"
+    image bg good_ending = "images/Ending Screens/GoodEndingScreen.png"
 
     image menubg bad_ending = "images/"
+    image menubg neutral_ending = "images/"
+    image menubg good_ending = "images/"
 
 init:
     transform PortraitDimensions:
@@ -39,4 +43,3 @@ init:
     transform BackgroundBlur:
         BackgroundScale
         blur 20
-        

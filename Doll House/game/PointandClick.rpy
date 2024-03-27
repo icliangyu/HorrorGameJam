@@ -47,16 +47,14 @@ screen point_of_interest_screen(PointOfInterest):
         idle PointOfInterest.image_set.idle_image
         hover PointOfInterest.image_set.hover_image
         selected_idle PointOfInterest.image_set.idle_image
-        selected_hover PointOfInterest.image_set.idle_image
+        selected_hover PointOfInterest.image_set.hover_image
         hovered Play("sound", audio.InteractableHover)
         focus_mask True
         if(PointOfInterest.active):
             action[ 
                     SetField(PointOfInterest, "seen", True),
-                    SetField(PointOfInterest, "active", False), #Not inherently true if we get an inventory and such
                     Call(PointOfInterest.exposition_label, from_current=True)
                 ]
-
 
     transclude
 
