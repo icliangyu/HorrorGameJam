@@ -1186,6 +1186,7 @@ label bad_ending:
 
     scene bg attic at BackgroundScale
 
+    play music audio.EndThemeBad
     show nicole neutral at LeftPortrait
     show doll neutral at RightPortrait
     nicole "Nadeshiko."
@@ -1241,7 +1242,7 @@ label bad_ending:
     scene bg black medium at BackgroundScale
     centered "{cps=20}...............{nw=2.0}" (advance=False)
     scene bg black strong at BackgroundScale
-    centered "{cps=20}Nicole is so dumb{w=1.0}, mother isn't looking for the perfect son{w=1.0}, she wants the perfect daughter.{w=1.0} Something you could never be.{w=1.0} I'm so glad you also agree with me.{nw=2.0}" (advance=False)
+    centered "{cps=20}Nicole is so dumb{w=1.0}, {nw=0.0}mother isn't looking for the perfect son{w=1.0}{cps=0.0}, {cps=20}she wants the perfect daughter.{w=1.0}{cps=0.0} {cps=20}Something you could never be.{w=1.0}{cps=0.0} {cps=20}I'm so glad you also agree with me.{nw=2.0}" (advance=False)
     scene bg_nicole_void at BackgroundScale
     with flash
     with Pause(1.0)
@@ -1265,7 +1266,7 @@ label bad_ending:
     centered "{cps=20}I see the younger daughter sometimes and she's always carrying a doll with her.{w=2.0}\
 \nShe cherishes it a lot, proudly saying that Nadeshiko gave her this Nicole doll.{w=2.0}\
 \nThe two are practically inseparable.{w=2.0}\
-\nWhat a lucky little doll.{w=0.5} So spoiled and well taken care of by a sweet child like Emi."#{nw=2.0}" (advance=False)
+\nWhat a lucky little doll.{w=0.5} So spoiled and well taken care of by a sweet child like Emi.{nw=2.0}" (advance=False)
 
     scene bg black strong at BackgroundScale
     centered "{cps=0.0}It must be a very happy doll.{nw=1.50}" (advance=False)
@@ -1276,6 +1277,9 @@ label bad_ending:
     with Fade(1.0,1.5,1.5, color="#000")
     centered "{w=3.0}"
 
+    scene black
+    with Fade(1.0,1.0,0.0, color="#000")
+    centered "{nw=0.0}"
     $ UIOnScreen = True
     $ persistent.got_bad_ending = True
     jump game_end

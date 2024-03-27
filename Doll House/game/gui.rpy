@@ -63,7 +63,7 @@ define gui.text_font = "gui/fonts/Ubuntu-L.ttf"
 define gui.name_text_font = "gui/fonts/COLWELL_.ttf"
 
 ## The font used for out-of-game text.
-define gui.interface_text_font = "gui/fonts/PHRegular.otf"
+define gui.interface_text_font = "gui/fonts/Ubuntu-L.ttf"
 
 ## The size of normal dialogue text.
 define gui.text_size = 32

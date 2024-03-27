@@ -537,7 +537,8 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
     use navigation
 
 
-    label title
+    label title:
+        text_font "gui/fonts/PHRegular.otf"
 
     if main_menu:
         key "game_menu" action ShowMenu("main_menu")
@@ -702,8 +703,10 @@ screen file_slots(title):
 
                         text FileTime(slot, format=_("{#file_time}%A, %B %d %Y, %H:%M"), empty=_("empty slot")):
                             style "slot_time_text"
+                            yoffset 10
 
                         text FileSaveName(slot):
+                            yoffset 10
                             style "slot_name_text"
 
                         key "save_delete" action FileDelete(slot)
@@ -1238,14 +1241,19 @@ screen confirm(message, yes_action, no_action):
 
             label _(message):
                 style "confirm_prompt"
+                text_font "gui/fonts/PHRegular.otf"
                 xalign 0.5
 
             hbox:
                 xalign 0.5
                 spacing 150
 
-                textbutton _("Yes") action yes_action
-                textbutton _("No") action no_action
+                textbutton _("Yes"):
+                    action yes_action
+                    text_font "gui/fonts/PHRegular.otf"
+                textbutton _("No"):
+                    action no_action
+                    text_font "gui/fonts/PHRegular.otf"
 
     ## Right-click and escape answer "no".
     key "game_menu" action no_action
