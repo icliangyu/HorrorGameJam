@@ -14,7 +14,20 @@ define malice = 0
 
 default MaliceIndicator = True
 
-screen malice_indicator:
+
+init python:
+    def GetMaliceImage(st, at):
+        if malice <= 6:
+            return "gui/SuspicionMeterIcon_Fill.png"
+        elif malice <= 4:
+            return "gui/SuspicionMeterIcon_Fill_Light.png"
+        elif malice <= 3:
+            return "gui/SuspicionMeterIcon_Fill_Mid.png"
+        elif malice <= 1:
+            return "gui/SuspicionMeterIcon_Fill_Dark.png"
+        return None
+
+screen malice_indicator():
     if MaliceIndicator:
         hbox:
             spacing 9
@@ -23,8 +36,14 @@ screen malice_indicator:
             box_reverse True
             for i in range (0, TotalMalicePoints):   
                 if i < malice:
-                    add "gui/SuspicionMeterIcon_Fill.png" at transform: 
-                        zoom 0.2
+                    if malice <= 1:
+                        add "gui/SuspicionMeterIcon_Fill_Dark.png" zoom 0.1
+                    elif malice <= 2:
+                        add "gui/SuspicionMeterIcon_Fill_Mid.png" zoom 0.1
+                    elif malice <= 3:
+                        add "gui/SuspicionMeterIcon_Fill_Light.png" zoom 0.1
+                    elif malice <= 6:
+                        add "gui/SuspicionMeterIcon_Fill.png" zoom 0.2
                 else:
                     add "gui/SuspicionMeterIcon_Empty.png" at transform: 
                         zoom 0.2
@@ -32,22 +51,17 @@ screen malice_indicator:
 # Adds a screen that displays the Malice of a character
 init python:
     config.overlay_screens.append("malice_indicator")
-###
 
-init python:
-    def doll_creepy_stuff(st, at):
-        (st)
-
-define nicole = Character("\"Nicole\" if knows_owners_name else \"The Owner\"", dynamic=True)
-define doll = Character("Nadeshiko")
-define emi = Character("Emi")
-define mom = Character("Mother")
-init python:
     def ChangeMalice(value):
         if value > 0:
             renpy.sound.play(renpy.store.audio.MaliceIncrease)
         renpy.store.malice += value
         renpy.restart_interaction()
+
+define nicole = Character("\"Nicole\" if knows_owners_name else \"The Owner\"", dynamic=True)
+define doll = Character("Nadeshiko")
+define emi = Character("Emi")
+define mom = Character("Mother")
 
 init 0:
     define knows_owners_name = False
