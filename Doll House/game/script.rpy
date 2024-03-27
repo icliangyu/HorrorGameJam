@@ -190,7 +190,7 @@ label bedroom:
 
         narrator "It was rather uncouth to look through a person's diary but curiosity got the better of Nadeshiko and she immediately found herself poring over the scratchy writing, trying to absorb any and all information that it could give on the owner."
 
-        scene bg narrative at BackgroundScale
+        scene bg narration at BackgroundScale
         play music Diary loop
 
         centered "Mom tried to set me up with one of her friend's sons— again." 
@@ -881,7 +881,7 @@ label attic:
             doll "Why do they look so happy?"
             doll "It bothers me."
 
-label lead_up:
+label bad_lead_up:
     scene bg kitchen at BackgroundScale
     play sound audio.AtticFootsteps volume 0.125
 
@@ -925,7 +925,7 @@ label lead_up:
 
 label bad_ending:
     play music AtticRealization loop
-    scene bg narrative at BackgroundScale
+    scene bg narration at BackgroundScale
     centered "Unfortunately for Nicole, it wasn't an animal."
     centered "Upon arriving up the attic, the older girl was confronted with various items that were interpreted in such a way that would anger her into an inconsolable frenzy."
     centered "Afterall, people have crafty minds that can weave intricate stories based on what they solely see. For Nicole, this was just one of multiple conclusions that she arrived at due to the many grievances that she's incurred."
@@ -1247,6 +1247,58 @@ label bad_ending:
     $ MaliceIndicator = MaliceIndicatorBeforeScene
     $ persistent.got_bad_ending = True
     jump game_end
+
+label neutral_lead_up:
+    scene bg kitchen at BackgroundScale
+
+    play sound audio.AtticFootsteps volume 0.125
+
+    show emi neutral at LeftPortrait
+    emi "Do you hear that?"
+
+    show nicole neutral at RightPortrait
+    nicole "Hear what?"
+
+    show emi neutral at LeftPortrait
+    emi "Nicole, listen! Someone's up in the at-"
+
+    play sound audio.AtticFootsteps volume 0.125
+
+    show emi sad at LeftPortrait
+    emi "Don't you hear that?"
+
+    show nicole angry at RightPortrait
+    nicole "You're just imagining things."
+
+    play sound audio.AtticFootsteps volume 0.125
+
+    show emi neutral at LeftPortrait
+    emi "Listen!"
+
+    show nicole surprised at RightPortrait
+    nicole "Don't make excuses just because you want to get out of helping with dinner."
+
+    show emi sad at LeftPortrait
+    emi "I'm not."
+
+    play sound audio.AtticFootsteps volume 0.125
+
+    show emi neutral at LeftPortrait
+    emi "You know what? I'm going then!"
+
+    show nicole angry at RightPortrait
+    nicole "Fine, go play. I don't care, not like you ever help out anyway!"
+
+    show emi crying at LeftPortrait
+    emi "I mean I'm going to check by myself!"
+
+    show nicole angry at RightPortrait
+    nicole "Do whatever you want, freak."
+
+    play sound audio.AtticFootsteps volume 0.125
+
+    show emi sad at LeftPortrait
+    emi "I will."
 
 label neutral_ending:
     nicole "Patented Skinner Burgers."
