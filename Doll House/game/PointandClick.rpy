@@ -38,7 +38,8 @@ screen point_and_click_screen(PointsOfInterest):
         use point_of_interest_screen(pointOfInterest)
     if False and persistent.completed_playthrough or sum(pointOfInterest.seen == True for pointOfInterest in PointsOfInterest) == len(PointsOfInterest):
         frame at MakeTransformFromPicker((0,0,300,100)):
-            textbutton "continue":
+            textbutton "Continue":
+                text_font "gui/fonts/Dollface.ttf"
                 action Return()
 
 screen point_of_interest_screen(PointOfInterest):

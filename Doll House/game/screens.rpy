@@ -6,7 +6,7 @@ init offset = -1
 
 init -2:
     transform GuiIconTransformMenu:
-        zoom 0.757575757575
+        zoom 0.66666666666
 
     #transform GuiIconTransformQuickBar:
 
@@ -70,11 +70,13 @@ style slider:
     ysize gui.slider_size
     base_bar Frame("gui/slider/horizontal_[prefix_]bar.png", gui.slider_borders, tile=gui.slider_tile)
     thumb "gui/slider/horizontal_[prefix_]thumb.png"
+    thumb_offset 28
 
 style vslider:
     xsize gui.slider_size
     base_bar Frame("gui/slider/vertical_[prefix_]bar.png", gui.vslider_borders, tile=gui.slider_tile)
     thumb "gui/slider/vertical_[prefix_]thumb.png"
+    thumb_offset 28
 
 
 style frame:
@@ -298,31 +300,34 @@ init -1 python:
         return Transform(s, matrixcolor = TintMatrix(gui.hover_color))
     config.displayable_prefix["hovered"] = MenuColorize
 
-screen navigation(leftJustify=True):
+    def Invisible(s):
+        return Transform(s, matrixcolor = OpacityMatrix(0.0))
+    config.displayable_prefix["invisible"] = Invisible
+
+screen navigation(leftJustify=True, returnedFrom=True):
 
     vbox:
         style_prefix "navigation"
 
         if leftJustify:
             xpos gui.navigation_xpos
-            yalign 0.5
+            yalign 0.6
 
         else:
             yalign 0.5
-            xalign 1.0
+            xalign 0.98
             xoffset -30
             
         spacing gui.navigation_spacing
 
         if main_menu:
-
+            ypos 720
             imagebutton at GuiIconTransformMenu:
                 idle "gui/button_start.png"
                 hover "hovered:gui/button_start_hover.png"
                 action Start()
 
         else:
-
             textbutton _("History") action ShowMenu("history")
 
             imagebutton at GuiIconTransformMenu:
@@ -372,6 +377,20 @@ screen navigation(leftJustify=True):
                 idle "gui/button_quit.png"
                 hover "hovered:gui/button_quit.png"
                 action Quit(confirm=not main_menu)
+        
+        if returnedFrom:
+            imagebutton at GuiIconTransformMenu:
+                idle "gui/button_return.png"
+                hover "hovered:gui/button_return.png"
+                style "return_button"
+
+                action Return()
+        else:
+            imagebutton at GuiIconTransformMenu:
+                idle "invisible:gui/button_return.png"
+                hover "invisible:gui/button_return.png"
+                style "return_button"
+                
 
 
 style navigation_button is gui_button
@@ -404,7 +423,7 @@ screen main_menu():
 
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.
-    use navigation(False)
+    use navigation(False, False)
 
     if gui.show_name:
 
@@ -517,12 +536,6 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     use navigation
 
-    imagebutton at GuiIconTransformMenu:
-        idle "gui/button_return.png"
-        hover "hovered:gui/button_return.png"
-        style "return_button"
-
-        action Return()
 
     label title
 
@@ -577,9 +590,9 @@ style game_menu_label_text:
     yalign 0.5
 
 style return_button:
-    xpos gui.navigation_xpos
+    properties gui.button_properties("navigation_button")
     yalign 1.0
-    yoffset -45
+
 
 
 ## About screen ################################################################

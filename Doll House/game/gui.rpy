@@ -101,12 +101,12 @@ define gui.textbox_height = 278
 
 ## The placement of the textbox vertically on the screen. 0.0 is the top, 0.5 is
 ## center, and 1.0 is the bottom.
-define gui.textbox_yalign = 1.01
+define gui.textbox_yalign = 0.94
 
 
 ## The placement of the speaking character's name, relative to the textbox.
 ## These can be a whole number of pixels from the left or top, or 0.5 to center.
-define gui.name_xpos = 600
+define gui.name_xpos = 688
 define gui.name_ypos = -0.23
 
 ## The horizontal alignment of the character's name. This can be 0.0 for left-
@@ -131,11 +131,11 @@ define gui.namebox_tile = False
 ## The placement of dialogue relative to the textbox. These can be a whole
 ## number of pixels relative to the left or top side of the textbox, or 0.5 to
 ## center.
-define gui.dialogue_xpos = 450
-define gui.dialogue_ypos = 75
+define gui.dialogue_xpos = 517
+define gui.dialogue_ypos = 62
 
 ## The maximum width of dialogue text, in pixels.
-define gui.dialogue_width = 1116
+define gui.dialogue_width = 956
 
 ## The horizontal alignment of the dialogue text. This can be 0.0 for left-
 ## aligned, 0.5 for centered, and 1.0 for right-aligned.
@@ -313,9 +313,9 @@ define gui.frame_tile = False
 
 ## The height of horizontal bars, scrollbars, and sliders. The width of vertical
 ## bars, scrollbars, and sliders.
-define gui.bar_size = 38
+define gui.bar_size = 70
 define gui.scrollbar_size = 18
-define gui.slider_size = 38
+define gui.slider_size = 70
 
 ## True if bar images should be tiled. False if they should be linearly scaled.
 define gui.bar_tile = False
