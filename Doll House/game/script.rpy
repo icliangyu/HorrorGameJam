@@ -13,7 +13,7 @@ define TotalMalicePoints = 6
 define malice = 0
 
 default MaliceIndicator = True
-
+default UIOnScreen = True
 
 init python:
     def GetMaliceImage(st, at):
@@ -28,7 +28,7 @@ init python:
         return None
 
 screen malice_indicator():
-    if MaliceIndicator:
+    if MaliceIndicator and UIOnScreen:
         hbox:
             spacing 9
             xalign 0.9875
@@ -63,13 +63,13 @@ define doll = Character("Nadeshiko")
 define emi = Character("Emi")
 define mom = Character("Mother")
 
-init 0:
-    define knows_owners_name = False
+default knows_owners_name = False
 
 label start:
     play music BoxOpeningTheme loop
-    scene bg narrative at BackgroundScale
+    scene bg narration at BackgroundScale
 
+    $ UIOnScreen = False
     centered "For centuries dolls have been common household items beloved by children."
     centered "But recently they have started to become a popular collector's item."
     centered "They are adored by many for their perfect features and ornate clothes." 
@@ -91,6 +91,7 @@ label start:
 label bedroom:
     stop music fadeout 3.0
     show nicole happy at LeftPortrait
+    $ UIOnScreen = True
     nicole "Let's see what you look like..."
 
     narrator "On that day, darkness finally gave way to a blinding light that was almost immediately eclipsed by a scowling face."
@@ -336,8 +337,10 @@ label bedroom:
     narrator "The young girl turned over the doll and her accompanying certificate in awe. The doll stayed still but her glassy eyes shone with happiness at being found and rescued from her place in the darkness."
 
     ### PLAYER CAN'T DISMISS THIS LINE
+    $ UIOnScreen = False
     scene bg black weak at BackgroundScale
-    centered "Or perhaps the source of happiness stemmed from the child's radiant love for her despite only just having met. There wouldn't be any need for convincing Emi unlike with Nicole."
+    centered "Or perhaps the source of happiness stemmed from the child's radiant love for her despite only just having met. There wouldn't be any need for convincing Emi unlike with Nicole.{nw=1.0}" (advance=False)
+    $ UIOnScreen = True
 
     scene bg bedroom at BackgroundScale
     show emi happy at LeftPortrait
@@ -355,8 +358,10 @@ label kitchen:
     narrator "While Nicole's weary eyes held traces of age and suspicion, Emi's was filled to the brim with life and adoration."
 
     ### PLAYER CAN'T DISMISS THIS LINE
+    $ UIOnScreen = False
     scene bg black medium at BackgroundScale
-    centered "The doll liked this a lot."
+    centered "The doll liked this a lot.{nw=1.0}" (advance=False)
+    $ UIOnScreen = True
 
     scene bg kitchen blur at BackgroundScale
 
@@ -421,13 +426,15 @@ label kitchen:
             narrator "Emi's downcast face continued to glance between the doll and the page as she sketched. Even though the two had just met, Nadeshiko didn't like seeing Emi so sad."
 
             ### PLAYER CAN'T DISMISS THIS LINE
+            $ UIOnScreen = False
             scene bg black medium at BackgroundScale
-            centered "So the doll decided to speak up."
+            centered "So the doll decided to speak up.{nw=1.0}" (advance=False)
 
-            centered "I could be your big sister, Emi."
-            centered "Then you wouldn't have to wear those ugly clothes anymore."
-            centered "A sweet girl like you deserves to be dressed in frills and laces."
+            centered "I could be your big sister, Emi.{nw=1.0}" (advance=False)
+            centered "Then you wouldn't have to wear those ugly clothes anymore.{nw=1.0}" (advance=False)
+            centered "A sweet girl like you deserves to be dressed in frills and laces.{nw=1.0}" (advance=False)
             centered "I can help."
+            $ UIOnScreen = True
 
             scene bg kitchen blur at BackgroundScale
             narrator "The young girl looked up from her work. Her eyes searched the doll's unmoving gaze for a moment before replying with a wide smile."
@@ -577,8 +584,10 @@ label kitchen:
             narrator "The older girl angrily gestured at the puddle of ramune being soaked up by the pages of Emi’s notebook, dyeing the drawings of the doll a bright red."
 
             ### PLAYER CAN'T DISMISS THIS LINE
+            $ UIOnScreen = False
             scene bg black medium at BackgroundScale
-            centered "Nadeshiko sat in innocent stillness, and looked at the red pool with her painted smile and vacant eyes as though Nicole had been the one to bleed out the liquid."
+            centered "Nadeshiko sat in innocent stillness, and looked at the red pool with her painted smile and vacant eyes as though Nicole had been the one to bleed out the liquid.{nw=1.0}" (advance=False)
+            $ UIOnScreen = True
            
             scene bg kitchen at BackgroundScale
             show nicole angry at RightPortrait
@@ -637,8 +646,10 @@ label living_room:
     narrator "Emi squeezed the doll tightly in a wistful embrace before placing it between two cushions on the sofa. The young girl gave one last look before returning to the kitchen."
     
     ### PLAYER CAN'T DISMISS THIS LINE
+    $ UIOnScreen = False
     scene bg black medium at BackgroundScale
-    centered "The doll felt bad for Emi because she had to live with such a wretched person like Nicole."
+    centered "The doll felt bad for Emi because she had to live with such a wretched person like Nicole.{nw=1.0}" (advance=False)
+    $ UIOnScreen = True
     
     scene bg livingroom blur at BackgroundScale
     show doll sad at LeftPortrait
@@ -937,7 +948,6 @@ label bad_lead_up:
         
 
 label bad_ending:
-    play music AtticRealization loop
     scene bg narration at BackgroundScale
     centered "Unfortunately for Nicole, it wasn't an animal."
     centered "Upon arriving up the attic, the older girl was confronted with various items that were interpreted in such a way that would anger her into an inconsolable frenzy."
@@ -959,19 +969,22 @@ label bad_ending:
     show nicole fear at LeftPortrait
     nicole "W-what... what is this...?"
 
-    ### EERIE MUSIC OR CUE ENDING THEME
+    play music AtticRealization loop
 
     show nicole sad at LeftPortrait
     nicole "This is dad."
 
+    hide doll
     show nicole surprised at LeftPortrait
     show mom neutral at RightPortrait
     nicole "Mom."
 
+    hide mom
     show nicole neutral at LeftPortrait
     show emi neutral at RightPortrait
     nicole "And Emi..."
 
+    hide emi
     show nicole angry at LeftPortrait
     nicole "Huh?!"
     nicole "Is that supposed to be me?"
@@ -1076,9 +1089,14 @@ label bad_ending:
 
     ### 3 SPRITES ON SCREEN AT ONCE BUT ORGANIZED 
 
-    mom "Nick!"
+    show emi sad at TertiaryRightPortrait behind mom
     show mom angry at RightPortrait
+    mom "Nick!"
+    show mom angry at TertiaryRightPortrait behind emi
+    show emi sad at RightPortrait
     emi "Mom, mom!"
+    show emi sad at TertiaryRightPortrait behind mom
+    show mom angry at RightPortrait
     mom "Is that anyway to speak to your baby sister?"
     
     show nicole surprised at LeftPortrait
@@ -1089,9 +1107,11 @@ label bad_ending:
     show mom neutral at RightPortrait
     mom "What's gotten into you? What are you two fighting about?"
 
+    show mom neutral at TertiaryRightPortrait behind emi
     show emi sad at RightPortrait
     emi "Mom, I swear I didn't put her doll in the attic. I didn't."
 
+    show emi sad at TertiaryRightPortrait behind mom
     show mom neutral at RightPortrait
     mom "Shh... it's okay, Emi. I believe you."
 
@@ -1210,19 +1230,18 @@ label bad_ending:
         $ flash = Fade(.1, 0.1, .3, color="#fff")
         $ horror_reveal_flash = MultipleTransition()
 
-    $ quick_menu = False
-    $ MaliceIndicatorBeforeScene = MaliceIndicator
-    $ MaliceIndicator = False
-    hide screen malice_indicator
+    $ UIOnScreen = False
     scene bg black weak at BackgroundScale
-    centered "..............................."
+    centered "{cps=20}...............................{nw=2.0}" (advance=False)
     scene bg_nicole_blank at BackgroundScale
     with flash
-    centered "......................."
+    centered "{nw=1.0}"
     scene bg black medium at BackgroundScale
-    centered "..............."
+    centered "{cps=20}.......................{nw=2.0}" (advance=False)
+    scene bg black medium at BackgroundScale
+    centered "{cps=20}...............{nw=2.0}" (advance=False)
     scene bg black strong at BackgroundScale
-    centered "Nicole is so dumb, mother isn't looking for the perfect son, she wants the perfect daughter. Something you could never be. I'm so glad you also agree with me."
+    centered "{cps=20}Nicole is so dumb{w=1.0}, mother isn't looking for the perfect son{w=1.0}, she wants the perfect daughter.{w=1.0} Something you could never be.{w=1.0} I'm so glad you also agree with me.{nw=2.0}" (advance=False)
     scene bg_nicole_void at BackgroundScale
     with flash
     with Pause(1.0)
@@ -1230,34 +1249,34 @@ label bad_ending:
     with flash
     with Pause(1.0)
 
-    scene bg narrative at BackgroundScale
-    $ PlayerCanDismiss = False
+    scene bg narration at BackgroundScale
     with Fade(1.8,0.1,0.1)
     ### THESE TO APPEAR BENEATH EACH OTHER AS PARAGRAPH
     centered "{cps=20}Then again...{w=1.0}\
 \nIn ancient times dolls were also used as sacrificial stand-ins.{w=2.0}\
-\nAnd as a human-like vessel they have always been quite ideal for wandering entities.{nw=2.0}"
+\nAnd as a human-like vessel they have always been quite ideal for wandering entities.{nw=2.0}" (advance=False)
     
     ### PARAGRAPH APPEARING SENTENCE BY SENTENCE BY EACH STAY ON SCREEN
     centered "{cps=20}But it seems like this entity isn't wandering anymore because she's found a home.{w=2.0}\
 \nI hear whispers about the family, and the mother couldn't be prouder of her eldest daughter, Nadeshiko.{w=2.0}\
-\nWord has it that she's going to marry mother's mutual friend's son soon and begin a family of her own.{nw=2.0}"
+\nWord has it that she's going to marry mother's mutual friend's son soon and begin a family of her own.{nw=2.0}" (advance=False)
     
     ### PARAGRAPH
     centered "{cps=20}I see the younger daughter sometimes and she's always carrying a doll with her.{w=2.0}\
 \nShe cherishes it a lot, proudly saying that Nadeshiko gave her this Nicole doll.{w=2.0}\
 \nThe two are practically inseparable.{w=2.0}\
-\nWhat a lucky little doll. So spoiled and well taken care of by a sweet child like Emi.{nw=2.0}" (advance=False)
+\nWhat a lucky little doll.{w=0.5} So spoiled and well taken care of by a sweet child like Emi."#{nw=2.0}" (advance=False)
 
     scene bg black strong at BackgroundScale
-    centered "{cps=0.0}It must be a very happy doll.{nw=1.50}"
+    centered "{cps=0.0}It must be a very happy doll.{nw=1.50}" (advance=False)
 
+    scene black
+    with Fade(1.0,1.5,1.5, color="#000")
     scene bg bad_ending at BackgroundScale
     with Fade(1.0,1.5,1.5, color="#000")
-    centered ""
+    centered "{w=3.0}"
 
-    $ quick_menu = True
-    $ MaliceIndicator = MaliceIndicatorBeforeScene
+    $ UIOnScreen = True
     $ persistent.got_bad_ending = True
     jump game_end
 
