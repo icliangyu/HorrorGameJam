@@ -1928,11 +1928,21 @@ label good_ending:
     scene bg black weak at BackgroundScale
     centered "Is another story."
 
+    scene bg good_ending at BackgroundScale
+    with Fade(1.0,1.5,1.5, color="#000")
+    centered "{w=3.0}"
+
+    scene black
+    with Fade(1.0,1.0,0.0, color="#000")
+    centered "{nw=0.0}"
+
     $ persistent.got_good_ending = True
+    
     jump game_end
 
 ### TRIGGERED AFTER GOOD END CG IS CLICKED TO SUPPOSEDLY GO BACK TO MAIN MENU
 label reveal:
+    $ UIOnScreen = False
     play music audio.Hum loop
 
     "Hello, it's me."
