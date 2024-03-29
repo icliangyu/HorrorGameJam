@@ -1550,12 +1550,8 @@ label good_ending:
     show nicole neutral at LeftPortrait
     nicole "It might just be an animal or something."
 
-    label good_ending:
-
-    *** Insert bad ending lead up***
-
     scene bg attic at BackgroundScale
-    play sound 
+    play sound audio.DoorCreak
 
     show nicole fear at LeftPortrait
     nicole "Hello...? Is there anyone here...?"
@@ -1624,6 +1620,7 @@ label good_ending:
     show doll neutral at RightPortrait
     nicole "Now that I've had time to think about it, maybe I should just return you."
 
+    play sound audio.Redact
     scene bg black weak at BackgroundScale
     centered "!!@*&^%!@#*&%^&**&^%$*%W*&^H*Y*&^%$"
 
@@ -1645,7 +1642,7 @@ label good_ending:
 
     scene bg kitchen at BackgroundScale
 
-    ### play sound eating dinner SFX
+    play sound audio.Dinner
 
     show mom neutral at RightPortrait
     show emi neutral at RightPortrait
@@ -1792,9 +1789,10 @@ label good_ending:
 
     show emi happy at RightPortrait
     show nicole happy at LeftPortrait
-    emi "Mom, we have a brother?!"
+    emi "Mom, we have a brother?! Why didn't you tell us?"
+    emi "I want to know about him."
 
-    scene bg livin_room at BackgroundScale
+    scene bg livingroom at BackgroundScale
 
     show mom neutral at RightPortrait
     mom "*Sigh*"
