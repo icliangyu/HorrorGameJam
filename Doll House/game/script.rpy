@@ -1353,6 +1353,7 @@ label neutral_ending:
     scene bg narration at BackgroundScale
     centered "Being ever so brave, Emi took matters into her own hands and, with hesitant yet determined steps, made her way up into the tenebrous attic."
 
+    play music AtticRealization loop
     scene bg attic at BackgroundScale
 
     show emi neutral at LeftPortrait
