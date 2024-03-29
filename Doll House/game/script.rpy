@@ -1940,29 +1940,35 @@ label reveal:
     "Hello, it's me."
 
     ### SOMETHING CREATIVE FOR THE REDACTED PARTS?
+    play sound audio.Redact
     "*redacted*"
 
     "I'm contacting you regarding the doll that you sold me."
 
-    "*redacted*"
+    play sound audio.Redact
+    "!#%&^%$&*&^$!^^"
 
     "You guaranteed that it would work but nothing happened."
 
-    "*redacted*"
+    play sound audio.Redact
+    "$%**&^%%%$@!@#**^$$#"
 
     "What do you think?"
     "I made sure to step away from the house as soon as I saw the parcel was delivered."
 
-    "*redacted*"
+    play sound audio.Redact
+    "**&^%%%!!!!@#$%%$&#@@*"
 
     "Believe me, she was plenty worked up."
     "Do you think two sisters wouldn't find a way to fight the moment they're alone?"
 
-    "*redacted*"
+    play sound audio.Redact
+    "%%&^$#@#$%^&&&&#@!!@@#*&&&^&#@!$*&!"
 
     "Seeing as it failed, I am requesting a full refund."
 
-    "*redacted*"
+    play sound audio.Redact
+    "%%$$$$$&&*@!@@#@!^"
 
     "Really now?! Well then..."
     
