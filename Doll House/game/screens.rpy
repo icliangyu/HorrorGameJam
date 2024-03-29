@@ -626,6 +626,22 @@ screen about():
 
             text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
 
+            
+            ### CREDITS FREE FROM COMMENT PRISON
+            Production
+            Project Lead, Game Design 		Jade
+            Project Manager			        Light
+
+            Programming
+            Programmer			            NovaSmoof
+
+            Music
+            Composer				        Hauyn
+
+            Art
+            Artist, Backgrounds			    Jade
+            Artist, Character			`   Nao
+            ###
 
 style about_label is gui_label
 style about_label_text is gui_label_text
