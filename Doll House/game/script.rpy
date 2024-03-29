@@ -1935,7 +1935,7 @@ label good_ending:
 
 ### TRIGGERED AFTER GOOD END CG IS CLICKED TO SUPPOSEDLY GO BACK TO MAIN MENU
 label reveal:
-    ### DIAL TONE
+    play music audio.Hum loop
 
     "Hello, it's me."
 
@@ -1970,7 +1970,7 @@ label reveal:
 
     centered "Make me another one."
 
-    ### dial click
+    play sound audio.Click
 
 label game_end:
     return
