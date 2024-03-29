@@ -315,7 +315,7 @@ screen navigation(leftJustify=True, returnedFrom=True):
 
         else:
             yalign 0.5
-            xalign 0.98
+            xalign 0.95
             xoffset -30
             
         spacing gui.navigation_spacing
@@ -602,6 +602,7 @@ style return_button:
 ##
 ## There's nothing special about this screen, and hence it also serves as an
 ## example of how to make a custom screen.
+## Now if only I could include accredation towards Ashnikko's Ass. <3
 
 screen about():
 
