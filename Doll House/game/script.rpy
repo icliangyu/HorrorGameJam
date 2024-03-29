@@ -1517,12 +1517,474 @@ label neutral_ending:
     jump game_end
 
 label good_ending:
-    emi "Auroa Borealis, localized entirely in your living room?"
-    doll "Yes."
-    emi "Well Doll, you drive a hard bargain."
+    scene bg kitchen at BackgroundScale
+    play sound audio.AtticFootsteps volume 0.125
+
+    show nicole neutral at LeftPortrait
+    show emi sad at RightPortrait
+    emi "Do you hear that?"
+
+    show nicole neutral at LeftPortrait
+    nicole "Hear what?"
+
+    play sound audio.AtticFootsteps volume 0.25
+
+    show emi neutral at RightPortrait
+    emi "Nick, listen! Someone's up in the attic."
+
+    play sound audio.AtticFootsteps volume 0.5
+
+    show nicole angry at LeftPortrait
+    nicole "No there isn-"
+    show nicole fear at RightPortrait
+
+    play sound audio.AtticFootsteps volume 1.0
+
+    show emi sad at RightPortrait
+    emi "See!"
+    show emi crying at RightPortrait
+    emi "What should we do?"
+
+    show nicole angry at LeftPortrait
+    nicole "Wait down here. I'll check it out."
+    show nicole neutral at LeftPortrait
+    nicole "It might just be an animal or something."
+
+    scene bg attic at BackgroundScale
+    play sound audio.DoorCreak
+
+    show nicole fear at LeftPortrait
+    nicole "Hello...? Is there anyone here...?"
+
+    show nicole surprised at LeftPortrait
+    nicole "Huh? What's all this?"
+    nicole "These are photos of us."
+
+    show nicole sad at LeftPortrait
+    nicole "Dad..."
+
+    show nicole happy at LeftPortrait
+    nicole "Hehe... mom looks really happy here."
+    nicole "I wish she would smile like that again."
+
+    show nicole neutral at LeftPortrait
+    nicole "It suits her."
+
+    show nicole happy at LeftPortrait
+    nicole "And look at Emi! She's so tiny next to me."
+
+    show nicole surprised at LeftPortrait
+    nicole "I don't even remember taking these..."
+    nicole "It feels like a different lifetime..."
+    nicole "Like I'm witnessing someone else's memories and not my own."
+
+    show nicole neutral at LeftPortrait
+    nicole "When did we get so miserable?"
+    nicole "It's like we've forgotten how to be anything but angry."
+
+    show nicole sad at LeftPortrait
+    nicole "I keep saying I'm supporting the family but-"
+    nicole "Am I really when no one's happy?"
+
+    show nicole fear at LeftPortrait
+    nicole "Is it me...? Am I the one making them sad?"
+
+    narrator "Nicole bent down and picked up the doll she had bought earlier."
+
+    show nicole neutral at LeftPortrait
+    show doll neutral at RightPortrait
+
+    narrator "Nadeshiko was sitting amongst the scattered belongings."
+    narrator "While her face showed no signs of life, Nicole couldn't help but feel as though the doll was beaming up at her."
+    narrator "It's eyes gleamed with the smallest twinkle of pride in a statement that said,"
+    
+    scene bg black weak at BackgroundScale
+    centered "Look at what I found! Aren't you glad?"
+
+    show nicole neutral at LeftPortrait
+    show doll happy at RightPortrait
+    narrator "But in that seemingly benevolent gesture there was something permeating with untapped malice."
+
+    *** DOLL TERTIARY CHARACTER INCLUDED TO BE CREEPY?
+    show doll angry at LeftPortrait
+    show doll angry at TertiaryRightPortrait behind doll
+    narrator "And the more the older girl looked at the doll, the more uneasy she felt."
+
+    show nicole fear at LeftPortrait
+    show doll happy at RightPortrait
+
+    show doll angry at RightPortrait
+    narrator "Was the doll's face always sculpted with such a deep scowl?"
+    
+    show nicole neutral at LeftPortrait
+    show doll neutral at RightPortrait
+    nicole "Now that I've had time to think about it, maybe I should just return you."
+
+    play sound audio.Redact
+    scene bg black weak at BackgroundScale
+    centered "!!@*&^%!@#*&%^&**&^%$*%W*&^H*Y*&^%$"
+
+    scene bg attic at BackgroundScale
+
+    show nicole surprised at LeftPortrait
+    nicole "I should get a full refund and save it up!"
+
+    scene bg black weak at BackgroundScale
+    centered ".................."
+
+    scene bg attic at BackgroundScale
+
+    show nicole happy at LeftPortrait
+    nicole "There's something I want to get for Emi."
+
+    scene bg black weak at BackgroundScale
+    centered ".................."
+
+    scene bg kitchen at BackgroundScale
+
+    play sound audio.Dinner
+
+    show mom neutral at RightPortrait
+    show emi neutral at RightPortrait
+    show nicole neutral at LeftPortrait
+
+    mom "How was school tday, Emi?"
+
+    emi "It was good."
+
+    nicole "Hey mom, can I ask you something?"
+
+    mom "What is it?"
+
+    nicole "Up in the attic?"
+
+    show mom angry at RightPortrait
+    mom "Why did you go up there?"
+    mom "You know it's dirty!"
+
+    show emi sad at RightPortrait
+    emi "We heard someone moving around up there."
+
+    show mom neutral at RightPortrait
+    mom "Really now?"
+
+    narrator "The mother raised a dubious eyebrow and directed the question at Nicole."
+
+    show emi neutral at RightPortrait
+    emi "Yeah and Nick went to check in case."
+
+    show nicole surprised at LeftPortrait
+    nicole "There wasn't anyone up there but the new doll that I got today."
+    nicole "By the way, you didn't happen to bring it up there did you?"
+
+    show emi sad at RightPortrait
+    emi "Nope!"
+
+    show nicole neutral at LeftPortrait
+    nicole "Weird..."
+
+    show nicole surprised at LeftPortrait
+    nicole "And there were a bunch of old stuff too."
+
+    show mom neutral at RightPortrait
+    mom "Old stuff?"
+    mom "What did you find while rummaging around in the dusty attc, Nick?"
+
+    show nicole neutral at LeftPortrait
+    nicole "I didn't have to go through anything actually." 
+    nicole "They were just sitting out in the open when I got there."
+
+    show mom neutral at RightPortrait
+    mom "......"
+
+    narrator "Nicole placed the photos on top of the dinner table."
+
+    show emi happy at RightPortrait
+    emi "Look, mom! It's us!"
+
+    show mom neutral at RightPortrait
+    mom "......."
+
+    show nicole happy at LeftPortrait
+    nicole "You look so happy, we all do."
+    nicole "Don't you think we should find a frame and display it in the living room?"
+    nicole "We can take a new photo too."
+
+    show emi happy at RightPortrait
+    emi "Yeah! I want to take new photos. Mom can we?"
+    
+    show emi neutral at RightPortait
+    emi "Hey, Nick? Why the sudden interest?"
+
+    show nicole sad at LeftPortrait
+    nicole "Just something fun for us to do together."
+    nicole "It's been awhile since we've done, well, anything."
+
+    show emi happy at RightPortrait
+    emi "The living room needs new decorations too."
+    emi "So can I pick out frames for the pictures?"
+
+    narrator "Nicole was amused to see Emi already getting so invested in her idea."
+
+    show nicole happy at LeftPortrait
+    nicole "Why not?"
+    nicole "We can go to the thrift store next weekend and find some cool things while we're at it."
+
+    show emi happy at RightPortrait
+    emi "Okay hehe!"
+    emi "I'll finish all my homework before then!"
+
+    narrator "But Nicole couldn't ignore the look of disapproval that had been plastered onto her mother's face."
+
+    show nicole neutral at LeftPortrait
+    nicole "I know you may not like looking at these, that's why you stored them away."
+    nicole "But we should be proud of our beginnings."
+    nicole "Sometimes we need to a reminder of how far we've come."
+
+    show nicole sad at LeftPortrait
+    nicole "I don't want to focus on what I don't have."
+    nicole "Don't you want to honor dad's memory?"
+    nicole "I thought we were liing without him but really we're living around what he's given us."
+    nicole "His absence is too big to be empty."
+    nicole "It takes up space because he's important."
+    nicole "It feels like you nurturing your grief more than his love."
+
+    show nicole neutral at LeftPortrait
+    nicole "Why are we burying a part of our identity?"
+
+    show nicole angry at LeftPortrait
+    nicole "It just doesn't make any sense!"
+    nicole "He's your husband, and my father. That doesn't change because he's dead!"
+
+    show emi sad at RightPortrait
+    emi "Nick..."
+
+    show nicole sad at LeftPortrait
+    nicole "And... and..."
+    nicole "You may have lost a son but... you still have Emi and me."
+    nicole "We're still here."
+
+    show nicole surprised at LeftPortrait
+    nicole "Is there anything a son would do that I wouldn't?"
+
+    show mom neutral at RightPortrait
+    mom "......"
+
+    show nicole sad at LeftPortrait
+    nicole "I just want you to love me."
+    nicole "Not the me that you hope I'll be one day."
+    nicole "Not the me back from your memories."
+    nicole "The me right here."
+
+    show emi happy at RightPortrait
+    emi "Hehe..."
+
+    show nicole surprised at LeftPortrait
+    nicole "......?"
+
+    show emi happy at RightPortrait
+    emi "I'm going to let you finish, Nick but..."
+    show nicole angry at LeftPortrait
+    nicole "!!!"
+
+    show emi happy at RightPortrait
+    show nicole happy at LeftPortrait
+    emi "Mom, we have a brother?! Why didn't you tell us?"
+    emi "I want to know about him."
+
+    scene bg livingroom at BackgroundScale
+
+    show mom neutral at RightPortrait
+    mom "*Sigh*"
+    mom "So you found the baby clothes, and yes, it's true."
+    mom "What would have been Nicole's older brother didn't make it."
+
+    show emi sad at RightPortrait
+    show nicole sad at LeftPortrait
+    
+    show mom neutral at RightPortrait
+    mom "Your father didn't blame me and was rather supportive."
+    mom "He wanted us to try for another baby as soon as possible."
+    mom "He was so excited at the prospect of having a baby boy."
+
+    show mom angry at RightPortrait
+    mom "Oh you should have seen him back then!"
+
+    show emi happy at RightPortrait
+    show nicole happy at LeftPortrait
+    mom "He was like an overjoyed child himself."
+    mom "It makes me wonder how an overgrown baby was capable of raising another baby."
+
+    show mom neutral at RightPortrait
+    mom "When I had you it was like I failed my husband twice."
+    show nicole sad at LeftPortrait
+    show emi sad at RightPortrait
+
+    mom "I couldn't give him the child he wanted..."
+    mom "But even then you know better than anyone how much your father loved you."
+    mom "There was no lengths he didn't go to for your happiness."
+
+    show mom angry at RightPortrait
+    mom "That's probably why he overworked himself into a grave and left me with two children."
+    show nicole neutral at LeftPortrait
+
+    scene bg bedroom at BackgroundScale
+
+    show emi sad at RightPortrait
+    show nicole angry at LeftPortrait
+    emi "Nick, I know dad wasn't around for long after I was born..."
+    emi "But I know he loved you."
+
+    show emi neutral at RightPortrait
+    show nicole sad at LeftPortrait
+    emi "I think mom's still dealing with her own grief and takes it out on you."
+    emi "I'm not saying you shouldn't take it to heart but-"
+    emi "You shouldn't let her sadness and anger become a part of you."
+
+    show nicole happy at LeftPortrait
+    nicole "When did you gt so smart?"
+    show emi happy at RightPortrait
+    nicole "Thanks, kiddo."
+
+    show nicole neutral at LeftPortrait
+    nicole "Is that what you had to come to terms with yourself?"
+    show nicole sad at LeftPortrait
+    nicole "Because... because... of the way I treat you?"
+
+    show emi neutral at RightPortrait
+    emi "I guess."
+
+    show nicole surprised at LeftPortrait
+    nicole "There's no excuse on my end!"
+    nicole "I'm sorry and I swear to make things right between us."
+
+    hide nicole at LeftPortrait
+    hide emi at RightPortrait
+
+    scene black
+    show doll fear at RightPortrait
+    narrator "That night two sisters held each other in a bittersweet embrace."
+    narrator "Outside their door, Nadeshiko noiselessly crawled back under the bed."
+
+    show nicole sad at LeftPortrait
+    nicole "All this time I thought I was crazy."
+    nicole "Never understanding why mom does the things she does."
+    nicole "But it all makes sense."
+
+    show nicole neutral at LeftPortrait
+    nicole "It's easier to handle knowing there's a reason behind her actions."
+    nicole "But it also hurts."
+
+    show nicole fear at LeftPortrait
+    nicole "I really am unwanted."
+
+    narrator "In the unlit room, the younger of the sisters took hold of the other's hand in silence."
+    narrator "She of all people knew how all-consuming one's doubts and thoughts could be in the darkness."
+    narrator "Still young, Emi had no way of conveying her thoughts in a profound way."
+    narrator "Not one that would reach into the depths of Nicole's despair."
+    narrator "So instead she simply squeezed her big sister's hand gently."
+    narrator "In the most simplest of gestures, it was all she could do to say,
+    
+    scene bg narration at BackgroundScale
+    centered "You're not alone."
+
+    narrator "And she would be right in saying that."
+    narrator "Even in the darkness, if one were to just reach out towards the expanse before them they would surely find others-
+    narrator "In the midst of their own predicaments, reaching back."
+
+    scene black
+    nicole "Hey, Emi?"
+    emi "Yeah?"
+    nicole "There's someone I want you to meet."
+    nicole "Is it okay if they tag along next weekend?"
+    emi "Sure."
+
+    scene bg narration at BackgroundScale
+    ### PARAGRAPH - SENTENCE APPEARS ONE BY ONE
+    centered "I just remembered."
+    centered "Aren't dolls popularly utilized in the horror genre as a cause for misfortune and malady?"
+    centered "Perhaps this is what Nicole was thinking when she carefully packed up Nadeshiko's box.
+
+    ### PARAGRAPH - SENTENCE APPEARS ONE BY ONE 
+    centered "I heard she and Emi stopped by the post office before heading to meet up with a lovely lady."
+    centered "And the three of them spent the fun-filled weekend together."
+
+    ### PARAGRAPH 
+    centered "It wasn't long before the money was fully returned to Nicole."
+    centered "Of course, she immediately spent it on something else."
+    centered "I can still recall Emi's delighted face when Nicole brought home the sewing machine."
+    centered "It was well received within the household."
+   
+    ### PARAGRAPH
+    centered "Emi used it to create her own clothes, and clothes for Nicole's dolls."
+    centered "She even made embellishments for the house."
+    centered "Needless to say, the two sisters have been working closely ever since."
+    centered "Word went around that Emi's handmade goods are quite the hit online and at the weekend market."
+
+    centered "I don't think I've seen them happier than now."
+    centered "Who knows, maybe that mysterious doll did help out in some way."
+    centered "Whether that was its intentions though-"
+
+    scene bg black weak at BackgroundScale
+    centered "Is another story."
+
+    scene bg good_ending at BackgroundScale
+    with Fade(1.0,1.5,1.5, color="#000")
+    centered "{w=3.0}"
+
+    scene black
+    with Fade(1.0,1.0,0.0, color="#000")
+    centered "{nw=0.0}"
+
     $ persistent.got_good_ending = True
+    
     jump game_end
 
+### TRIGGERED AFTER GOOD END CG IS CLICKED TO SUPPOSEDLY GO BACK TO MAIN MENU
+label reveal:
+    $ UIOnScreen = False
+    play music audio.Hum loop
+
+    "Hello, it's me."
+
+    ### SOMETHING CREATIVE FOR THE REDACTED PARTS?
+    play sound audio.Redact
+    "*redacted*"
+
+    "I'm contacting you regarding the doll that you sold me."
+
+    play sound audio.Redact
+    "!#%&^%$&*&^$!^^"
+
+    "You guaranteed that it would work but nothing happened."
+
+    play sound audio.Redact
+    "$%**&^%%%$@!@#**^$$#"
+
+    "What do you think?"
+    "I made sure to step away from the house as soon as I saw the parcel was delivered."
+
+    play sound audio.Redact
+    "**&^%%%!!!!@#$%%$&#@@*"
+
+    "Believe me, she was plenty worked up."
+    "Do you think two sisters wouldn't find a way to fight the moment they're alone?"
+
+    play sound audio.Redact
+    "%%&^$#@#$%^&&&&#@!!@@#*&&&^&#@!$*&!"
+
+    "Seeing as it failed, I am requesting a full refund."
+
+    play sound audio.Redact
+    "%%$$$$$&&*@!@@#@!^"
+
+    "Really now?! Well then..."
+    
+    scene bg black strong at BackgroundScale
+
+    centered "Make me another one."
+
+    play sound audio.Click
 
 label game_end:
     return
