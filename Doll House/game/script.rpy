@@ -1605,7 +1605,7 @@ label good_ending:
     show doll happy at RightPortrait
     narrator "But in that seemingly benevolent gesture there was something permeating with untapped malice."
 
-    *** DOLL TERTIARY CHARACTER INCLUDED TO BE CREEPY?
+    ### DOLL TERTIARY CHARACTER INCLUDED TO BE CREEPY?
     show doll angry at LeftPortrait
     show doll angry at TertiaryRightPortrait behind doll
     narrator "And the more the older girl looked at the doll, the more uneasy she felt."
@@ -1622,7 +1622,7 @@ label good_ending:
 
     play sound audio.Redact
     scene bg black weak at BackgroundScale
-    centered "!!@*&^%!@#*&%^&**&^%$*%W*&^H*Y*&^%$"
+    centered "!!@*&^%%!@#*&%%^&**&^%%$*%%W*&^H*Y*&^%%$"
 
     scene bg attic at BackgroundScale
 
@@ -1713,7 +1713,7 @@ label good_ending:
     show emi happy at RightPortrait
     emi "Yeah! I want to take new photos. Mom can we?"
     
-    show emi neutral at RightPortait
+    show emi neutral at RightPortrait
     emi "Hey, Nick? Why the sudden interest?"
 
     show nicole sad at LeftPortrait
@@ -1883,13 +1883,13 @@ label good_ending:
     narrator "Still young, Emi had no way of conveying her thoughts in a profound way."
     narrator "Not one that would reach into the depths of Nicole's despair."
     narrator "So instead she simply squeezed her big sister's hand gently."
-    narrator "In the most simplest of gestures, it was all she could do to say,
+    narrator "In the most simplest of gestures, it was all she could do to say,"
     
     scene bg narration at BackgroundScale
     centered "You're not alone."
 
     narrator "And she would be right in saying that."
-    narrator "Even in the darkness, if one were to just reach out towards the expanse before them they would surely find others-
+    narrator "Even in the darkness, if one were to just reach out towards the expanse before them they would surely find others-"
     narrator "In the midst of their own predicaments, reaching back."
 
     scene black
@@ -1903,7 +1903,7 @@ label good_ending:
     ### PARAGRAPH - SENTENCE APPEARS ONE BY ONE
     centered "I just remembered."
     centered "Aren't dolls popularly utilized in the horror genre as a cause for misfortune and malady?"
-    centered "Perhaps this is what Nicole was thinking when she carefully packed up Nadeshiko's box.
+    centered "Perhaps this is what Nicole was thinking when she carefully packed up Nadeshiko's box."
 
     ### PARAGRAPH - SENTENCE APPEARS ONE BY ONE 
     centered "I heard she and Emi stopped by the post office before heading to meet up with a lovely lady."
@@ -1954,29 +1954,29 @@ label reveal:
     "I'm contacting you regarding the doll that you sold me."
 
     play sound audio.Redact
-    "!#%&^%$&*&^$!^^"
+    "!#%%&^%%$&*&^$!^^"
 
     "You guaranteed that it would work but nothing happened."
 
     play sound audio.Redact
-    "$%**&^%%%$@!@#**^$$#"
+    "$%%**&^%%%%%%$@!@#**^$$#"
 
     "What do you think?"
     "I made sure to step away from the house as soon as I saw the parcel was delivered."
 
     play sound audio.Redact
-    "**&^%%%!!!!@#$%%$&#@@*"
+    "**&^%%%%%%!!!!@#$%%%%$&#@@*"
 
     "Believe me, she was plenty worked up."
     "Do you think two sisters wouldn't find a way to fight the moment they're alone?"
 
     play sound audio.Redact
-    "%%&^$#@#$%^&&&&#@!!@@#*&&&^&#@!$*&!"
+    "%%%%%%%%&^$#@#$%%%%^&&&&#@!!@@#*&&&^&#@!$*&!"
 
     "Seeing as it failed, I am requesting a full refund."
 
     play sound audio.Redact
-    "%%$$$$$&&*@!@@#@!^"
+    "%%%%$$$$$&&*@!@@#@!^"
 
     "Really now?! Well then..."
     
