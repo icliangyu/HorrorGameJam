@@ -604,6 +604,56 @@ style return_button:
 ## example of how to make a custom screen.
 ## Now if only I could include accredation towards Ashnikko's Ass. <3
 
+init python:
+    InteriorCreditList = [
+    ("Production","",""),
+    ("    Project Lead, Game Design","","Chelsea"),
+    ("    Project Manager","","Light"),
+    ("Programming","",""),
+    ("    Programmer","","NovaSmoof"),
+    ("Music","",""),
+    ("    Composer","","Hauyn"),
+    ("Art","",""),
+    ("    Artist, Character","","Nao"),
+    ("    Artist, Backgrounds","","Chelsea"),
+    ("","",""),
+    ]
+    ExteriorCreditsList = [
+    ("Special Thanks","",""),
+    ("3D Models","",""),
+    ('"Free 3D Model Books"', '{a=https://skfb.ly/oQrxN}https://skfb.ly/oQrxN{/a}', '₦₥₵ ฿₵'),
+    ('Rice Cooker model', '{a=https://sketchfab.com/1-3D.com}https://sketchfab.com/1-3D.com{/a}', '1-3D'),
+    ('Ball jointed doll', '{a=https://sketchfab.com/chambersu1996}https://sketchfab.com/chambersu1996{/a}', 'Chambersu1996'),
+    ('Guan Yin Statue model', '{a=https://sketchfab.com/Diana123456}https://sketchfab.com/Diana123456{/a}', 'Diana Liu'),
+    ('"Haunted Mansion - Coffee Table"', '{a=https://skfb.ly/6WVyS}https://skfb.ly/6WVyS{/a}', 'emmashanks'),
+    ('"Fruit Basket - CyTokry"', '{a=https://skfb.ly/o8YEx}https://skfb.ly/o8YEx{/a}', 'Francesco Coldesina'),
+    ('"Book stack"', '{a=https://skfb.ly/owAtF}https://skfb.ly/owAtF{/a}', 'kg11'),
+    ('Money Tree Plant model', '{a=https://sketchfab.com/nkilstrup}https://sketchfab.com/nkilstrup{/a}', 'Nicolai Kilstrup'),
+    ('"Old Books"', '{a=https://skfb.ly/o6YXJ}https://skfb.ly/o6YXJ{/a}', 'Zian'),
+    ("SFX","",""),
+    ('Ripping Paper', '{a=https://freesound.org/s/272028/}https://freesound.org/s/272028/{/a}', 'aldenroth2'),
+    ('Bris-013', '{a=https://freesound.org/s/331927/}https://freesound.org/s/331927/{/a}', 'Andre_Desartistes'),
+    ('R10-57-Footsteps on Short Flight of Stairs', '{a=https://freesound.org/s/480642/}https://freesound.org/s/480642/{/a}', 'craigsmith'),
+    ('Computer Gibberish 3', '{a=https://freesound.org/s/425080/}https://freesound.org/s/425080/{/a}', 'Erokia'),
+    ('Glass Being Knocked over', '{a=https://freesound.org/s/328938/}https://freesound.org/s/328938/{/a}', 'fattirewhitey'),
+    ('Door opening and closing 6', '{a=https://freesound.org/s/261092/}https://freesound.org/s/261092/{/a}', 'JakLocke'),
+    ('People Having Dinner v2', '{a=https://freesound.org/s/634953/}https://freesound.org/s/634953/{/a}', 'JiggleSticks'),
+    ('long-knife-sharpen-creepy', '{a=https://freesound.org/s/198055/}https://freesound.org/s/198055/{/a}', 'joshs'),
+    ('music from creepy handorgan "for elise"', '{a=https://freesound.org/s/421644/}https://freesound.org/s/421644/{/a}', 'julius_galla'),
+    ('OVERWATCHING', '{a=https://freesound.org/s/697824/}https://freesound.org/s/697824/{/a}', 'magnuswaker'),
+    ('creepy traffic cleaned carby', '{a=https://freesound.org/s/547602/}https://freesound.org/s/547602/{/a}', 'martian'),
+    ('Hungry Stomach', '{a=https://freesound.org/s/462087/}https://freesound.org/s/462087/{/a}', 'mar.u02144'),
+    ('LoopableStatic', '{a=https://freesound.org/s/401014/}https://freesound.org/s/401014/{/a}', 'Mexhe'),
+    ('Metal Footstep 3', '{a=https://freesound.org/s/384656/}https://freesound.org/s/384656/{/a}', 'morganpurkis'),
+    ('dorm door opening', '{a=https://freesound.org/s/15419/}https://freesound.org/s/15419/{/a}', 'pagancow'),
+    ('04812 laying table for dish', '{a=https://freesound.org/s/219217/}https://freesound.org/s/219217/{/a}', 'Robinhood76'),
+    ('Pencil Drawing on Paper', '{a=https://freesound.org/s/387926/}https://freesound.org/s/387926/{/a}', 'rylandbrooks'),
+    ('SFX Ambiance: Electrical Hum', '{a=https://freesound.org/s/422645/}https://freesound.org/s/422645/{/a}', 'trullilulli'),
+    ('Horror piano', '{a=https://freesound.org/s/528447/}https://freesound.org/s/528447/{/a}', 'ZHRØ')
+    ]
+
+style FalseFrameStyle
+
 screen about():
 
     tag menu
@@ -624,24 +674,67 @@ screen about():
             if gui.about:
                 text "[gui.about!t]\n"
 
-            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]\n\n")
+            vbox:
+                spacing 15
+                for asset, link, author in InteriorCreditList:
+                    hbox:
+                        xfill True
+                        frame:
+                            style "FalseFrameStyle"
+                            if asset == "":
+                                at transform:
+                                    matrixcolor OpacityMatrix(0.0)
+                            xalign 0.0
+                            xsize 700
+                            xfill True
+                            text _(asset):
+                                xalign 0.0
+                        frame:
+                            style "FalseFrameStyle"
+                            if author == "":
+                                at transform:
+                                    matrixcolor OpacityMatrix(0.0)
+                            xalign 1.0
+                            xfill True
+                            xsize 300
+                            text _(author):
+                                xalign 1.0
+            vbox:
+                spacing 40
+                for asset, link, author in ExteriorCreditsList:
+                    hbox:
+                        xfill True
+                        frame:
+                            style "FalseFrameStyle"
+                            if asset == "":
+                                at transform:
+                                    matrixcolor OpacityMatrix(0.0)
+                            xalign 0.0
+                            xsize 370
+                            xfill True
+                            text _(asset):
+                                xalign 0.0
+                        frame:
+                            style "FalseFrameStyle"
+                            if link == "":
+                                at transform:
+                                    matrixcolor OpacityMatrix(0.0)
+                            xsize 700
+                            text _(link):
+                                xalign 1.0
+                        frame:
 
-            
-            ### CREDITS FREE FROM COMMENT PRISON
-            Production
-            Project Lead, Game Design 		Jade
-            Project Manager			        Light
+                            style "FalseFrameStyle"
+                            if author == "":
+                                at transform:
+                                    matrixcolor OpacityMatrix(0.0)
+                            xalign 1.0
+                            xfill True
+                            xsize 300
+                            text _(author):
+                                xalign 1.0
 
-            Programming
-            Programmer			            NovaSmoof
-
-            Music
-            Composer				        Hauyn
-
-            Art
-            Artist, Backgrounds			    Jade
-            Artist, Character			`   Nao
-            ###
 
 style about_label is gui_label
 style about_label_text is gui_label_text
@@ -846,6 +939,10 @@ screen preferences():
                         SetVariable("persistent.got_good_ending", False),
                         SetVariable("persistent.got_neutral_ending", False),
                     ]
+                
+                ##vbox:
+                ##    label _("AudioTest")
+                ##    textbutton _("Go To Audio Testing Screen") action (Hide(), Call("AudioTestingScreen"))
                 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be
                 ## added here, to add additional creator-defined preferences.

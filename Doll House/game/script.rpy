@@ -66,7 +66,7 @@ define mom = Character("Mother")
 default knows_owners_name = False
 
 label start:
-    play music BoxOpeningTheme loop
+    play music audio.BoxOpeningTheme loop
     scene bg narration at BackgroundScale
 
     $ UIOnScreen = False
@@ -141,7 +141,7 @@ label bedroom:
         "...":
             show doll neutral at RightPortrait
             show nicole sad at LeftPortrait
-            nicole "*Sigh* Whatever, this is fine for now. I'm too lazy to request a return from the seller."
+            nicole "{i}Sigh{/i} Whatever, this is fine for now. I'm too lazy to request a return from the seller."
             show nicole neutral at LeftPortrait
             nicole "I'll think about it later."
             nicole "It's pretty, sure, but I don't know if this model is worth more or less than what I originally bought. I don't want to get ripped off."
@@ -151,7 +151,7 @@ label bedroom:
     mom "Nick! Come down here and watch the house. I'm going to buy groceries!"
 
     show nicole fear at LeftPortrait
-    nicole "*Sigh*"
+    nicole "{i}Sigh{/i}"
     show nicole angry at LeftPortrait
     nicole "Just a minute!"
 
@@ -332,7 +332,7 @@ label bedroom:
     show emi happy at RightPortrait
     emi "Really Nick? You should know better than to hide your pretties under the bed."
     emi "Let's see who we have here..."
-    emi "*Gasp* She's beautiful!"
+    emi "{i}Gasp{/i} She's beautiful!"
 
     narrator "The young girl turned over the doll and her accompanying certificate in awe. The doll stayed still but her glassy eyes shone with happiness at being found and rescued from her place in the darkness."
 
@@ -471,7 +471,7 @@ label kitchen:
             narrator "Nadeshiko listened to the heartfelt words that Emi was telling her in confidence. She couldn't help but admire the young girl's selflessness that could only be possessed by those beyond her years."
 
     show emi sad at LeftPortrait
-    emi "*Sigh*"
+    emi "{i}Sigh{/i}"
     emi "Nick never lets me play with her dolls because she thinks I’ll ruin them but I need them for reference."
     show emi neutral at LeftPortrait
     emi "They’re the perfect inspiration and model for my designs"
@@ -566,7 +566,7 @@ label kitchen:
             $ ChangeMalice(1)
             play sound audio.Spill 
             show emi sad at LeftPortrait
-            emi "*Gasp*"
+            emi "{i}Gasp{/i}"
 
             show nicole neutral at RightPortrait
             nicole "What are you making?"
@@ -614,7 +614,7 @@ label kitchen:
             nicole "Emi? Are you down here? What are you making?"
 
             show emi sad at LeftPortrait
-            emi "*Gasp*"
+            emi "{i}Gasp{/i}"
             show emi crying at LeftPortrait
             emi "She's going to kill me if she sees you!"
 
@@ -861,7 +861,7 @@ label attic:
         show doll surprised at LeftPortrait
         doll "There's a brother? What happened to him?"
         show doll fear at LeftPortrait
-        doll "*Gasp* Or maybe..."
+        doll "{i}Gasp{/i} Or maybe..."
 
         narrator "The doll glanced between the photograph of Nicole and Emi, and the tiny clothes. Suddenly it made sense."
 
@@ -1182,7 +1182,7 @@ label bad_ending:
     nicole "Yeah... I thought so. I shouldn't even exist. You don't even want to be my mother, you don't want me."
 
     show nicole angry at LeftPortrait
-    nicole "*Scoffs* You wish I was born a boy but you hate it when I act like one."
+    nicole "{i}Scoffs{/i} You wish I was born a boy but you hate it when I act like one."
 
     show nicole neutral at LeftPortrait
     
@@ -1228,7 +1228,7 @@ label bad_ending:
     nicole "I wish I didn't have to be responsible for everything. I never asked to be the oldest, I want to be loved and held too..."
 
     show nicole angry at LeftPortrait
-    nicole "*Scoff* Emi..."
+    nicole "{i}Scoff{/i} Emi..."
     show nicole neutral at LeftPortrait
     show doll angry at RightPortrait
     nicole "She has it so good and she doesn't even know it."
@@ -1479,7 +1479,7 @@ label neutral_ending:
     doll "But I don't think that."
 
     show emi crying at LeftPortrait
-    emi "*Sniffle*"
+    emi "{i}Sniffle{/i}"
 
     show doll neutral at RightPortrait
     doll "Don’t cry, I’ll keep you safe. Just listen to me and I promise everything will be okay."
@@ -1488,6 +1488,7 @@ label neutral_ending:
     show doll happy at RightPortrait
     emi "Okay, Nadeshiko! Tell me what to do."
 
+    $ UiOnScreen = False
     ### HOLD THIS FOR A BIT
     scene black 
 
@@ -1514,6 +1515,7 @@ label neutral_ending:
     with Fade(1.0,1.5,1.5, color="#000")
     centered ""
     $ persistent.got_neutral_ending = True
+    $ UiOnScreen = True
     jump game_end
 
 label good_ending:
@@ -1795,7 +1797,7 @@ label good_ending:
     scene bg livingroom at BackgroundScale
 
     show mom neutral at RightPortrait
-    mom "*Sigh*"
+    mom "{i}Sigh{/i}"
     mom "So you found the baby clothes, and yes, it's true."
     mom "What would have been Nicole's older brother didn't make it."
 
@@ -1938,53 +1940,54 @@ label good_ending:
 
     $ persistent.got_good_ending = True
     
-    jump game_end
-
 ### TRIGGERED AFTER GOOD END CG IS CLICKED TO SUPPOSEDLY GO BACK TO MAIN MENU
 label reveal:
     $ UIOnScreen = False
     play music audio.Hum loop
 
-    "Hello, it's me."
+    centered "{cps=25}Hello, it's me.{nw=1.0}" (advance=False)
 
     ### SOMETHING CREATIVE FOR THE REDACTED PARTS?
-    play sound audio.Redact
-    "*redacted*"
+    scene black
+    play sound audio.Redact volume 1.0
+    centered "{cps=10}*/-$&@*(^)$&^@#*^^${nw=[4.39-19.0/10.0]}" (advance=False, what_font="gui/fonts/Roboto-Regular.ttf")
 
-    "I'm contacting you regarding the doll that you sold me."
-
-    play sound audio.Redact
-    "!#%%&^%%$&*&^$!^^"
-
-    "You guaranteed that it would work but nothing happened."
+    centered "{cps=25}I'm contacting you regarding the doll that you sold me.{nw=2.0}" (advance=False)
 
     play sound audio.Redact
-    "$%%**&^%%%%%%$@!@#**^$$#"
+    centered "{cps=10}!#%%&^%%$&*&^$!^^{nw=4.39}" (advance=False, what_font="gui/fonts/Roboto-Regular.ttf")
 
-    "What do you think?"
-    "I made sure to step away from the house as soon as I saw the parcel was delivered."
-
-    play sound audio.Redact
-    "**&^%%%%%%!!!!@#$%%%%$&#@@*"
-
-    "Believe me, she was plenty worked up."
-    "Do you think two sisters wouldn't find a way to fight the moment they're alone?"
+    centered "{cps=25}You guaranteed that it would work but nothing happened.{nw=2.0}" (advance=False)
 
     play sound audio.Redact
-    "%%%%%%%%&^$#@#$%%%%^&&&&#@!!@@#*&&&^&#@!$*&!"
-
-    "Seeing as it failed, I am requesting a full refund."
+    centered "{cps=10}$%%**&^%%%%%%$@!@#**^$$#{nw=4.39}" (advance=False, what_font="gui/fonts/Roboto-Regular.ttf")
+ 
+    centered "{cps=25}What do you think?{nw=2.0}" (advance=False)
+    centered "{cps=25}I made sure to step away from the house as soon as I saw the parcel was delivered.{nw=2.0}" (advance=False)
 
     play sound audio.Redact
-    "%%%%$$$$$&&*@!@@#@!^"
+    centered "{cps=10}**&^%%%%%%!!!!@#$%%%%$&#@@*{nw=4.39}" (advance=False, what_font="gui/fonts/Roboto-Regular.ttf")
 
-    "Really now?! Well then..."
+    centered "{cps=25}Believe me, she was plenty worked up.{nw=2.0}" (advance=False)
+    centered "{cps=25}Do you think two sisters wouldn't find a way to fight the moment they're alone?{nw=2.0}" (advance=False)
+
+    play sound audio.Redact
+    centered "{cps=10}%%%%%%%%&^$#@#$%%%%^&&&&#@!!@@#*&&&^&#@!$*&!{nw=4.39}" (advance=False, what_font="gui/fonts/Roboto-Regular.ttf")
+
+    centered "{cps=25}Seeing as it failed, I am requesting a full refund.{nw=2.0}" (advance=False)
+
+    play sound audio.Redact
+    centered "{cps=10}%%%%$$$$$&&*@!@@#@!^{nw=4.39}" (advance=False, what_font="gui/fonts/Roboto-Regular.ttf")
+
+    centered "{cps=25}Really now?! Well then...{nw=2.0}" (advance=False)
     
     scene bg black strong at BackgroundScale
 
-    centered "Make me another one."
+    centered "{cps=25}Make me another one.{nw=2.0}" (advance=False)
 
     play sound audio.Click
+    $ UIOnScreen = True
+    jump game_end
 
 label game_end:
     return
