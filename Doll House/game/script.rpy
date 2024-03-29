@@ -1607,7 +1607,7 @@ label good_ending:
 
     *** DOLL TERTIARY CHARACTER INCLUDED TO BE CREEPY?
     show doll angry at LeftPortrait
-    show doll angry at RightPortrait
+    show doll angry at TertiaryRightPortrait behind doll
     narrator "And the more the older girl looked at the doll, the more uneasy she felt."
 
     show nicole fear at LeftPortrait
