@@ -1358,14 +1358,23 @@ label neutral_ending:
     show emi neutral at LeftPortrait
     emi "H-hello? Is anyone up here?"
 
+    narrator "As scared as she was, Emi did her best to confront the stranger with a levelled voice."
+
     show emi sad at LeftPortrait
     emi "Come out!"
 
+    narrator "Taking a few steps forward in the dim attic that was only lit by the evening sun, she accidentally crushed something underfoot."
+
     show emi neutral at LeftPortrait
-    emi "Someone's going through mom's stuff."
+    emi "Was someone's going through mom's stuff?"
+    emi "Oops, I broke something."
+
+    narrator "Ignoring the shattered hairpin, she tilted her head to look at the thin pieces of paper stuck to her slippers."
 
     show emi sad at LeftPortrait
-    emi "Is that a photo of us?"
+    emi "Is this us?"
+
+    narrator "From the nearby shelf, a small voice resonated clearly within her head."
 
     show doll neutral at RightPortrait
     doll "Hello, Emi. Isn’t it nice to finally talk without Nicole around?"
@@ -1378,7 +1387,7 @@ label neutral_ending:
     show emi sad at LeftPortrait
     emi "I knew it... you're alive."
 
-    centered "The little girl crouched down to pick up the photographs on the floor. She didn't care much for the other items."
+    narrator "The little girl crouched down to show photographs to the doll."
 
     ### THIS SET OF DIALOGUE IF PLAYER CHOSE TO SCRATCH OUT PHOTO
     show emi neutral at LeftPortrait
