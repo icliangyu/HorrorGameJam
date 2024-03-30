@@ -1949,45 +1949,55 @@ label good_ending:
 
     $ persistent.got_good_ending = True
     
-### TRIGGERED AFTER GOOD END CG IS CLICKED TO SUPPOSEDLY GO BACK TO MAIN MENU
 label reveal:
     $ UIOnScreen = False
     play music audio.Hum loop
-
+    
+    scene black
     centered "{cps=25}Hello, it's me.{nw=1.0}" (advance=False)
 
-    ### SOMETHING CREATIVE FOR THE REDACTED PARTS?
-    scene black
+    scene bg black weak at BackgroundScale
     play sound audio.Redact volume 1.0
     centered "{cps=10}*/-$&@*(^)$&^@#*^^${nw=[4.39-19.0/10.0]}" (advance=False, what_font="gui/fonts/Roboto-Regular.ttf")
 
+    scene black
     centered "{cps=25}I'm contacting you regarding the doll that you sold me.{nw=2.0}" (advance=False)
 
+    scene bg black weak at BackgroundScale
     play sound audio.Redact
     centered "{cps=10}!#%%&^%%$&*&^$!^^{nw=[4.39-15.0/10.0]}" (advance=False, what_font="gui/fonts/Roboto-Regular.ttf")
 
+    scene black
     centered "{cps=25}You guaranteed that it would work but nothing happened.{nw=2.0}" (advance=False)
 
+    scene bg black weak at BackgroundScale
     play sound audio.Redact
     centered "{cps=10}$%%**&^%%%%%%$@!@#**^$$#{nw=[4.39-20.0/10.0]}" (advance=False, what_font="gui/fonts/Roboto-Regular.ttf")
- 
+
+    scene black
     centered "{cps=25}What do you think?{nw=2.0}" (advance=False)
     centered "{cps=25}I made sure to step away from the house as soon as I saw the parcel was delivered.{nw=2.0}" (advance=False)
 
+    scene bg black weak at BackgroundScale
     play sound audio.Redact
     centered "{cps=10}**&^%%%%%%!!!!@#$%%%%$&#@@*{nw=[4.39-22.0/10.0]}" (advance=False, what_font="gui/fonts/Roboto-Regular.ttf")
 
+    scene black
     centered "{cps=25}Believe me, she was plenty worked up.{nw=2.0}" (advance=False)
     centered "{cps=25}Do you think two sisters wouldn't find a way to fight the moment they're alone?{nw=2.0}" (advance=False)
 
+    scene bg black weak at BackgroundScale
     play sound audio.Redact
     centered "{cps=10}%%%%%%%%&^$#@#$%%%%^&&&&#@!!@@#*&&&^&#@!$*&!{nw=[4.39-39.0/10.0]}" (advance=False, what_font="gui/fonts/Roboto-Regular.ttf")
 
+    scene black
     centered "{cps=25}Seeing as it failed, I am requesting a full refund.{nw=2.0}" (advance=False)
 
+    scene bg black weak at BackgroundScale
     play sound audio.Redact
     centered "{cps=10}%%%%$$$$$&&*@!@@#@!^{nw=[4.39-18.0/10.0]}" (advance=False, what_font="gui/fonts/Roboto-Regular.ttf")
 
+    scene black
     centered "{cps=25}Really now?! Well then...{nw=2.0}" (advance=False)
     
     scene bg black strong at BackgroundScale
