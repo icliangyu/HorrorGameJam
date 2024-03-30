@@ -1488,6 +1488,8 @@ label neutral_ending:
     show doll happy at RightPortrait
     doll "But I don't think that."
 
+    play music audio.NeutralEnd fadein 4.5
+
     show emi crying at LeftPortrait
     emi "{i}Sniffle{/i}"
 
