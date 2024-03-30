@@ -1914,30 +1914,27 @@ label good_ending:
     emi "Sure."
 
     scene bg narration at BackgroundScale
-    ### PARAGRAPH - SENTENCE APPEARS ONE BY ONE
-    centered "I just remembered."
-    centered "Aren't dolls popularly utilized in the horror genre as a cause for misfortune and malady?"
-    centered "Perhaps this is what Nicole was thinking when she carefully packed up Nadeshiko's box."
-
-    ### PARAGRAPH - SENTENCE APPEARS ONE BY ONE 
-    centered "I heard she and Emi stopped by the post office before heading to meet up with a lovely lady."
-    centered "And the three of them spent the fun-filled weekend together."
-
-    ### PARAGRAPH 
-    centered "It wasn't long before the money was fully returned to Nicole."
-    centered "Of course, she immediately spent it on something else."
-    centered "I can still recall Emi's delighted face when Nicole brought home the sewing machine."
-    centered "It was well received within the household."
    
-    ### PARAGRAPH
-    centered "Emi used it to create her own clothes, and clothes for Nicole's dolls."
-    centered "She even made embellishments for the house."
-    centered "Needless to say, the two sisters have been working closely ever since."
-    centered "Word went around that Emi's handmade goods are quite the hit online and at the weekend market."
+    centered "I just remembered.\n\
+\ \ Aren't dolls popularly utilized in the horror genre as a cause for misfortune and malady?\n\
+\ \ Perhaps this is what Nicole was thinking when she carefully packed up Nadeshiko's box." (advance=False)
 
-    centered "I don't think I've seen them happier than now."
-    centered "Who knows, maybe that mysterious doll did help out in some way."
-    centered "Whether that was its intentions though-"
+    centered "I heard she and Emi stopped by the post office before meeting up with a lovely lady.\n\
+\ \ And the three of them spent the fun-filled weekend together." (advance=False)
+
+    centered "It wasn't long before the money was fully returned to Nicole.\n\
+\ \ Of course, she immediately spent it on something else.\n\
+\ \ I can still recall Emi's delighted face when Nicole brought home the sewing machine.\n\
+\ \ It was well received within the household." (advance=False)
+   
+    centered "Emi used it to create her own clothes, and clothes for Nicole's dolls.\n\
+\ \ She even made embellishments for the house.\n\
+\ \ Needless to say, the two sisters have been working closely ever since.\n\
+\ \ Word went around that Emi's handmade goods are quite the hit online and at the weekend market." (advance=False)
+
+    centered "I don't think I've seen them happier than now.\n\
+\ \ Who knows, maybe that mysterious doll did help out in some way.\n\
+\ \ Whether that was its intentions though-" (advance=False)
 
     scene bg black weak at BackgroundScale
     centered "Is another story."
