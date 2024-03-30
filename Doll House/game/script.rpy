@@ -945,7 +945,6 @@ label bad_ending:
     nicole "Wait down here. I'll check it out."
     show nicole neutral at LeftPortrait
     nicole "It might just be an animal or something."
-        
 
     scene bg narration at BackgroundScale
     centered "Unfortunately for Nicole, it wasn't an animal."
@@ -1471,7 +1470,7 @@ label neutral_ending:
     show doll happy at RightPortrait
     doll "But I don't think that."
 
-    play music audio.NeutralEnd fadein 4.5
+    play music audio.EndThemeNeutral fadein 4.5
 
     show emi crying at LeftPortrait
     emi "{i}Sniffle{/i}"
