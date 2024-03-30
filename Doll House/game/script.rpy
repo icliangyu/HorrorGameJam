@@ -2004,55 +2004,55 @@ label end_credits:
 
     scene bg narration at BackgroundScale
 
-    centered "Production"
-    centered "Project Lead & Game Design - Chelsea"
-    centered "Project Manager - Light"
+    centered "Production\n\
+\ \ Project Lead & Game Design - Chelsea\n\
+\ \ Project Manager - Light"
 
-    centered "Programming"
-    centered "Programmer - NovaSmoof"
+    centered "Programming\n\
+\ \ Programmer - NovaSmoof"
 
-    centered "Music"
-    centered "Composer - Hauyn"
+    centered "Music\n\
+\ \ Composer - Hauyn"
 
-    centered "Art"
-    centered "Characters - Nao"
-    centered "Backgrounds - Chelsea"
+    centered "Art\n\
+\ \ Characters - Nao
+\ \ Backgrounds - Chelsea"
 
     centered "Special Thanks"
 
-    centered "3D Models"
-    centered "Free 3D Model Books by NmC BC at (https://skfb.ly/oQrxN)"
-    centered "Rice Cooker model by 1-3D at (https://sketchfab.com/1-3D.com)"
-    centered "Ball jointed doll by Chambersu1996 at (https://sketchfab.com/chambersu1996)"
-    centered "Guan Yin Statue model by Diana Liu at (https://sketchfab.com/Diana123456)"
-    centered "Haunted Mansion - Coffee Table by emmashanks at (https://skfb.ly/6WVyS)"
-    centered "Fruit Basket - CyTokry by Francesco Coldesina at (https://skfb.ly/o8YEx)"
-    centered "Book stack by kg11 at (https://skfb.ly/owAtF)" 
-    centered "Money Tree Plant model by Nicolai Kilstrup at (https://sketchfab.com/nkilstrup)"
-    centered "Old Books by Zian at (https://skfb.ly/o6YXJ)"
+    centered "3D Models\n\
+\ \ Free 3D Model Books by NmC BC at (https://skfb.ly/oQrxN)\n\
+\ \ Rice Cooker model by 1-3D at (https://sketchfab.com/1-3D.com)\n\
+\ \ Ball jointed doll by Chambersu1996 at (https://sketchfab.com/chambersu1996)\n\
+\ \ Guan Yin Statue model by Diana Liu at (https://sketchfab.com/Diana123456)\n\
+\ \ Haunted Mansion - Coffee Table by emmashanks at (https://skfb.ly/6WVyS)\n\
+\ \ Fruit Basket - CyTokry by Francesco Coldesina at (https://skfb.ly/o8YEx)\n\
+\ \ Book stack by kg11 at (https://skfb.ly/owAtF)\n\
+\ \ Money Tree Plant model by Nicolai Kilstrup at (https://sketchfab.com/nkilstrup)\n\
+\ \ Old Books by Zian at (https://skfb.ly/o6YXJ)"
 
-    centered "SFX"
-    centered "Ripping Paper by aldenroth2 at (https://freesound.org/s/272028/)"
-    centered "Bris-013 by Andre_Desartistes at (https://freesound.org/s/331927/)"
-    centered "R10-57-Footsteps on Short Flight of Stairs by craigsmith at (https://freesound.org/s/480642/)"   
-    centered "Computer Gibberish 3 by Erokia at (https://freesound.org/s/425080/)"
-    centered "Glass Being Knocked over by fattirewhitey at (https://freesound.org/s/328938/)"
-    centered "Door opening and closing 6 by JakLocke at (https://freesound.org/s/261092/)"
-    centered "People Having Dinner v2 by JiggleSticks at (https://freesound.org/s/634953/)"
-    centered "long-knife-sharpen-creepy by joshs at (https://freesound.org/s/198055/)"
-    centered "music from creepy handorgan "for elise" by julius_galla at (https://freesound.org/s/421644/)"
-    centered "OVERWATCHING by magnuswaker at (https://freesound.org/s/697824/)"
-    centered "creepy traffic cleaned carby by martian at (https://freesound.org/s/547602/)"
-    centered "Hungry Stomach by mar.u02144 at (https://freesound.org/s/462087/)"
-    centered "LoopableStatic by Mexhe at (https://freesound.org/s/401014/)"
-    centered "Metal Footstep 3 by morganpurkis at (https://freesound.org/s/384656/)"
-    centered "dorm door opening by pagancow at (https://freesound.org/s/15419/)"
-    centered "04812 laying table for dish by Robinhood76 at (https://freesound.org/s/219217/)"
-    centered "Pencil Drawing on Paper by rylandbrooks at (https://freesound.org/s/387926/)"
-    centered "SFX Ambiance: Electrical Hum by trullilulli at (https://freesound.org/s/422645/)"
-    centered "Horror piano by ZHR0 at (https://freesound.org/s/528447/)"
-    centered "horror sound #3 by ZHR0 at (https://freesound.org/s/531448/)"
-    centered "horror whispers by ZHR0 at (https://freesound.org/s/531446/)"
+    centered "SFX\n\
+\ \ Ripping Paper by aldenroth2 at (https://freesound.org/s/272028/)\n\
+\ \ Bris-013 by Andre_Desartistes at (https://freesound.org/s/331927/)\n\
+\ \ R10-57-Footsteps on Short Flight of Stairs by craigsmith at (https://freesound.org/s/480642/)\n\   
+\ \ Computer Gibberish 3 by Erokia at (https://freesound.org/s/425080/)\n\
+\ \ Glass Being Knocked over by fattirewhitey at (https://freesound.org/s/328938/)\n\
+\ \ Door opening and closing 6 by JakLocke at (https://freesound.org/s/261092/)\n\
+\ \ People Having Dinner v2 by JiggleSticks at (https://freesound.org/s/634953/)\n\
+\ \ long-knife-sharpen-creepy by joshs at (https://freesound.org/s/198055/)\n\
+\ \ music from creepy handorgan "for elise" by julius_galla at (https://freesound.org/s/421644/)\n\
+\ \ OVERWATCHING by magnuswaker at (https://freesound.org/s/697824/)\n\
+\ \ creepy traffic cleaned carby by martian at (https://freesound.org/s/547602/)\n\
+\ \ Hungry Stomach by mar.u02144 at (https://freesound.org/s/462087/)\n\
+\ \ LoopableStatic by Mexhe at (https://freesound.org/s/401014/)\n\
+\ \ Metal Footstep 3 by morganpurkis at (https://freesound.org/s/384656/)\n\
+\ \ dorm door opening by pagancow at (https://freesound.org/s/15419/)\n\
+\ \ 04812 laying table for dish by Robinhood76 at (https://freesound.org/s/219217/)\n\
+\ \ Pencil Drawing on Paper by rylandbrooks at (https://freesound.org/s/387926/)\n\
+\ \ SFX Ambiance: Electrical Hum by trullilulli at (https://freesound.org/s/422645/)\n\
+\ \ Horror piano by ZHR0 at (https://freesound.org/s/528447/)\n\
+\ \ horror sound #3 by ZHR0 at (https://freesound.org/s/531448/)\n\
+\ \ horror whispers by ZHR0 at (https://freesound.org/s/531446/)"
 
     scene bg black strong at BackgroundScale
     centered "Thank you for playing!"
