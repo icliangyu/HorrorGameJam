@@ -61,6 +61,8 @@ define emi = Character("Emi")
 define mom = Character("Mother")
 
 default knows_owners_name = False
+default SpokeToEmi = None
+default ScratchedOutPhoto = None
 
 label start:
     play music audio.BoxOpeningTheme loop
@@ -398,6 +400,7 @@ label kitchen:
 
         "Console Emi":
             $ ChangeMalice(1)
+            $ SpokeToEmi = True
             show emi neutral at LeftPortrait
             emi "I don't want to sound ungrateful but sometimes it's embarrassing wearing Nick's hand me downs."
 
@@ -434,6 +437,7 @@ label kitchen:
             emi "I think I would like that."
 
         "Listen to Emi":
+            $ SpokeToEmi = False
             show emi neutral at LeftPortrait
             emi "I don't want to sound ungrateful but sometimes it's embarrassing wearing Nick's hand me downs."
 
@@ -840,9 +844,9 @@ label attic:
         doll "Are these baby clothes?"
 
         scene bg black weak at BackgroundScale
-        centered "No." (advance=False)
+        centered "{cps=30}No.{nw=1.0}" (advance=False)
         scene bg black medium at BackgroundScale
-        centered "They were not just baby clothes, they were boy clothes." (advance=False)
+        centered "{cps=30}They were not just baby clothes, they were boy clothes.{nw=1.5}" (advance=False)
         
         scene bg attic at BackgroundScale
         show doll surprised at LeftPortrait
@@ -877,6 +881,7 @@ label attic:
         "What should I do?"
 
         "Fix the photograph":
+            $ ScratchedOutPhoto = True
             play sound audio.Scratch
 
             show doll angry at LeftPortrait
@@ -897,6 +902,7 @@ label attic:
             doll "This should make you understand."
 
         "Ignore the photograph":
+            $ ScratchedOutPhoto = False
             show doll neutral at LeftPortrait
             doll "I don’t see how this is important. It’s just a silly old photo!"
             show doll angry at LeftPortrait
@@ -968,7 +974,7 @@ label bad_ending:
     show nicole fear at LeftPortrait
     nicole "W-what... what is this...?"
 
-    play music AtticRealization loop
+    play music AtticRealization loop volume 2.0
 
     show nicole sad at LeftPortrait
     nicole "This is dad."
@@ -1363,27 +1369,25 @@ label neutral_ending:
     show doll neutral at RightPortrait
     doll "Hello, Emi. Isn’t it nice to finally talk without Nicole around?"
 
-    ### DIALOGUE IF PLAYER CHOSE TO SPEAK TO EMI IN THE KITCHEN
-    show emi happy at LeftPortrait
-    emi "Nadeshiko! What are you doing up here, you’ll get dirty and then Nick will be angry at me."
+    if SpokeToEmi:
+        show emi happy at LeftPortrait
+        emi "Nadeshiko! What are you doing up here, you’ll get dirty and then Nick will be angry at me."
+    else:
+        show emi sad at LeftPortrait
+        emi "I knew it... you're alive."
 
-    ### DIALOGUE IF PLAYER CHOSE TO NOT SPEAK TO EMI IN THE KITCHEN
-    show emi sad at LeftPortrait
-    emi "I knew it... you're alive."
+        narrator "The little girl crouched down to show photographs to the doll."
 
-    narrator "The little girl crouched down to show photographs to the doll."
+    if ScratchedOutPhoto:
+        show emi neutral at LeftPortrait
+        emi "Did you do this?"
 
-    ### THIS SET OF DIALOGUE IF PLAYER CHOSE TO SCRATCH OUT PHOTO
-    show emi neutral at LeftPortrait
-    emi "Did you do this?"
-
-    show doll surprised at RightPortrait
-    doll "No, of course not! I found them like that. Your mother mustn't like your sister all that much."
-
-    ### THIS SET OF DIALOGUE IF PLAYER CHOSE TO NOT SCRATCH OUT PHOTO
-    show emi happy at LeftPortrait
-    show doll angry at RightPortrait
-    emi "Look, it's us hehe!"
+        show doll surprised at RightPortrait
+        doll "No, of course not! I found them like that. Your mother mustn't like your sister all that much."
+    else:
+        show emi happy at LeftPortrait
+        show doll angry at RightPortrait
+        emi "Look, it's us hehe!"
 
     show doll happy at RightPortrait
     doll "Yes, it is."
@@ -1471,7 +1475,7 @@ label neutral_ending:
     show doll happy at RightPortrait
     doll "But I don't think that."
 
-    play music audio.NeutralEnd fadein 4.5
+    play music audio.EndThemeNeutral fadein 4.5
 
     show emi crying at LeftPortrait
     emi "{i}Sniffle{/i}"
@@ -1505,7 +1509,9 @@ label neutral_ending:
 
     scene bg neutral_ending at BackgroundScale
     with Fade(1.0,1.5,1.5, color="#000")
-    centered ""
+    centered "{w=3.0}"
+    scene black
+    centered "{nw=0.0}"
     $ persistent.got_neutral_ending = True
     $ UiOnScreen = True
     jump game_end
@@ -1987,66 +1993,51 @@ label reveal:
     $ UIOnScreen = True
     jump game_end
 
+default CreditsScrollTime = 60.0
+
+transform credits_scroll(speed):
+    ypos 0.0
+    linear speed ypos -1.0
+    time speed
+
+screen EndCredits():
+    timer 15.0 action Return()
+    frame:
+        xmargin 110
+        ymargin 130
+        style "FalseFrameStyle"
+        vbox:
+            spacing 40
+            xsize 1920-160
+            text "Thank you for playing!":
+                size 53
+                xalign 0.5
+            frame:
+                style "FalseFrameStyle"
+                yfill True
+                viewport id "vp":
+                    child_size (1920-220, 1080-280)
+                    scrollbars None
+                    frame:
+                        yoffset -1080/2
+                        style "FalseFrameStyle"
+                        vbox at credits_scroll(15.0):
+                            use credits_list()
+
 label end_credits:
 
-### ONLY APPEAR ON FIRST PLAYTHROUGH
+    ### ONLY APPEAR ON FIRST PLAYTHROUGH
 
     scene bg narration at BackgroundScale
-
-    centered "Production\n\
-\ \ Project Lead & Game Design - Chelsea\n\
-\ \ Project Manager - Light"
-
-    centered "Programming\n\
-\ \ Programmer - NovaSmoof"
-
-    centered "Music\n\
-\ \ Composer - Hauyn"
-
-    centered "Art\n\
-\ \ Characters - Nao
-\ \ Backgrounds - Chelsea"
-
-    centered "Special Thanks"
-
-    centered "3D Models\n\
-\ \ Free 3D Model Books by NmC BC at (https://skfb.ly/oQrxN)\n\
-\ \ Rice Cooker model by 1-3D at (https://sketchfab.com/1-3D.com)\n\
-\ \ Ball jointed doll by Chambersu1996 at (https://sketchfab.com/chambersu1996)\n\
-\ \ Guan Yin Statue model by Diana Liu at (https://sketchfab.com/Diana123456)\n\
-\ \ Haunted Mansion - Coffee Table by emmashanks at (https://skfb.ly/6WVyS)\n\
-\ \ Fruit Basket - CyTokry by Francesco Coldesina at (https://skfb.ly/o8YEx)\n\
-\ \ Book stack by kg11 at (https://skfb.ly/owAtF)\n\
-\ \ Money Tree Plant model by Nicolai Kilstrup at (https://sketchfab.com/nkilstrup)\n\
-\ \ Old Books by Zian at (https://skfb.ly/o6YXJ)"
-
-    centered "SFX\n\
-\ \ Ripping Paper by aldenroth2 at (https://freesound.org/s/272028/)\n\
-\ \ Bris-013 by Andre_Desartistes at (https://freesound.org/s/331927/)\n\
-\ \ R10-57-Footsteps on Short Flight of Stairs by craigsmith at (https://freesound.org/s/480642/)\n\   
-\ \ Computer Gibberish 3 by Erokia at (https://freesound.org/s/425080/)\n\
-\ \ Glass Being Knocked over by fattirewhitey at (https://freesound.org/s/328938/)\n\
-\ \ Door opening and closing 6 by JakLocke at (https://freesound.org/s/261092/)\n\
-\ \ People Having Dinner v2 by JiggleSticks at (https://freesound.org/s/634953/)\n\
-\ \ long-knife-sharpen-creepy by joshs at (https://freesound.org/s/198055/)\n\
-\ \ music from creepy handorgan "for elise" by julius_galla at (https://freesound.org/s/421644/)\n\
-\ \ OVERWATCHING by magnuswaker at (https://freesound.org/s/697824/)\n\
-\ \ creepy traffic cleaned carby by martian at (https://freesound.org/s/547602/)\n\
-\ \ Hungry Stomach by mar.u02144 at (https://freesound.org/s/462087/)\n\
-\ \ LoopableStatic by Mexhe at (https://freesound.org/s/401014/)\n\
-\ \ Metal Footstep 3 by morganpurkis at (https://freesound.org/s/384656/)\n\
-\ \ dorm door opening by pagancow at (https://freesound.org/s/15419/)\n\
-\ \ 04812 laying table for dish by Robinhood76 at (https://freesound.org/s/219217/)\n\
-\ \ Pencil Drawing on Paper by rylandbrooks at (https://freesound.org/s/387926/)\n\
-\ \ SFX Ambiance: Electrical Hum by trullilulli at (https://freesound.org/s/422645/)\n\
-\ \ Horror piano by ZHR0 at (https://freesound.org/s/528447/)\n\
-\ \ horror sound #3 by ZHR0 at (https://freesound.org/s/531448/)\n\
-\ \ horror whispers by ZHR0 at (https://freesound.org/s/531446/)"
 
     scene bg black strong at BackgroundScale
     centered "Thank you for playing!"
 
 label game_end:
 
-
+    if persistent.completed_playthrough:
+        $ persistent.completed_playthrough = True
+        $ UIOnScreen = False
+        call screen EndCredits()
+    
     return
