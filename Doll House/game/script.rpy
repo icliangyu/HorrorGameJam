@@ -1816,6 +1816,8 @@ label good_ending:
     mom "But even then you know better than anyone how much your father loved you."
     mom "There was no lengths he didn't go to for your happiness."
 
+    play music audio.Night fadein 4.5 loop
+
     show mom angry at RightPortrait
     mom "That's probably why he overworked himself into a grave and left me with two children."
     show nicole neutral at LeftPortrait
@@ -1891,6 +1893,7 @@ label good_ending:
     nicole "Is it okay if they tag along next weekend?"
     emi "Sure."
 
+    play music audio.EndThemeGood
     scene bg narration at BackgroundScale
    
     centered "I just remembered.\n\
