@@ -1,7 +1,4 @@
 ###
-###
-###
-###
 ### ACCIDENTALLY DELETED THESE LINES JUST FREE THEM FROM COMMENT PRISON IF STILL REQUIRED
 ### 
 default persistent.completed_playthrough = False
@@ -110,7 +107,6 @@ label bedroom:
     show nicole angry at LeftPortrait
     nicole "Did you not come with any information?"
 
-    ### SFX RUMMAGING
     narrator "The girl clicked her tongue impatiently as she emptied out the box."
     narrator "Other than the doll, the only other thing inside the box was a certificate of authentication."
 
@@ -171,7 +167,6 @@ label bedroom:
     show nicole happy at LeftPortrait
     nicole "Under the bed should do for now."
 
-    ### SFX FOOTSTEPS RECEDING
     play sound audio.DoorOpen
 
     narrator "And so the doll joined the boxes in the darkness of the underside of the bed. The world of light she so desperately sought came to a quick end." 
@@ -314,7 +309,6 @@ label bedroom:
     ### THIS IS HERE IN CASE THE PLAYER SKIPS THE POINT AND CLICK
     $ knows_owners_name = True
 
-    ### SFX FOOTSTEPS APPROACHING
     show doll surprised at LeftPortrait
     doll "Huh? It sounds like someone is coming. I must hide!"
 
@@ -336,7 +330,6 @@ label bedroom:
 
     narrator "The young girl turned over the doll and her accompanying certificate in awe. The doll stayed still but her glassy eyes shone with happiness at being found and rescued from her place in the darkness."
 
-    ### PLAYER CAN'T DISMISS THIS LINE
     $ UIOnScreen = False
     scene bg black weak at BackgroundScale
     centered "Or perhaps the source of happiness stemmed from the child's radiant love for her despite only just having met. There wouldn't be any need for convincing Emi unlike with Nicole.{nw=1.0}" (advance=False)
@@ -357,7 +350,6 @@ label kitchen:
     narrator "Propped up against a pencil case, Nadeshiko once again found herself being inspected by a set of curious brown eyes; however there was a stark difference between the two sisters."
     narrator "While Nicole's weary eyes held traces of age and suspicion, Emi's was filled to the brim with life and adoration."
 
-    ### PLAYER CAN'T DISMISS THIS LINE
     $ UIOnScreen = False
     scene bg black medium at BackgroundScale
     centered "The doll liked this a lot.{nw=1.0}" (advance=False)
@@ -425,7 +417,6 @@ label kitchen:
 
             narrator "Emi's downcast face continued to glance between the doll and the page as she sketched. Even though the two had just met, Nadeshiko didn't like seeing Emi so sad."
 
-            ### PLAYER CAN'T DISMISS THIS LINE
             $ UIOnScreen = False
             scene bg black medium at BackgroundScale
             centered "So the doll decided to speak up.{nw=1.0}" (advance=False)
@@ -479,7 +470,7 @@ label kitchen:
     doll "Nadeshiko knew that as long as Emi had her then there wouldn’t be any need for Nicole’s other dolls."
     doll "She alone was enough."
 
-    ### SFX STOMACH GROWL
+    play sound audio.Hungry
 
     show emi happy at LeftPortrait
     emi "Hehe... whoops... that was me. Welp! Can’t study on an empty stomach. I wonder if mom made anything."
@@ -583,7 +574,6 @@ label kitchen:
 
             narrator "The older girl angrily gestured at the puddle of ramune being soaked up by the pages of Emi’s notebook, dyeing the drawings of the doll a bright red."
 
-            ### PLAYER CAN'T DISMISS THIS LINE
             $ UIOnScreen = False
             scene bg black medium at BackgroundScale
             centered "Nadeshiko sat in innocent stillness, and looked at the red pool with her painted smile and vacant eyes as though Nicole had been the one to bleed out the liquid.{nw=1.0}" (advance=False)
@@ -645,7 +635,6 @@ label living_room:
     scene bg livingroom blur at BackgroundScale
     narrator "Emi squeezed the doll tightly in a wistful embrace before placing it between two cushions on the sofa. The young girl gave one last look before returning to the kitchen."
     
-    ### PLAYER CAN'T DISMISS THIS LINE
     $ UIOnScreen = False
     scene bg black medium at BackgroundScale
     centered "The doll felt bad for Emi because she had to live with such a wretched person like Nicole.{nw=1.0}" (advance=False)
@@ -809,7 +798,6 @@ label attic:
     narrator "The doll smiled to herself, this was the perfect place for hidden treasures to be unearthed, and she wasted no time waiting idly."
     narrator "She rummaged through the closest box to her and continued through the room, prying open boxes until she found something that peaked her interest."
 
-    ### SFX RUMMAGING
     scene bg attic at BackgroundScale
 
     jump attic.point_and_click
@@ -851,11 +839,10 @@ label attic:
         show doll surprised at LeftPortrait
         doll "Are these baby clothes?"
 
-        ### PLAYERS CANNOT DISMISS THESE 2 LINES
         scene bg black weak at BackgroundScale
-        centered "No."
+        centered "No." (advance=False)
         scene bg black medium at BackgroundScale
-        centered "They were not just baby clothes, they were boy clothes."
+        centered "They were not just baby clothes, they were boy clothes." (advance=False)
         
         scene bg attic at BackgroundScale
         show doll surprised at LeftPortrait
@@ -1097,9 +1084,7 @@ label bad_ending:
 
     show emi crying at RightPortrait
     emi "I DIDN'T DO ANYTHING! STOP! I'M SORRY! WHATEVER I DID, I'M SORRY!"
-    nicole "NOBODY WANTS YOU! YOU SHOULD HAVE DIED! NOT OUR BROTHER!"
-
-    ### 3 SPRITES ON SCREEN AT ONCE BUT ORGANIZED 
+    nicole "NOBODY WANTS YOU! YOU SHOULD HAVE DIED! NOT OUR BROTHER!" 
 
     show emi sad at TertiaryRightPortrait behind mom
     show mom angry at RightPortrait
@@ -1264,17 +1249,15 @@ label bad_ending:
 
     scene bg narration at BackgroundScale
     with Fade(1.8,0.1,0.1)
-    ### THESE TO APPEAR BENEATH EACH OTHER AS PARAGRAPH
+    
     centered "{cps=20}Then again...{w=2.0}\n\
 \ \ In ancient times dolls were also used as sacrificial stand-ins.{w=2.0}\n\
 \ \ And as a human-like vessel they have always been quite ideal for wandering entities.{nw=2.0}" (advance=False)
     
-    ### PARAGRAPH APPEARING SENTENCE BY SENTENCE BY EACH STAY ON SCREEN
     centered "{cps=20}But it seems like this entity isn't wandering anymore because she's found a home.{w=2.0}\n\
 \ \ I hear whispers about the family, and the mother couldn't be prouder of her eldest daughter, Nadeshiko.{w=2.0}\n\
 \ \ Word has it that she's going to marry mother's mutual friend's son soon and begin a family of her own.{nw=2.0}" (advance=False)
     
-    ### PARAGRAPH
     centered "{cps=20}I see the younger daughter sometimes and she's always carrying a doll with her.{w=2.0}\n\
 \ \ She cherishes it a lot, proudly saying that Nadeshiko gave her this Nicole doll.{w=2.0}\n\
 \ \ The two are practically inseparable.{w=2.0}\n\
@@ -1501,10 +1484,8 @@ label neutral_ending:
     emi "Okay, Nadeshiko! Tell me what to do."
 
     $ UiOnScreen = False
-    ### HOLD THIS FOR A BIT
     scene black 
 
-    ### SAME PARAGRAPH
     scene bg narration at BackgroundScale
     centered "{cps=25}If I remember correctly, once upon a time poppets were placed within houses{w=2.0}\n\
 \ \ to reap the benefits of prosperity and good health.{nw=2.0}"  (advance=False)
@@ -1515,7 +1496,6 @@ label neutral_ending:
     centered "{cps=25}And so the doll sat in the shadows of the attic by her lonesome day in and day out,{w=2.0}\n\
 \ \ slowly but surely absorbing Nicole’s energy.{nw=2.0}" (advance=False)
 
-    ### SAME PARAGRAPH - SHOW EACH SENTENCE ONE BY ONE
     centered "{cps=25}Nadeshiko relished in the mass of anger and sadness that exuded from the household.{w=2.0}\n\
 \ \ Every bad thought directed at each family member, every screaming match, and muffled cry in the late night worked to reinvigorate her arcane powers.{w=2.0}\n\
 \ \ The doll knew that it wouldn’t be long...{nw=2.0}" (advance=False)
@@ -1619,7 +1599,6 @@ label good_ending:
     show doll happy at RightPortrait
     narrator "But in that seemingly benevolent gesture there was something permeating with untapped malice."
 
-    ### DOLL TERTIARY CHARACTER INCLUDED TO BE CREEPY?
     show doll angry at LeftPortrait
     show doll angry at TertiaryRightPortrait behind doll
     narrator "And the more the older girl looked at the doll, the more uneasy she felt."
